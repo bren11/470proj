@@ -1,0 +1,31 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   TOGGLE BRANCH 
+ 79.59  99.48  39.28 100.00 
+
+
+Total modules in report: 4
+-------------------------------------------------------------------------------
+SCORE              LINE     TOGGLE   BRANCH   NAME                                                                 
+ 56.46              99.62    13.31   --       testbench                                                            
+ 56.94             --        56.94   --       priority_selector                                                    
+                   
+  ---------------- 
+  SCORE              LINE     TOGGLE   BRANCH   NAME                                                               
+   55.46             --        55.46   --       priority_selector ( parameter REQS=4,WIDTH=32 + REQS=4,WIDTH=32 )  
+   58.43             --        58.43   --       priority_selector ( parameter REQS=4,WIDTH=4 )                     
+                   
+----------------   
+SCORE              LINE     TOGGLE   BRANCH   NAME                                                                 
+ 73.60              97.87    22.93   100.00   reservation_station                                                  
+ 99.22             --        99.22   --       wand_sel                                                             
+                   
+  ---------------- 
+  SCORE              LINE     TOGGLE   BRANCH   NAME                                                               
+   98.44             --        98.44   --       wand_sel ( parameter WIDTH=32 )                                    
+  100.00             --       100.00   --       wand_sel ( parameter WIDTH=4 )                                     
+                   
+----------------   
+SCORE              LINE     TOGGLE   BRANCH   NAME                                                                 
+

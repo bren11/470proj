@@ -1,0 +1,414 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+                 Version O-2018.06 for linux64 - May 21, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+################################################################################
+## DO NOT EDIT THESE FILES BY HAND
+##
+## CONFIGURATION HAS BEEN MOVED TO THE MAKEFILE
+################################################################################
+set search_path [ list "./" "/afs/umich.edu/class/eecs470/lib/synopsys/" ]
+./ /afs/umich.edu/class/eecs470/lib/synopsys/
+set target_library "lec25dscc25_TT.db"
+lec25dscc25_TT.db
+set link_library [concat  "*" $target_library]
+* lec25dscc25_TT.db
+#/***********************************************************/
+#/* Set some flags to suppress warnings we don't care about */
+set suppress_errors [concat $suppress_errors "UID-401"]
+UID-401
+suppress_message {"VER-130"}
+#/***********************************************************/
+#/* The following lines are set from environment variables
+#/* automatically by the Makefile
+#/***********************************************************/
+lappend search_path ../
+./ /afs/umich.edu/class/eecs470/lib/synopsys/ ../
+set headers [getenv HEADERS]
+ISA.svh sys_defs.svh
+set sources [getenv CACHEFILES]
+verilog/cache/cachemem.sv
+read_file -f sverilog [list ${headers} ${sources}]
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2018.06/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2018.06/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading sverilog files: '/afs/umich.edu/user/b/r/brenf/group9w20/ISA.svh' '/afs/umich.edu/user/b/r/brenf/group9w20/sys_defs.svh' '/afs/umich.edu/user/b/r/brenf/group9w20/verilog/cache/cachemem.sv' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /afs/umich.edu/user/b/r/brenf/group9w20/ISA.svh
+Compiling source file /afs/umich.edu/user/b/r/brenf/group9w20/sys_defs.svh
+Compiling source file /afs/umich.edu/user/b/r/brenf/group9w20/verilog/cache/cachemem.sv
+
+Inferred memory devices in process
+	in routine cachemem line 41 in file
+		'/afs/umich.edu/user/b/r/brenf/group9w20/verilog/cache/cachemem.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     valids_reg      | Flip-flop |  16   |  Y  | N  | N  | N  | Y  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine cachemem line 54 in file
+		'/afs/umich.edu/user/b/r/brenf/group9w20/verilog/cache/cachemem.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      data_reg       | Flip-flop | 1024  |  Y  | N  | N  | N  | Y  | N  | N  |
+|      tags_reg       | Flip-flop |  400  |  Y  | N  | N  | N  | Y  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|   cachemem/35    |   16   |   64    |      4       |
+|   cachemem/36    |   16   |    1    |      4       |
+|   cachemem/36    |   16   |   25    |      4       |
+|   cachemem/35    |   16   |   64    |      4       |
+|   cachemem/36    |   16   |    1    |      4       |
+|   cachemem/36    |   16   |   25    |      4       |
+|   cachemem/35    |   16   |   64    |      4       |
+|   cachemem/36    |   16   |    1    |      4       |
+|   cachemem/36    |   16   |   25    |      4       |
+======================================================
+Presto compilation completed successfully.
+Current design is now '/afs/umich.edu/user/b/r/brenf/group9w20/verilog/cache/cachemem.db:cachemem'
+Loaded 1 design.
+Current design is 'cachemem'.
+cachemem
+set design_name [getenv CACHE_NAME]
+cachemem
+set clock_name [getenv CLOCK_NET_NAME]
+clock
+set reset_name [getenv RESET_NET_NAME]
+reset
+set CLK_PERIOD [getenv CLOCK_PERIOD]
+11.5	
+#/***********************************************************/
+#/* The rest of this file may be left alone for most small  */
+#/* to moderate sized designs.  You may need to alter it    */
+#/* when synthesizing your final project.                   */
+#/***********************************************************/
+set SYN_DIR ./
+./
+#/***********************************************************/
+#/* Set some flags for optimisation */
+set compile_top_all_paths "true"
+true
+set auto_wire_load_selection "false"
+false
+set compile_seqmap_synchronous_extraction "true"
+true
+# uncomment this and change number appropriately if on multi-core machine
+#set_host_options -max_cores 2
+#/***********************************************************/
+#/*  Clk Periods/uncertainty/transition                     */
+set CLK_TRANSITION 0.1
+0.1
+set CLK_UNCERTAINTY 0.1
+0.1
+set CLK_LATENCY 0.1
+0.1
+#/* Input/output Delay values */
+set AVG_INPUT_DELAY 0.1
+0.1
+set AVG_OUTPUT_DELAY 0.1
+0.1
+#/* Critical Range (ns) */
+set CRIT_RANGE 1.0
+1.0
+#/***********************************************************/
+#/* Design Constrains: Not all used                         */
+set MAX_TRANSITION 1.0
+1.0
+set FAST_TRANSITION 0.1
+0.1
+set MAX_FANOUT 32
+32
+set MID_FANOUT 8
+8
+set LOW_FANOUT 1
+1
+set HIGH_DRIVE 0
+0
+set HIGH_LOAD 1.0
+1.0
+set AVG_LOAD 0.1
+0.1
+set AVG_FANOUT_LOAD 10
+10
+#/***********************************************************/
+#/*BASIC_INPUT = cb18os120_tsmc_max/nd02d1/A1
+#BASIC_OUTPUT = cb18os120_tsmc_max/nd02d1/ZN*/
+set DRIVING_CELL dffacs1
+dffacs1
+#/* DONT_USE_LIST = {   } */
+#/*************operation cons**************/
+#/*OP_WCASE = WCCOM;
+#OP_BCASE = BCCOM;*/
+set WIRE_LOAD "tsmcwire"
+tsmcwire
+set LOGICLIB lec25dscc25_TT
+lec25dscc25_TT
+#/*****************************/
+#/* Sourcing the file that sets the Search path and the libraries(target,link) */
+set sys_clk $clock_name
+clock
+set netlist_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".vg"]
+./cachemem.vg
+set ddc_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".ddc"]
+./cachemem.ddc
+set rep_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".rep"]
+./cachemem.rep
+set dc_shell_status [ set chk_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".chk"] ]
+./cachemem.chk
+#/* if we didnt find errors at this point, run */
+if {  $dc_shell_status != [list] } {
+   current_design $design_name
+  link
+  set_wire_load_model -name $WIRE_LOAD -lib $LOGICLIB $design_name
+  set_wire_load_mode top
+  set_fix_multiple_port_nets -outputs -buffer_constants
+  create_clock -period $CLK_PERIOD -name $sys_clk [find port $sys_clk]
+  set_clock_uncertainty $CLK_UNCERTAINTY $sys_clk
+  set_fix_hold $sys_clk
+  group_path -from [all_inputs] -name input_grp
+  group_path -to [all_outputs] -name output_grp
+  set_driving_cell  -lib_cell $DRIVING_CELL [all_inputs]
+  remove_driving_cell [find port $sys_clk]
+  set_fanout_load $AVG_FANOUT_LOAD [all_outputs]
+  set_load $AVG_LOAD [all_outputs]
+  set_input_delay $AVG_INPUT_DELAY -clock $sys_clk [all_inputs]
+  remove_input_delay -clock $sys_clk [find port $sys_clk]
+  set_output_delay $AVG_OUTPUT_DELAY -clock $sys_clk [all_outputs]
+  set_dont_touch $reset_name
+  set_resistance 0 $reset_name
+  set_drive 0 $reset_name
+  set_critical_range $CRIT_RANGE [current_design]
+  set_max_delay $CLK_PERIOD [all_outputs]
+  set MAX_FANOUT $MAX_FANOUT
+  set MAX_TRANSITION $MAX_TRANSITION
+  uniquify
+  ungroup -all -flatten
+  redirect $chk_file { check_design }
+  compile -map_effort medium
+  write -hier -format verilog -output $netlist_file $design_name
+  write -hier -format ddc -output $ddc_file $design_name
+  redirect $rep_file { report_design -nosplit }
+  redirect -append $rep_file { report_area }
+  redirect -append $rep_file { report_timing -max_paths 2 -input_pins -nets -transition_time -nosplit }
+  redirect -append $rep_file { report_constraint -max_delay -verbose -nosplit }
+  remove_design -all
+  read_file -format verilog $netlist_file
+  current_design $design_name
+  redirect -append $rep_file { report_reference -nosplit }
+  quit
+} else {
+   quit
+}
+Current design is 'cachemem'.
+
+  Linking design 'cachemem'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  cachemem                    /afs/umich.edu/user/b/r/brenf/group9w20/verilog/cache/cachemem.db
+  lec25dscc25_TT (library)    /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db
+
+Current design is 'cachemem'.
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+Warning: Design has no hierarchy.  No cells can be ungrouped. (UID-228)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.0 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'cachemem'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'cachemem_DW01_cmp6_0'
+  Processing 'cachemem_DW01_cmp6_1'
+  Processing 'cachemem_DW01_cmp6_2'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:14 1101895.7      0.00       0.0      41.9                                0.00  
+    0:00:14 1101895.7      0.00       0.0      41.9                                0.00  
+    0:00:14 1101895.7      0.00       0.0      41.9                                0.00  
+    0:00:14 1101895.7      0.00       0.0      41.9                                0.00  
+    0:00:15 1101895.7      0.00       0.0      41.9                                0.00  
+    0:00:17  551345.4      0.00       0.0      41.9                                0.00  
+    0:00:18  548044.2      0.00       0.0      41.9                                0.00  
+    0:00:18  548044.2      0.00       0.0      41.9                                0.00  
+    0:00:19  548044.2      0.00       0.0      41.9                                0.00  
+    0:00:19  548044.2      0.00       0.0      41.9                                0.00  
+    0:00:19  548044.2      0.00       0.0      41.9                                0.00  
+    0:00:19  548176.9      0.00       0.0      38.4                                0.00  
+    0:00:19  548309.6      0.00       0.0      34.9                                0.00  
+    0:00:19  548434.0      0.00       0.0      31.7                                0.00  
+    0:00:19  548558.4      0.00       0.0      28.4                                0.00  
+    0:00:19  548682.8      0.00       0.0      25.1                                0.00  
+    0:00:19  548807.3      0.00       0.0      21.8                                0.00  
+    0:00:19  548931.7      0.00       0.0      18.6                                0.00  
+    0:00:19  549056.1      0.00       0.0      15.3                                0.00  
+    0:00:19  549180.5      0.00       0.0      12.0                                0.00  
+    0:00:19  549180.5      0.00       0.0      12.0                                0.00  
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:19  549180.5      0.00       0.0      12.0                                0.00  
+    0:00:19  549180.5      0.00       0.0      12.0                                0.00  
+    0:00:19  549180.5      0.00       0.0      12.0                                0.00  
+
+
+  Beginning Design Rule Fixing  (min_path)  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:19  549180.5      0.00       0.0      12.0                               -0.01  
+    0:00:20  549636.7      0.00       0.0       0.0                               -0.01  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:20  549636.7      0.00       0.0       0.0                               -0.01  
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:20  549636.7      0.00       0.0       0.0                               -0.01  
+    0:00:20  549636.7      0.00       0.0       0.0                               -0.01  
+    0:00:20  547471.9      0.00       0.0       0.0                               -0.01  
+    0:00:20  545315.3      0.00       0.0       0.0                               -0.01  
+    0:00:21  543026.1      0.00       0.0       0.0                               -0.01  
+    0:00:21  540736.8      0.00       0.0       0.0                               -0.01  
+    0:00:21  539111.1      0.00       0.0       0.0                               -0.01  
+    0:00:22  538547.1      0.00       0.0       0.0                               -0.01  
+    0:00:22  537983.1      0.00       0.0       0.0                               -0.01  
+    0:00:22  537419.1      0.00       0.0       0.0                               -0.01  
+    0:00:22  536855.0      0.00       0.0       0.0                               -0.01  
+    0:00:22  536291.0      0.00       0.0       0.0                               -0.01  
+    0:00:22  535727.0      0.00       0.0       0.0                               -0.01  
+    0:00:22  535163.0      0.00       0.0       0.0                               -0.01  
+    0:00:23  534599.0      0.00       0.0       0.0                               -0.01  
+    0:00:23  534034.9      0.00       0.0       0.0                               -0.01  
+    0:00:23  533470.9      0.00       0.0       0.0                               -0.01  
+    0:00:23  532906.9      0.00       0.0       0.0                               -0.01  
+    0:00:23  532906.9      0.00       0.0       0.0                               -0.01  
+    0:00:23  532906.9      0.00       0.0       0.0                               -0.01  
+    0:00:23  532906.9      0.00       0.0       0.0                               -0.01  
+    0:00:23  532906.9      0.00       0.0       0.0                               -0.01  
+    0:00:23  532906.9      0.00       0.0       0.0                               -0.01  
+    0:00:23  532906.9      0.00       0.0       0.0                               -0.01  
+    0:00:23  532906.9      0.00       0.0       0.0                               -0.01  
+    0:00:23  533172.3      0.00       0.0       0.0                                0.00  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:23  533172.3      0.00       0.0       0.0                                0.00  
+    0:00:23  533172.3      0.00       0.0       0.0                                0.00  
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'cachemem' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'clock': 1440 load(s), 1 driver(s)
+Writing verilog file '/afs/umich.edu/user/b/r/brenf/group9w20/synth/cachemem.vg'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Writing ddc file './cachemem.ddc'.
+Removing design 'cachemem'
+Removing library 'lec25dscc25_TT'
+Removing library 'gtech'
+Removing library 'standard.sldb'
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2018.06/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2018.06/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading verilog file '/afs/umich.edu/user/b/r/brenf/group9w20/synth/cachemem.vg'
+Detecting input file type automatically (-rtl or -netlist).
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /afs/umich.edu/user/b/r/brenf/group9w20/synth/cachemem.vg
+Reading with netlist reader (equivalent to -netlist option).
+Verilog netlist reader completed successfully.
+Current design is now '/afs/umich.edu/user/b/r/brenf/group9w20/synth/cachemem.db:cachemem'
+Loaded 1 design.
+Current design is 'cachemem'.
+Current design is 'cachemem'.
+
+Thank you...

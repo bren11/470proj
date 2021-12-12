@@ -1,0 +1,51 @@
+Chronologic VCS simulator copyright 1991-2017
+Contains Synopsys proprietary information.
+Compiler version N-2017.12-SP2-1_Full64; Runtime version N-2017.12-SP2-1_Full64;  Dec 11 19:02 2021
+VCD+ Writer N-2017.12-SP2-1_Full64 Copyright (c) 1991-2017 by Synopsys Inc.
+@@
+@@
+@@                     0  Asserting System reset......
+@@
+@@                     0 : System STILL at reset, can't show anything
+@@
+@@
+@@                   100 : System STILL at reset, can't show anything
+@@
+@@
+@@                   200 : System STILL at reset, can't show anything
+@@
+@@
+@@                   300 : System STILL at reset, can't show anything
+@@
+@@                   360  Deasserting System reset......
+@@
+@@
+@@@ Unified Memory contents hex on left, decimal on right: 
+@@@
+@@@ mem[    0] = 000181b700000893 : 424097955711123
+@@@ mem[    8] = 000012376a018193 : 20029210984851
+@@@ mem[   16] = 003184b300318333 : 13938178196079411
+@@@ mem[   24] = 0231a2b300318433 : 158086351620768819
+@@@ mem[   32] = 02941533026283b3 : 185796793456559027
+@@@ mem[   40] = 00b2202302a3b5b3 : 50137880594724275
+@@@ mem[   48] = 0018889300820213 : 6905564391146003
+@@@ mem[   56] = 0308a1133e818193 : 218601685952594323
+@@@ mem[   64] = 10500073fc0118e3 : 1175440000892868835
+@@@
+@@@
+@@                314820 : System halted
+@@
+@@@ System halted on WFI instruction
+@@@
+@@
+@@  3145 cycles / 628 instrs = 5.007962 CPI
+@@
+@@  31440.00 ns total time to execute
+@@
+
+$finish called from file "testbench/testbench.sv", line 266.
+$finish at simulation time               315820
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 31582000 ps
+CPU Time:      0.460 seconds;       Data structure size:   0.1Mb
+Sat Dec 11 19:02:29 2021

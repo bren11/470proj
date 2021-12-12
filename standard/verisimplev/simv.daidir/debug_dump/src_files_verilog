@@ -1,0 +1,11 @@
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/ISA.svh
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/sys_defs.svh
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/testbench/mem.sv
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/testbench/testbench.sv
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/verilog/ex_stage.sv
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/verilog/id_stage.sv
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/verilog/if_stage.sv
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/verilog/mem_stage.sv
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/verilog/pipeline.sv
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/verilog/regfile.sv
+/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/standard/verisimplev/verilog/wb_stage.sv

@@ -1,0 +1,2261 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'lsq' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : design
+Design : lsq
+Version: O-2018.06
+Date   : Tue Apr 14 01:12:51 2020
+****************************************
+
+Design allows ideal nets on clock nets.
+
+Library(s) Used:
+
+    lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
+
+Local Link Library:
+
+    {lec25dscc25_TT.db}
+
+Flip-Flop Types:
+
+    No flip-flop types specified.
+
+Latch Types:
+
+    No latch types specified.
+
+Operating Conditions:
+
+
+    Operating Condition Name : nom_pvt
+    Library : lec25dscc25_TT
+    Process :   1.00
+    Temperature :  25.00
+    Voltage :   2.50
+    Interconnect Model : balanced_tree
+
+Wire Loading Model:
+
+    Selected manually by the user.
+
+Name           :   tsmcwire
+Location       :   lec25dscc25_TT
+Resistance     :   0.2642
+Capacitance    :   0.000132782
+Area           :   0.27
+Slope          :   0.74
+Fanout   Length   Points Average Cap Std Deviation
+--------------------------------------------------------------
+     1     0.89
+     2     1.48
+     3     2.44
+     4     3.18
+     5     3.92
+
+
+
+Wire Loading Model Mode: top.
+
+Timing Ranges:
+
+    No timing ranges specified.
+
+Pin Input Delays:
+
+    None specified.
+
+Pin Output Delays:
+
+    None specified.
+
+Disabled Timing Arcs:
+
+    No arcs disabled.
+
+Required Licenses:
+
+    None Required
+
+Design Parameters:
+
+    None specified.
+1
+ 
+****************************************
+Report : area
+Design : lsq
+Version: O-2018.06
+Date   : Tue Apr 14 01:12:51 2020
+****************************************
+
+Library(s) Used:
+
+    lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
+
+Number of ports:                         9421
+Number of nets:                         72421
+Number of cells:                        61718
+Number of combinational cells:          55785
+Number of sequential cells:              5853
+Number of macros/black boxes:               0
+Number of buf/inv:                       9453
+Number of references:                     132
+
+Combinational area:            3183654.525589
+Buf/Inv area:                   317791.649368
+Noncombinational area:          976732.219589
+Macro/Black Box area:                0.000000
+Net Interconnect area:           43182.575324
+
+Total cell area:               4160386.745178
+Total area:                    4203569.320502
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -max_paths 2
+        -transition_time
+Design : lsq
+Version: O-2018.06
+Date   : Tue Apr 14 01:12:51 2020
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: nom_pvt   Library: lec25dscc25_TT
+Wire Load Model Mode: top
+
+  Startpoint: store_queue_reg[1][out_ready]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: data_cache_1/D_cachemem/data_reg[5][4]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  lsq                tsmcwire              lec25dscc25_TT
+
+  Point                                       Fanout     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  store_queue_reg[1][out_ready]/CLK (dffcs2)              0.00      0.00 #     0.00 r
+  store_queue_reg[1][out_ready]/QN (dffcs2)               0.15      0.15       0.15 f
+  n4964 (net)                                   1                   0.00       0.15 f
+  store_queue_reg[1][out_ready]/Q (dffcs2)                0.36      0.15       0.31 r
+  store_queue[1][out_ready] (net)               5                   0.00       0.31 r
+  U46355/DIN3 (aoi22s1)                                   0.36      0.00       0.31 r
+  U46355/Q (aoi22s1)                                      0.36      0.18       0.49 f
+  n27614 (net)                                  1                   0.00       0.49 f
+  U46356/DIN2 (aoi21s1)                                   0.36      0.00       0.49 f
+  U46356/Q (aoi21s1)                                      0.25      0.12       0.61 r
+  n27619 (net)                                  1                   0.00       0.61 r
+  U46360/DIN1 (or2s1)                                     0.25      0.00       0.61 r
+  U46360/Q (or2s1)                                        0.14      0.16       0.77 r
+  N21321 (net)                                  1                   0.00       0.77 r
+  U32289/DIN1 (nor2s1)                                    0.14      0.00       0.77 r
+  U32289/Q (nor2s1)                                       0.26      0.15       0.91 f
+  n14508 (net)                                  2                   0.00       0.91 f
+  U29141/DIN (ib1s1)                                      0.26      0.00       0.92 f
+  U29141/Q (ib1s1)                                        0.32      0.15       1.07 r
+  n29718 (net)                                  5                   0.00       1.07 r
+  U12340/DIN1 (nnd3s2)                                    0.32      0.00       1.07 r
+  U12340/Q (nnd3s2)                                       0.23      0.10       1.16 f
+  n14504 (net)                                  3                   0.00       1.16 f
+  U18882/DIN2 (oai222s1)                                  0.23      0.00       1.16 f
+  U18882/Q (oai222s1)                                     0.82      0.35       1.52 r
+  N2792 (net)                                   5                   0.00       1.52 r
+  U27018/DIN (ib1s1)                                      0.82      0.00       1.52 r
+  U27018/Q (ib1s1)                                        0.43      0.21       1.73 f
+  n29706 (net)                                  8                   0.00       1.73 f
+  U25164/DIN1 (and2s1)                                    0.43      0.00       1.73 f
+  U25164/Q (and2s1)                                       0.14      0.23       1.96 f
+  n24427 (net)                                  2                   0.00       1.96 f
+  U44453/DIN1 (and2s1)                                    0.14      0.00       1.96 f
+  U44453/Q (and2s1)                                       0.51      0.36       2.32 f
+  n24700 (net)                                 10                   0.00       2.32 f
+  U23908/DIN (ib1s1)                                      0.51      0.00       2.33 f
+  U23908/Q (ib1s1)                                        0.20      0.10       2.42 r
+  n24739 (net)                                  1                   0.00       2.42 r
+  U24408/DIN (ib1s1)                                      0.20      0.00       2.43 r
+  U24408/Q (ib1s1)                                        0.36      0.18       2.61 f
+  n24740 (net)                                  9                   0.00       2.61 f
+  U44785/DIN2 (aoi22s1)                                   0.36      0.00       2.61 f
+  U44785/Q (aoi22s1)                                      0.33      0.14       2.76 r
+  n24701 (net)                                  1                   0.00       2.76 r
+  U44786/DIN4 (nnd4s1)                                    0.33      0.00       2.76 r
+  U44786/Q (nnd4s1)                                       0.25      0.12       2.88 f
+  N21328 (net)                                  1                   0.00       2.88 f
+  U13116/DIN1 (oai13s2)                                   0.25      0.00       2.88 f
+  U13116/Q (oai13s2)                                      0.59      0.18       3.06 r
+  n7056 (net)                                   3                   0.00       3.06 r
+  U29140/DIN (ib1s1)                                      0.59      0.00       3.06 r
+  U29140/Q (ib1s1)                                        0.82      0.43       3.49 f
+  n29705 (net)                                 31                   0.00       3.49 f
+  U23546/DIN (i1s1)                                       0.82      0.00       3.49 f
+  U23546/Q (i1s1)                                         0.36      0.18       3.67 r
+  n26235 (net)                                  2                   0.00       3.67 r
+  U27019/DIN (ib1s1)                                      0.36      0.00       3.67 r
+  U27019/Q (ib1s1)                                        0.49      0.26       3.93 f
+  n26233 (net)                                 20                   0.00       3.93 f
+  U24121/DIN2 (nnd2s2)                                    0.49      0.00       3.93 f
+  U24121/Q (nnd2s2)                                       0.22      0.13       4.06 r
+  n20425 (net)                                  1                   0.00       4.06 r
+  U29142/DIN (ib1s1)                                      0.22      0.00       4.06 r
+  U29142/Q (ib1s1)                                        0.79      0.37       4.44 f
+  n27430 (net)                                 10                   0.00       4.44 f
+  data_cache_1/str_w_addr[index][2] (dcache)                        0.00       4.44 f
+  data_cache_1/str_w_addr[index][2] (net)                           0.00       4.44 f
+  data_cache_1/D_cachemem/rd_idx[0][2] (cachemem_rw)                0.00       4.44 f
+  data_cache_1/D_cachemem/N564 (net)                                0.00       4.44 f
+  data_cache_1/D_cachemem/U4871/DIN (ib1s1)               0.79      0.00       4.44 f
+  data_cache_1/D_cachemem/U4871/Q (ib1s1)                 0.28      0.13       4.57 r
+  data_cache_1/D_cachemem/n13251 (net)          2                   0.00       4.57 r
+  data_cache_1/D_cachemem/U10921/DIN1 (nor2s1)            0.28      0.00       4.57 r
+  data_cache_1/D_cachemem/U10921/Q (nor2s1)               0.50      0.27       4.84 f
+  data_cache_1/D_cachemem/n196 (net)            4                   0.00       4.84 f
+  data_cache_1/D_cachemem/U38/DIN1 (nnd2s2)               0.50      0.00       4.84 f
+  data_cache_1/D_cachemem/U38/Q (nnd2s2)                  0.28      0.15       4.99 r
+  data_cache_1/D_cachemem/n13 (net)             3                   0.00       4.99 r
+  data_cache_1/D_cachemem/U951/DIN (ib1s1)                0.28      0.00       4.99 r
+  data_cache_1/D_cachemem/U951/Q (ib1s1)                  0.53      0.27       5.26 f
+  data_cache_1/D_cachemem/n13286 (net)         14                   0.00       5.26 f
+  data_cache_1/D_cachemem/U62/DIN (ib1s1)                 0.53      0.00       5.26 f
+  data_cache_1/D_cachemem/U62/Q (ib1s1)                   0.37      0.19       5.45 r
+  data_cache_1/D_cachemem/n13278 (net)          5                   0.00       5.45 r
+  data_cache_1/D_cachemem/U1120/DIN (ib1s1)               0.37      0.00       5.46 r
+  data_cache_1/D_cachemem/U1120/Q (ib1s1)                 0.87      0.43       5.89 f
+  data_cache_1/D_cachemem/n13284 (net)         25                   0.00       5.89 f
+  data_cache_1/D_cachemem/U11242/DIN2 (aoi22s1)           0.87      0.00       5.89 f
+  data_cache_1/D_cachemem/U11242/Q (aoi22s1)              0.44      0.22       6.10 r
+  data_cache_1/D_cachemem/n3010 (net)           1                   0.00       6.10 r
+  data_cache_1/D_cachemem/U11245/DIN2 (nnd4s1)            0.44      0.00       6.10 r
+  data_cache_1/D_cachemem/U11245/Q (nnd4s1)               0.27      0.11       6.22 f
+  data_cache_1/D_cachemem/n3081 (net)           1                   0.00       6.22 f
+  data_cache_1/D_cachemem/U11251/DIN1 (oai21s1)           0.27      0.00       6.22 f
+  data_cache_1/D_cachemem/U11251/Q (oai21s1)              0.29      0.13       6.35 r
+  data_cache_1/D_cachemem/n3083 (net)           1                   0.00       6.35 r
+  data_cache_1/D_cachemem/U11252/DIN3 (oai21s1)           0.29      0.00       6.35 r
+  data_cache_1/D_cachemem/U11252/Q (oai21s1)              0.42      0.16       6.51 f
+  data_cache_1/D_cachemem/N596 (net)            1                   0.00       6.51 f
+  data_cache_1/D_cachemem/U19230/DIN2 (xor2s1)            0.42      0.00       6.52 f
+  data_cache_1/D_cachemem/U19230/Q (xor2s1)               0.18      0.26       6.78 r
+  data_cache_1/D_cachemem/n21010 (net)          1                   0.00       6.78 r
+  data_cache_1/D_cachemem/U19233/DIN4 (nor6s1)            0.18      0.00       6.78 r
+  data_cache_1/D_cachemem/U19233/Q (nor6s1)               0.10      0.30       7.08 f
+  data_cache_1/D_cachemem/n21024 (net)          1                   0.00       7.08 f
+  data_cache_1/D_cachemem/U5579/DIN3 (and4s1)             0.10      0.00       7.08 f
+  data_cache_1/D_cachemem/U5579/Q (and4s1)                0.13      0.19       7.27 f
+  data_cache_1/D_cachemem/N607 (net)            1                   0.00       7.27 f
+  data_cache_1/D_cachemem/U5576/DIN1 (and2s1)             0.13      0.00       7.27 f
+  data_cache_1/D_cachemem/U5576/Q (and2s1)                0.19      0.21       7.48 f
+  data_cache_1/D_cachemem/rd_hit[0] (net)       2                   0.00       7.48 f
+  data_cache_1/D_cachemem/rd_hit[0] (cachemem_rw)                   0.00       7.48 f
+  data_cache_1/str_cachemem_hit (net)                               0.00       7.48 f
+  data_cache_1/U26/DIN2 (oai21s2)                         0.19      0.00       7.48 f
+  data_cache_1/U26/Q (oai21s2)                            0.46      0.18       7.65 r
+  data_cache_1/n274 (net)                       3                   0.00       7.65 r
+  data_cache_1/U97/DIN (ib1s1)                            0.46      0.00       7.65 r
+  data_cache_1/U97/Q (ib1s1)                              0.18      0.08       7.73 f
+  data_cache_1/n61 (net)                        1                   0.00       7.73 f
+  data_cache_1/U48/DIN (ib1s1)                            0.18      0.00       7.73 f
+  data_cache_1/U48/Q (ib1s1)                              0.30      0.13       7.87 r
+  data_cache_1/n54 (net)                        4                   0.00       7.87 r
+  data_cache_1/U63/DIN (i1s3)                             0.30      0.00       7.87 r
+  data_cache_1/U63/Q (i1s3)                               0.64      0.31       8.19 f
+  data_cache_1/proc2mem_command[1] (net)       31                   0.00       8.19 f
+  data_cache_1/dcache_MSHR/mem_busy (MSHR)                          0.00       8.19 f
+  data_cache_1/dcache_MSHR/mem_busy (net)                           0.00       8.19 f
+  data_cache_1/dcache_MSHR/U183/DIN (i1s3)                0.64      0.00       8.19 f
+  data_cache_1/dcache_MSHR/U183/Q (i1s3)                  0.60      0.30       8.49 r
+  data_cache_1/dcache_MSHR/n43 (net)           17                   0.00       8.49 r
+  data_cache_1/dcache_MSHR/U2815/DIN1 (nnd3s2)            0.60      0.00       8.49 r
+  data_cache_1/dcache_MSHR/U2815/Q (nnd3s2)               0.38      0.16       8.66 f
+  data_cache_1/dcache_MSHR/n1230 (net)          4                   0.00       8.66 f
+  data_cache_1/dcache_MSHR/U109/DIN2 (nnd2s2)             0.38      0.00       8.66 f
+  data_cache_1/dcache_MSHR/U109/Q (nnd2s2)                0.23      0.13       8.79 r
+  data_cache_1/dcache_MSHR/n32 (net)            2                   0.00       8.79 r
+  data_cache_1/dcache_MSHR/U690/DIN (ib1s1)               0.23      0.00       8.79 r
+  data_cache_1/dcache_MSHR/U690/Q (ib1s1)                 0.51      0.25       9.04 f
+  data_cache_1/dcache_MSHR/n324 (net)          11                   0.00       9.04 f
+  data_cache_1/dcache_MSHR/U2808/DIN1 (nnd2s2)            0.51      0.00       9.04 f
+  data_cache_1/dcache_MSHR/U2808/Q (nnd2s2)               0.23      0.13       9.17 r
+  data_cache_1/dcache_MSHR/n2221 (net)          2                   0.00       9.17 r
+  data_cache_1/dcache_MSHR/U681/DIN (ib1s1)               0.23      0.00       9.17 r
+  data_cache_1/dcache_MSHR/U681/Q (ib1s1)                 0.74      0.35       9.52 f
+  data_cache_1/dcache_MSHR/n5747 (net)         30                   0.00       9.52 f
+  data_cache_1/dcache_MSHR/U47/DIN1 (and2s2)              0.74      0.00       9.52 f
+  data_cache_1/dcache_MSHR/U47/Q (and2s2)                 0.14      0.25       9.78 f
+  data_cache_1/dcache_MSHR/n15 (net)            2                   0.00       9.78 f
+  data_cache_1/dcache_MSHR/U2806/DIN1 (nnd2s2)            0.14      0.00       9.78 f
+  data_cache_1/dcache_MSHR/U2806/Q (nnd2s2)               0.34      0.12       9.90 r
+  data_cache_1/dcache_MSHR/n1245 (net)          5                   0.00       9.90 r
+  data_cache_1/dcache_MSHR/U985/DIN1 (nor2s1)             0.34      0.00       9.90 r
+  data_cache_1/dcache_MSHR/U985/Q (nor2s1)                0.99      0.49      10.39 f
+  data_cache_1/dcache_MSHR/n47 (net)           11                   0.00      10.39 f
+  data_cache_1/dcache_MSHR/U108/DIN1 (and2s1)             0.99      0.00      10.39 f
+  data_cache_1/dcache_MSHR/U108/Q (and2s1)                0.28      0.41      10.80 f
+  data_cache_1/dcache_MSHR/n31 (net)            3                   0.00      10.80 f
+  data_cache_1/dcache_MSHR/U986/DIN1 (nnd2s2)             0.28      0.00      10.80 f
+  data_cache_1/dcache_MSHR/U986/Q (nnd2s2)                0.44      0.19      10.99 r
+  data_cache_1/dcache_MSHR/n1238 (net)         15                   0.00      10.99 r
+  data_cache_1/dcache_MSHR/U59/DIN1 (or2s1)               0.44      0.00      10.99 r
+  data_cache_1/dcache_MSHR/U59/Q (or2s1)                  0.21      0.21      11.21 r
+  data_cache_1/dcache_MSHR/n21 (net)            2                   0.00      11.21 r
+  data_cache_1/dcache_MSHR/U672/DIN (ib1s1)               0.21      0.00      11.21 r
+  data_cache_1/dcache_MSHR/U672/Q (ib1s1)                 0.73      0.34      11.55 f
+  data_cache_1/dcache_MSHR/n51 (net)           15                   0.00      11.55 f
+  data_cache_1/dcache_MSHR/U110/DIN1 (nnd2s2)             0.73      0.00      11.55 f
+  data_cache_1/dcache_MSHR/U110/Q (nnd2s2)                0.28      0.15      11.70 r
+  data_cache_1/dcache_MSHR/n33 (net)            2                   0.00      11.70 r
+  data_cache_1/dcache_MSHR/U699/DIN (ib1s1)               0.28      0.00      11.71 r
+  data_cache_1/dcache_MSHR/U699/Q (ib1s1)                 0.69      0.34      12.05 f
+  data_cache_1/dcache_MSHR/n315 (net)          14                   0.00      12.05 f
+  data_cache_1/dcache_MSHR/U988/DIN1 (and2s1)             0.69      0.00      12.05 f
+  data_cache_1/dcache_MSHR/U988/Q (and2s1)                0.25      0.34      12.39 f
+  data_cache_1/dcache_MSHR/n1535 (net)          3                   0.00      12.39 f
+  data_cache_1/dcache_MSHR/U2795/DIN1 (nnd2s2)            0.25      0.00      12.39 f
+  data_cache_1/dcache_MSHR/U2795/Q (nnd2s2)               0.25      0.11      12.50 r
+  data_cache_1/dcache_MSHR/n1536 (net)          4                   0.00      12.50 r
+  data_cache_1/dcache_MSHR/U302/DIN (ib1s1)               0.25      0.00      12.50 r
+  data_cache_1/dcache_MSHR/U302/Q (ib1s1)                 0.39      0.20      12.70 f
+  data_cache_1/dcache_MSHR/n64 (net)            6                   0.00      12.70 f
+  data_cache_1/dcache_MSHR/U2793/DIN1 (nnd2s2)            0.39      0.00      12.70 f
+  data_cache_1/dcache_MSHR/U2793/Q (nnd2s2)               0.27      0.13      12.83 r
+  data_cache_1/dcache_MSHR/n2624 (net)          2                   0.00      12.83 r
+  data_cache_1/dcache_MSHR/U174/DIN5 (or5s1)              0.27      0.00      12.83 r
+  data_cache_1/dcache_MSHR/U174/Q (or5s1)                 0.66      0.35      13.18 r
+  data_cache_1/dcache_MSHR/n1228 (net)          9                   0.00      13.18 r
+  data_cache_1/dcache_MSHR/U987/DIN (i1s3)                0.66      0.00      13.18 r
+  data_cache_1/dcache_MSHR/U987/Q (i1s3)                  0.70      0.37      13.55 f
+  data_cache_1/dcache_MSHR/n5733 (net)         29                   0.00      13.55 f
+  data_cache_1/dcache_MSHR/U479/DIN1 (aoi23s2)            0.70      0.00      13.56 f
+  data_cache_1/dcache_MSHR/U479/Q (aoi23s2)               0.37      0.14      13.70 r
+  data_cache_1/dcache_MSHR/n1274 (net)          1                   0.00      13.70 r
+  data_cache_1/dcache_MSHR/U478/DIN3 (oai1112s2)          0.37      0.00      13.70 r
+  data_cache_1/dcache_MSHR/U478/Q (oai1112s2)             0.29      0.08      13.77 f
+  data_cache_1/dcache_MSHR/n1271 (net)          1                   0.00      13.77 f
+  data_cache_1/dcache_MSHR/U477/DIN2 (aoi23s2)            0.29      0.00      13.78 f
+  data_cache_1/dcache_MSHR/U477/Q (aoi23s2)               0.35      0.09      13.87 r
+  data_cache_1/dcache_MSHR/n1270 (net)          1                   0.00      13.87 r
+  data_cache_1/dcache_MSHR/U476/DIN1 (oai13s2)            0.35      0.00      13.87 r
+  data_cache_1/dcache_MSHR/U476/Q (oai13s2)               0.57      0.10      13.97 f
+  data_cache_1/dcache_MSHR/n1267 (net)          1                   0.00      13.97 f
+  data_cache_1/dcache_MSHR/U475/DIN2 (oai13s2)            0.57      0.00      13.97 f
+  data_cache_1/dcache_MSHR/U475/Q (oai13s2)               0.39      0.18      14.15 r
+  data_cache_1/dcache_MSHR/n1265 (net)          1                   0.00      14.15 r
+  data_cache_1/dcache_MSHR/U473/DIN3 (oai211s2)           0.39      0.00      14.15 r
+  data_cache_1/dcache_MSHR/U473/Q (oai211s2)              0.38      0.10      14.25 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[7] (net)     1             0.00      14.25 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[7] (MSHR)                  0.00      14.25 f
+  data_cache_1/MSHR_proc2mem_addr[7] (net)                          0.00      14.25 f
+  data_cache_1/U704/DIN1 (aoi22s2)                        0.38      0.00      14.25 f
+  data_cache_1/U704/Q (aoi22s2)                           0.36      0.12      14.37 r
+  data_cache_1/n366 (net)                       1                   0.00      14.37 r
+  data_cache_1/U231/DIN (ib1s1)                           0.36      0.00      14.37 r
+  data_cache_1/U231/Q (ib1s1)                             0.65      0.33      14.70 f
+  data_cache_1/proc2mem_addr[7] (net)           5                   0.00      14.70 f
+  data_cache_1/D_cachemem/wr_addr[1][index][4] (cachemem_rw)        0.00      14.70 f
+  data_cache_1/D_cachemem/wr_addr[1][index][4] (net)                0.00      14.70 f
+  data_cache_1/D_cachemem/U4849/DIN2 (nor2s1)             0.65      0.00      14.70 f
+  data_cache_1/D_cachemem/U4849/Q (nor2s1)                1.03      0.45      15.15 r
+  data_cache_1/D_cachemem/n6299 (net)           8                   0.00      15.15 r
+  data_cache_1/D_cachemem/U8384/DIN2 (nnd2s2)             1.03      0.00      15.16 r
+  data_cache_1/D_cachemem/U8384/Q (nnd2s2)                0.47      0.18      15.33 f
+  data_cache_1/D_cachemem/n4141 (net)           7                   0.00      15.33 f
+  data_cache_1/D_cachemem/U263/DIN (ib1s1)                0.47      0.00      15.33 f
+  data_cache_1/D_cachemem/U263/Q (ib1s1)                  0.97      0.43      15.77 r
+  data_cache_1/D_cachemem/n21211 (net)         16                   0.00      15.77 r
+  data_cache_1/D_cachemem/U6456/DIN2 (nnd2s2)             0.97      0.00      15.77 r
+  data_cache_1/D_cachemem/U6456/Q (nnd2s2)                0.97      0.44      16.21 f
+  data_cache_1/D_cachemem/n4149 (net)          28                   0.00      16.21 f
+  data_cache_1/D_cachemem/U3102/DIN3 (oai21s2)            0.97      0.00      16.21 f
+  data_cache_1/D_cachemem/U3102/Q (oai21s2)               1.45      0.69      16.91 r
+  data_cache_1/D_cachemem/n4220 (net)          11                   0.00      16.91 r
+  data_cache_1/D_cachemem/U16/DIN (ib1s1)                 1.45      0.00      16.91 r
+  data_cache_1/D_cachemem/U16/Q (ib1s1)                   0.91      0.48      17.39 f
+  data_cache_1/D_cachemem/n21207 (net)         17                   0.00      17.39 f
+  data_cache_1/D_cachemem/U3284/DIN3 (oai21s2)            0.91      0.00      17.39 f
+  data_cache_1/D_cachemem/U3284/Q (oai21s2)               0.48      0.28      17.67 r
+  data_cache_1/D_cachemem/n4259 (net)           2                   0.00      17.67 r
+  data_cache_1/D_cachemem/U3377/DIN3 (aoi21s2)            0.48      0.00      17.67 r
+  data_cache_1/D_cachemem/U3377/Q (aoi21s2)               0.45      0.15      17.83 f
+  data_cache_1/D_cachemem/n5353 (net)           2                   0.00      17.83 f
+  data_cache_1/D_cachemem/U3253/DIN1 (oai22s2)            0.45      0.00      17.83 f
+  data_cache_1/D_cachemem/U3253/Q (oai22s2)               1.19      0.37      18.20 r
+  data_cache_1/D_cachemem/n5346 (net)           9                   0.00      18.20 r
+  data_cache_1/D_cachemem/U2133/DIN (ib1s1)               1.19      0.00      18.20 r
+  data_cache_1/D_cachemem/U2133/Q (ib1s1)                 0.60      0.29      18.50 f
+  data_cache_1/D_cachemem/n21203 (net)          9                   0.00      18.50 f
+  data_cache_1/D_cachemem/U884/DIN2 (nor2s1)              0.60      0.00      18.50 f
+  data_cache_1/D_cachemem/U884/Q (nor2s1)                 0.43      0.20      18.69 r
+  data_cache_1/D_cachemem/n5350 (net)           2                   0.00      18.69 r
+  data_cache_1/D_cachemem/U6408/DIN1 (nnd2s2)             0.43      0.00      18.70 r
+  data_cache_1/D_cachemem/U6408/Q (nnd2s2)                0.34      0.17      18.86 f
+  data_cache_1/D_cachemem/n5349 (net)           8                   0.00      18.86 f
+  data_cache_1/D_cachemem/U6404/DIN8 (oai2222s3)          0.34      0.00      18.86 f
+  data_cache_1/D_cachemem/U6404/Q (oai2222s3)             0.10      0.38      19.25 r
+  data_cache_1/D_cachemem/n10896 (net)          1                   0.00      19.25 r
+  data_cache_1/D_cachemem/data_reg[5][4]/CLRB (dffcs1)     0.10     0.00      19.25 r
+  data arrival time                                                           19.25
+
+  clock clock (rise edge)                                          20.00      20.00
+  clock network delay (ideal)                                       0.00      20.00
+  clock uncertainty                                                -0.10      19.90
+  data_cache_1/D_cachemem/data_reg[5][4]/CLK (dffcs1)               0.00      19.90 r
+  library setup time                                               -0.30      19.60
+  data required time                                                          19.60
+  ------------------------------------------------------------------------------------
+  data required time                                                          19.60
+  data arrival time                                                          -19.25
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.35
+
+
+  Startpoint: store_queue_reg[1][out_ready]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: data_cache_1/D_cachemem/data_reg[5][3]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  lsq                tsmcwire              lec25dscc25_TT
+
+  Point                                       Fanout     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  store_queue_reg[1][out_ready]/CLK (dffcs2)              0.00      0.00 #     0.00 r
+  store_queue_reg[1][out_ready]/QN (dffcs2)               0.15      0.15       0.15 f
+  n4964 (net)                                   1                   0.00       0.15 f
+  store_queue_reg[1][out_ready]/Q (dffcs2)                0.36      0.15       0.31 r
+  store_queue[1][out_ready] (net)               5                   0.00       0.31 r
+  U46355/DIN3 (aoi22s1)                                   0.36      0.00       0.31 r
+  U46355/Q (aoi22s1)                                      0.36      0.18       0.49 f
+  n27614 (net)                                  1                   0.00       0.49 f
+  U46356/DIN2 (aoi21s1)                                   0.36      0.00       0.49 f
+  U46356/Q (aoi21s1)                                      0.25      0.12       0.61 r
+  n27619 (net)                                  1                   0.00       0.61 r
+  U46360/DIN1 (or2s1)                                     0.25      0.00       0.61 r
+  U46360/Q (or2s1)                                        0.14      0.16       0.77 r
+  N21321 (net)                                  1                   0.00       0.77 r
+  U32289/DIN1 (nor2s1)                                    0.14      0.00       0.77 r
+  U32289/Q (nor2s1)                                       0.26      0.15       0.91 f
+  n14508 (net)                                  2                   0.00       0.91 f
+  U29141/DIN (ib1s1)                                      0.26      0.00       0.92 f
+  U29141/Q (ib1s1)                                        0.32      0.15       1.07 r
+  n29718 (net)                                  5                   0.00       1.07 r
+  U12340/DIN1 (nnd3s2)                                    0.32      0.00       1.07 r
+  U12340/Q (nnd3s2)                                       0.23      0.10       1.16 f
+  n14504 (net)                                  3                   0.00       1.16 f
+  U18882/DIN2 (oai222s1)                                  0.23      0.00       1.16 f
+  U18882/Q (oai222s1)                                     0.82      0.35       1.52 r
+  N2792 (net)                                   5                   0.00       1.52 r
+  U27018/DIN (ib1s1)                                      0.82      0.00       1.52 r
+  U27018/Q (ib1s1)                                        0.43      0.21       1.73 f
+  n29706 (net)                                  8                   0.00       1.73 f
+  U25164/DIN1 (and2s1)                                    0.43      0.00       1.73 f
+  U25164/Q (and2s1)                                       0.14      0.23       1.96 f
+  n24427 (net)                                  2                   0.00       1.96 f
+  U44453/DIN1 (and2s1)                                    0.14      0.00       1.96 f
+  U44453/Q (and2s1)                                       0.51      0.36       2.32 f
+  n24700 (net)                                 10                   0.00       2.32 f
+  U23908/DIN (ib1s1)                                      0.51      0.00       2.33 f
+  U23908/Q (ib1s1)                                        0.20      0.10       2.42 r
+  n24739 (net)                                  1                   0.00       2.42 r
+  U24408/DIN (ib1s1)                                      0.20      0.00       2.43 r
+  U24408/Q (ib1s1)                                        0.36      0.18       2.61 f
+  n24740 (net)                                  9                   0.00       2.61 f
+  U44785/DIN2 (aoi22s1)                                   0.36      0.00       2.61 f
+  U44785/Q (aoi22s1)                                      0.33      0.14       2.76 r
+  n24701 (net)                                  1                   0.00       2.76 r
+  U44786/DIN4 (nnd4s1)                                    0.33      0.00       2.76 r
+  U44786/Q (nnd4s1)                                       0.25      0.12       2.88 f
+  N21328 (net)                                  1                   0.00       2.88 f
+  U13116/DIN1 (oai13s2)                                   0.25      0.00       2.88 f
+  U13116/Q (oai13s2)                                      0.59      0.18       3.06 r
+  n7056 (net)                                   3                   0.00       3.06 r
+  U29140/DIN (ib1s1)                                      0.59      0.00       3.06 r
+  U29140/Q (ib1s1)                                        0.82      0.43       3.49 f
+  n29705 (net)                                 31                   0.00       3.49 f
+  U23546/DIN (i1s1)                                       0.82      0.00       3.49 f
+  U23546/Q (i1s1)                                         0.36      0.18       3.67 r
+  n26235 (net)                                  2                   0.00       3.67 r
+  U27019/DIN (ib1s1)                                      0.36      0.00       3.67 r
+  U27019/Q (ib1s1)                                        0.49      0.26       3.93 f
+  n26233 (net)                                 20                   0.00       3.93 f
+  U24121/DIN2 (nnd2s2)                                    0.49      0.00       3.93 f
+  U24121/Q (nnd2s2)                                       0.22      0.13       4.06 r
+  n20425 (net)                                  1                   0.00       4.06 r
+  U29142/DIN (ib1s1)                                      0.22      0.00       4.06 r
+  U29142/Q (ib1s1)                                        0.79      0.37       4.44 f
+  n27430 (net)                                 10                   0.00       4.44 f
+  data_cache_1/str_w_addr[index][2] (dcache)                        0.00       4.44 f
+  data_cache_1/str_w_addr[index][2] (net)                           0.00       4.44 f
+  data_cache_1/D_cachemem/rd_idx[0][2] (cachemem_rw)                0.00       4.44 f
+  data_cache_1/D_cachemem/N564 (net)                                0.00       4.44 f
+  data_cache_1/D_cachemem/U4871/DIN (ib1s1)               0.79      0.00       4.44 f
+  data_cache_1/D_cachemem/U4871/Q (ib1s1)                 0.28      0.13       4.57 r
+  data_cache_1/D_cachemem/n13251 (net)          2                   0.00       4.57 r
+  data_cache_1/D_cachemem/U10921/DIN1 (nor2s1)            0.28      0.00       4.57 r
+  data_cache_1/D_cachemem/U10921/Q (nor2s1)               0.50      0.27       4.84 f
+  data_cache_1/D_cachemem/n196 (net)            4                   0.00       4.84 f
+  data_cache_1/D_cachemem/U38/DIN1 (nnd2s2)               0.50      0.00       4.84 f
+  data_cache_1/D_cachemem/U38/Q (nnd2s2)                  0.28      0.15       4.99 r
+  data_cache_1/D_cachemem/n13 (net)             3                   0.00       4.99 r
+  data_cache_1/D_cachemem/U951/DIN (ib1s1)                0.28      0.00       4.99 r
+  data_cache_1/D_cachemem/U951/Q (ib1s1)                  0.53      0.27       5.26 f
+  data_cache_1/D_cachemem/n13286 (net)         14                   0.00       5.26 f
+  data_cache_1/D_cachemem/U62/DIN (ib1s1)                 0.53      0.00       5.26 f
+  data_cache_1/D_cachemem/U62/Q (ib1s1)                   0.37      0.19       5.45 r
+  data_cache_1/D_cachemem/n13278 (net)          5                   0.00       5.45 r
+  data_cache_1/D_cachemem/U1120/DIN (ib1s1)               0.37      0.00       5.46 r
+  data_cache_1/D_cachemem/U1120/Q (ib1s1)                 0.87      0.43       5.89 f
+  data_cache_1/D_cachemem/n13284 (net)         25                   0.00       5.89 f
+  data_cache_1/D_cachemem/U11242/DIN2 (aoi22s1)           0.87      0.00       5.89 f
+  data_cache_1/D_cachemem/U11242/Q (aoi22s1)              0.44      0.22       6.10 r
+  data_cache_1/D_cachemem/n3010 (net)           1                   0.00       6.10 r
+  data_cache_1/D_cachemem/U11245/DIN2 (nnd4s1)            0.44      0.00       6.10 r
+  data_cache_1/D_cachemem/U11245/Q (nnd4s1)               0.27      0.11       6.22 f
+  data_cache_1/D_cachemem/n3081 (net)           1                   0.00       6.22 f
+  data_cache_1/D_cachemem/U11251/DIN1 (oai21s1)           0.27      0.00       6.22 f
+  data_cache_1/D_cachemem/U11251/Q (oai21s1)              0.29      0.13       6.35 r
+  data_cache_1/D_cachemem/n3083 (net)           1                   0.00       6.35 r
+  data_cache_1/D_cachemem/U11252/DIN3 (oai21s1)           0.29      0.00       6.35 r
+  data_cache_1/D_cachemem/U11252/Q (oai21s1)              0.42      0.16       6.51 f
+  data_cache_1/D_cachemem/N596 (net)            1                   0.00       6.51 f
+  data_cache_1/D_cachemem/U19230/DIN2 (xor2s1)            0.42      0.00       6.52 f
+  data_cache_1/D_cachemem/U19230/Q (xor2s1)               0.18      0.26       6.78 r
+  data_cache_1/D_cachemem/n21010 (net)          1                   0.00       6.78 r
+  data_cache_1/D_cachemem/U19233/DIN4 (nor6s1)            0.18      0.00       6.78 r
+  data_cache_1/D_cachemem/U19233/Q (nor6s1)               0.10      0.30       7.08 f
+  data_cache_1/D_cachemem/n21024 (net)          1                   0.00       7.08 f
+  data_cache_1/D_cachemem/U5579/DIN3 (and4s1)             0.10      0.00       7.08 f
+  data_cache_1/D_cachemem/U5579/Q (and4s1)                0.13      0.19       7.27 f
+  data_cache_1/D_cachemem/N607 (net)            1                   0.00       7.27 f
+  data_cache_1/D_cachemem/U5576/DIN1 (and2s1)             0.13      0.00       7.27 f
+  data_cache_1/D_cachemem/U5576/Q (and2s1)                0.19      0.21       7.48 f
+  data_cache_1/D_cachemem/rd_hit[0] (net)       2                   0.00       7.48 f
+  data_cache_1/D_cachemem/rd_hit[0] (cachemem_rw)                   0.00       7.48 f
+  data_cache_1/str_cachemem_hit (net)                               0.00       7.48 f
+  data_cache_1/U26/DIN2 (oai21s2)                         0.19      0.00       7.48 f
+  data_cache_1/U26/Q (oai21s2)                            0.46      0.18       7.65 r
+  data_cache_1/n274 (net)                       3                   0.00       7.65 r
+  data_cache_1/U97/DIN (ib1s1)                            0.46      0.00       7.65 r
+  data_cache_1/U97/Q (ib1s1)                              0.18      0.08       7.73 f
+  data_cache_1/n61 (net)                        1                   0.00       7.73 f
+  data_cache_1/U48/DIN (ib1s1)                            0.18      0.00       7.73 f
+  data_cache_1/U48/Q (ib1s1)                              0.30      0.13       7.87 r
+  data_cache_1/n54 (net)                        4                   0.00       7.87 r
+  data_cache_1/U63/DIN (i1s3)                             0.30      0.00       7.87 r
+  data_cache_1/U63/Q (i1s3)                               0.64      0.31       8.19 f
+  data_cache_1/proc2mem_command[1] (net)       31                   0.00       8.19 f
+  data_cache_1/dcache_MSHR/mem_busy (MSHR)                          0.00       8.19 f
+  data_cache_1/dcache_MSHR/mem_busy (net)                           0.00       8.19 f
+  data_cache_1/dcache_MSHR/U183/DIN (i1s3)                0.64      0.00       8.19 f
+  data_cache_1/dcache_MSHR/U183/Q (i1s3)                  0.60      0.30       8.49 r
+  data_cache_1/dcache_MSHR/n43 (net)           17                   0.00       8.49 r
+  data_cache_1/dcache_MSHR/U2815/DIN1 (nnd3s2)            0.60      0.00       8.49 r
+  data_cache_1/dcache_MSHR/U2815/Q (nnd3s2)               0.38      0.16       8.66 f
+  data_cache_1/dcache_MSHR/n1230 (net)          4                   0.00       8.66 f
+  data_cache_1/dcache_MSHR/U109/DIN2 (nnd2s2)             0.38      0.00       8.66 f
+  data_cache_1/dcache_MSHR/U109/Q (nnd2s2)                0.23      0.13       8.79 r
+  data_cache_1/dcache_MSHR/n32 (net)            2                   0.00       8.79 r
+  data_cache_1/dcache_MSHR/U690/DIN (ib1s1)               0.23      0.00       8.79 r
+  data_cache_1/dcache_MSHR/U690/Q (ib1s1)                 0.51      0.25       9.04 f
+  data_cache_1/dcache_MSHR/n324 (net)          11                   0.00       9.04 f
+  data_cache_1/dcache_MSHR/U2808/DIN1 (nnd2s2)            0.51      0.00       9.04 f
+  data_cache_1/dcache_MSHR/U2808/Q (nnd2s2)               0.23      0.13       9.17 r
+  data_cache_1/dcache_MSHR/n2221 (net)          2                   0.00       9.17 r
+  data_cache_1/dcache_MSHR/U681/DIN (ib1s1)               0.23      0.00       9.17 r
+  data_cache_1/dcache_MSHR/U681/Q (ib1s1)                 0.74      0.35       9.52 f
+  data_cache_1/dcache_MSHR/n5747 (net)         30                   0.00       9.52 f
+  data_cache_1/dcache_MSHR/U47/DIN1 (and2s2)              0.74      0.00       9.52 f
+  data_cache_1/dcache_MSHR/U47/Q (and2s2)                 0.14      0.25       9.78 f
+  data_cache_1/dcache_MSHR/n15 (net)            2                   0.00       9.78 f
+  data_cache_1/dcache_MSHR/U2806/DIN1 (nnd2s2)            0.14      0.00       9.78 f
+  data_cache_1/dcache_MSHR/U2806/Q (nnd2s2)               0.34      0.12       9.90 r
+  data_cache_1/dcache_MSHR/n1245 (net)          5                   0.00       9.90 r
+  data_cache_1/dcache_MSHR/U985/DIN1 (nor2s1)             0.34      0.00       9.90 r
+  data_cache_1/dcache_MSHR/U985/Q (nor2s1)                0.99      0.49      10.39 f
+  data_cache_1/dcache_MSHR/n47 (net)           11                   0.00      10.39 f
+  data_cache_1/dcache_MSHR/U108/DIN1 (and2s1)             0.99      0.00      10.39 f
+  data_cache_1/dcache_MSHR/U108/Q (and2s1)                0.28      0.41      10.80 f
+  data_cache_1/dcache_MSHR/n31 (net)            3                   0.00      10.80 f
+  data_cache_1/dcache_MSHR/U986/DIN1 (nnd2s2)             0.28      0.00      10.80 f
+  data_cache_1/dcache_MSHR/U986/Q (nnd2s2)                0.44      0.19      10.99 r
+  data_cache_1/dcache_MSHR/n1238 (net)         15                   0.00      10.99 r
+  data_cache_1/dcache_MSHR/U59/DIN1 (or2s1)               0.44      0.00      10.99 r
+  data_cache_1/dcache_MSHR/U59/Q (or2s1)                  0.21      0.21      11.21 r
+  data_cache_1/dcache_MSHR/n21 (net)            2                   0.00      11.21 r
+  data_cache_1/dcache_MSHR/U672/DIN (ib1s1)               0.21      0.00      11.21 r
+  data_cache_1/dcache_MSHR/U672/Q (ib1s1)                 0.73      0.34      11.55 f
+  data_cache_1/dcache_MSHR/n51 (net)           15                   0.00      11.55 f
+  data_cache_1/dcache_MSHR/U110/DIN1 (nnd2s2)             0.73      0.00      11.55 f
+  data_cache_1/dcache_MSHR/U110/Q (nnd2s2)                0.28      0.15      11.70 r
+  data_cache_1/dcache_MSHR/n33 (net)            2                   0.00      11.70 r
+  data_cache_1/dcache_MSHR/U699/DIN (ib1s1)               0.28      0.00      11.71 r
+  data_cache_1/dcache_MSHR/U699/Q (ib1s1)                 0.69      0.34      12.05 f
+  data_cache_1/dcache_MSHR/n315 (net)          14                   0.00      12.05 f
+  data_cache_1/dcache_MSHR/U988/DIN1 (and2s1)             0.69      0.00      12.05 f
+  data_cache_1/dcache_MSHR/U988/Q (and2s1)                0.25      0.34      12.39 f
+  data_cache_1/dcache_MSHR/n1535 (net)          3                   0.00      12.39 f
+  data_cache_1/dcache_MSHR/U2795/DIN1 (nnd2s2)            0.25      0.00      12.39 f
+  data_cache_1/dcache_MSHR/U2795/Q (nnd2s2)               0.25      0.11      12.50 r
+  data_cache_1/dcache_MSHR/n1536 (net)          4                   0.00      12.50 r
+  data_cache_1/dcache_MSHR/U302/DIN (ib1s1)               0.25      0.00      12.50 r
+  data_cache_1/dcache_MSHR/U302/Q (ib1s1)                 0.39      0.20      12.70 f
+  data_cache_1/dcache_MSHR/n64 (net)            6                   0.00      12.70 f
+  data_cache_1/dcache_MSHR/U2793/DIN1 (nnd2s2)            0.39      0.00      12.70 f
+  data_cache_1/dcache_MSHR/U2793/Q (nnd2s2)               0.27      0.13      12.83 r
+  data_cache_1/dcache_MSHR/n2624 (net)          2                   0.00      12.83 r
+  data_cache_1/dcache_MSHR/U174/DIN5 (or5s1)              0.27      0.00      12.83 r
+  data_cache_1/dcache_MSHR/U174/Q (or5s1)                 0.66      0.35      13.18 r
+  data_cache_1/dcache_MSHR/n1228 (net)          9                   0.00      13.18 r
+  data_cache_1/dcache_MSHR/U987/DIN (i1s3)                0.66      0.00      13.18 r
+  data_cache_1/dcache_MSHR/U987/Q (i1s3)                  0.70      0.37      13.55 f
+  data_cache_1/dcache_MSHR/n5733 (net)         29                   0.00      13.55 f
+  data_cache_1/dcache_MSHR/U479/DIN1 (aoi23s2)            0.70      0.00      13.56 f
+  data_cache_1/dcache_MSHR/U479/Q (aoi23s2)               0.37      0.14      13.70 r
+  data_cache_1/dcache_MSHR/n1274 (net)          1                   0.00      13.70 r
+  data_cache_1/dcache_MSHR/U478/DIN3 (oai1112s2)          0.37      0.00      13.70 r
+  data_cache_1/dcache_MSHR/U478/Q (oai1112s2)             0.29      0.08      13.77 f
+  data_cache_1/dcache_MSHR/n1271 (net)          1                   0.00      13.77 f
+  data_cache_1/dcache_MSHR/U477/DIN2 (aoi23s2)            0.29      0.00      13.78 f
+  data_cache_1/dcache_MSHR/U477/Q (aoi23s2)               0.35      0.09      13.87 r
+  data_cache_1/dcache_MSHR/n1270 (net)          1                   0.00      13.87 r
+  data_cache_1/dcache_MSHR/U476/DIN1 (oai13s2)            0.35      0.00      13.87 r
+  data_cache_1/dcache_MSHR/U476/Q (oai13s2)               0.57      0.10      13.97 f
+  data_cache_1/dcache_MSHR/n1267 (net)          1                   0.00      13.97 f
+  data_cache_1/dcache_MSHR/U475/DIN2 (oai13s2)            0.57      0.00      13.97 f
+  data_cache_1/dcache_MSHR/U475/Q (oai13s2)               0.39      0.18      14.15 r
+  data_cache_1/dcache_MSHR/n1265 (net)          1                   0.00      14.15 r
+  data_cache_1/dcache_MSHR/U473/DIN3 (oai211s2)           0.39      0.00      14.15 r
+  data_cache_1/dcache_MSHR/U473/Q (oai211s2)              0.38      0.10      14.25 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[7] (net)     1             0.00      14.25 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[7] (MSHR)                  0.00      14.25 f
+  data_cache_1/MSHR_proc2mem_addr[7] (net)                          0.00      14.25 f
+  data_cache_1/U704/DIN1 (aoi22s2)                        0.38      0.00      14.25 f
+  data_cache_1/U704/Q (aoi22s2)                           0.36      0.12      14.37 r
+  data_cache_1/n366 (net)                       1                   0.00      14.37 r
+  data_cache_1/U231/DIN (ib1s1)                           0.36      0.00      14.37 r
+  data_cache_1/U231/Q (ib1s1)                             0.65      0.33      14.70 f
+  data_cache_1/proc2mem_addr[7] (net)           5                   0.00      14.70 f
+  data_cache_1/D_cachemem/wr_addr[1][index][4] (cachemem_rw)        0.00      14.70 f
+  data_cache_1/D_cachemem/wr_addr[1][index][4] (net)                0.00      14.70 f
+  data_cache_1/D_cachemem/U4849/DIN2 (nor2s1)             0.65      0.00      14.70 f
+  data_cache_1/D_cachemem/U4849/Q (nor2s1)                1.03      0.45      15.15 r
+  data_cache_1/D_cachemem/n6299 (net)           8                   0.00      15.15 r
+  data_cache_1/D_cachemem/U8384/DIN2 (nnd2s2)             1.03      0.00      15.16 r
+  data_cache_1/D_cachemem/U8384/Q (nnd2s2)                0.47      0.18      15.33 f
+  data_cache_1/D_cachemem/n4141 (net)           7                   0.00      15.33 f
+  data_cache_1/D_cachemem/U263/DIN (ib1s1)                0.47      0.00      15.33 f
+  data_cache_1/D_cachemem/U263/Q (ib1s1)                  0.97      0.43      15.77 r
+  data_cache_1/D_cachemem/n21211 (net)         16                   0.00      15.77 r
+  data_cache_1/D_cachemem/U6456/DIN2 (nnd2s2)             0.97      0.00      15.77 r
+  data_cache_1/D_cachemem/U6456/Q (nnd2s2)                0.97      0.44      16.21 f
+  data_cache_1/D_cachemem/n4149 (net)          28                   0.00      16.21 f
+  data_cache_1/D_cachemem/U3102/DIN3 (oai21s2)            0.97      0.00      16.21 f
+  data_cache_1/D_cachemem/U3102/Q (oai21s2)               1.45      0.69      16.91 r
+  data_cache_1/D_cachemem/n4220 (net)          11                   0.00      16.91 r
+  data_cache_1/D_cachemem/U16/DIN (ib1s1)                 1.45      0.00      16.91 r
+  data_cache_1/D_cachemem/U16/Q (ib1s1)                   0.91      0.48      17.39 f
+  data_cache_1/D_cachemem/n21207 (net)         17                   0.00      17.39 f
+  data_cache_1/D_cachemem/U3284/DIN3 (oai21s2)            0.91      0.00      17.39 f
+  data_cache_1/D_cachemem/U3284/Q (oai21s2)               0.48      0.28      17.67 r
+  data_cache_1/D_cachemem/n4259 (net)           2                   0.00      17.67 r
+  data_cache_1/D_cachemem/U3377/DIN3 (aoi21s2)            0.48      0.00      17.67 r
+  data_cache_1/D_cachemem/U3377/Q (aoi21s2)               0.45      0.15      17.83 f
+  data_cache_1/D_cachemem/n5353 (net)           2                   0.00      17.83 f
+  data_cache_1/D_cachemem/U3253/DIN1 (oai22s2)            0.45      0.00      17.83 f
+  data_cache_1/D_cachemem/U3253/Q (oai22s2)               1.19      0.37      18.20 r
+  data_cache_1/D_cachemem/n5346 (net)           9                   0.00      18.20 r
+  data_cache_1/D_cachemem/U2133/DIN (ib1s1)               1.19      0.00      18.20 r
+  data_cache_1/D_cachemem/U2133/Q (ib1s1)                 0.60      0.29      18.50 f
+  data_cache_1/D_cachemem/n21203 (net)          9                   0.00      18.50 f
+  data_cache_1/D_cachemem/U884/DIN2 (nor2s1)              0.60      0.00      18.50 f
+  data_cache_1/D_cachemem/U884/Q (nor2s1)                 0.43      0.20      18.69 r
+  data_cache_1/D_cachemem/n5350 (net)           2                   0.00      18.69 r
+  data_cache_1/D_cachemem/U6408/DIN1 (nnd2s2)             0.43      0.00      18.70 r
+  data_cache_1/D_cachemem/U6408/Q (nnd2s2)                0.34      0.17      18.86 f
+  data_cache_1/D_cachemem/n5349 (net)           8                   0.00      18.86 f
+  data_cache_1/D_cachemem/U6403/DIN8 (oai2222s3)          0.34      0.00      18.86 f
+  data_cache_1/D_cachemem/U6403/Q (oai2222s3)             0.10      0.38      19.25 r
+  data_cache_1/D_cachemem/n10895 (net)          1                   0.00      19.25 r
+  data_cache_1/D_cachemem/data_reg[5][3]/CLRB (dffcs1)     0.10     0.00      19.25 r
+  data arrival time                                                           19.25
+
+  clock clock (rise edge)                                          20.00      20.00
+  clock network delay (ideal)                                       0.00      20.00
+  clock uncertainty                                                -0.10      19.90
+  data_cache_1/D_cachemem/data_reg[5][3]/CLK (dffcs1)               0.00      19.90 r
+  library setup time                                               -0.30      19.60
+  data required time                                                          19.60
+  ------------------------------------------------------------------------------------
+  data required time                                                          19.60
+  data arrival time                                                          -19.25
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.35
+
+
+  Startpoint: stores_ready[1][lsq_index][1]
+              (input port clocked by clock)
+  Endpoint: data_cache_1/D_cachemem/data_reg[5][4]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  lsq                tsmcwire              lec25dscc25_TT
+
+  Point                                       Fanout     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  input external delay                                              0.10       0.10 r
+  stores_ready[1][lsq_index][1] (in)                      0.45      0.12       0.22 r
+  N2786 (net)                                   7                   0.00       0.22 r
+  U32295/DIN (ib1s1)                                      0.45      0.00       0.22 r
+  U32295/Q (ib1s1)                                        0.42      0.23       0.45 f
+  n29716 (net)                                  8                   0.00       0.45 f
+  U46369/DIN1 (nor2s1)                                    0.42      0.00       0.45 f
+  U46369/Q (nor2s1)                                       0.42      0.19       0.64 r
+  n27639 (net)                                  4                   0.00       0.64 r
+  U46370/DIN4 (aoi22s1)                                   0.42      0.00       0.65 r
+  U46370/Q (aoi22s1)                                      0.35      0.17       0.82 f
+  n27632 (net)                                  1                   0.00       0.82 f
+  U46374/DIN1 (aoi21s1)                                   0.35      0.00       0.82 f
+  U46374/Q (aoi21s1)                                      0.25      0.13       0.95 r
+  n27636 (net)                                  1                   0.00       0.95 r
+  U46378/DIN1 (or2s1)                                     0.25      0.00       0.95 r
+  U46378/Q (or2s1)                                        0.14      0.16       1.11 r
+  N21314 (net)                                  1                   0.00       1.11 r
+  U32287/DIN1 (nor2s1)                                    0.14      0.00       1.11 r
+  U32287/Q (nor2s1)                                       0.34      0.19       1.30 f
+  n14506 (net)                                  3                   0.00       1.30 f
+  U29139/DIN (ib1s1)                                      0.34      0.00       1.30 f
+  U29139/Q (ib1s1)                                        0.19      0.09       1.39 r
+  n29713 (net)                                  1                   0.00       1.39 r
+  U12340/DIN2 (nnd3s2)                                    0.19      0.00       1.40 r
+  U12340/Q (nnd3s2)                                       0.23      0.09       1.49 f
+  n14504 (net)                                  3                   0.00       1.49 f
+  U18882/DIN2 (oai222s1)                                  0.23      0.00       1.49 f
+  U18882/Q (oai222s1)                                     0.82      0.35       1.84 r
+  N2792 (net)                                   5                   0.00       1.84 r
+  U27018/DIN (ib1s1)                                      0.82      0.00       1.84 r
+  U27018/Q (ib1s1)                                        0.43      0.21       2.06 f
+  n29706 (net)                                  8                   0.00       2.06 f
+  U25164/DIN1 (and2s1)                                    0.43      0.00       2.06 f
+  U25164/Q (and2s1)                                       0.14      0.23       2.29 f
+  n24427 (net)                                  2                   0.00       2.29 f
+  U44453/DIN1 (and2s1)                                    0.14      0.00       2.29 f
+  U44453/Q (and2s1)                                       0.51      0.36       2.65 f
+  n24700 (net)                                 10                   0.00       2.65 f
+  U23908/DIN (ib1s1)                                      0.51      0.00       2.65 f
+  U23908/Q (ib1s1)                                        0.20      0.10       2.75 r
+  n24739 (net)                                  1                   0.00       2.75 r
+  U24408/DIN (ib1s1)                                      0.20      0.00       2.75 r
+  U24408/Q (ib1s1)                                        0.36      0.18       2.93 f
+  n24740 (net)                                  9                   0.00       2.93 f
+  U44785/DIN2 (aoi22s1)                                   0.36      0.00       2.93 f
+  U44785/Q (aoi22s1)                                      0.33      0.14       3.08 r
+  n24701 (net)                                  1                   0.00       3.08 r
+  U44786/DIN4 (nnd4s1)                                    0.33      0.00       3.08 r
+  U44786/Q (nnd4s1)                                       0.25      0.12       3.21 f
+  N21328 (net)                                  1                   0.00       3.21 f
+  U13116/DIN1 (oai13s2)                                   0.25      0.00       3.21 f
+  U13116/Q (oai13s2)                                      0.59      0.18       3.38 r
+  n7056 (net)                                   3                   0.00       3.38 r
+  U29140/DIN (ib1s1)                                      0.59      0.00       3.38 r
+  U29140/Q (ib1s1)                                        0.82      0.43       3.81 f
+  n29705 (net)                                 31                   0.00       3.81 f
+  U23546/DIN (i1s1)                                       0.82      0.00       3.81 f
+  U23546/Q (i1s1)                                         0.36      0.18       4.00 r
+  n26235 (net)                                  2                   0.00       4.00 r
+  U27019/DIN (ib1s1)                                      0.36      0.00       4.00 r
+  U27019/Q (ib1s1)                                        0.49      0.26       4.26 f
+  n26233 (net)                                 20                   0.00       4.26 f
+  U24121/DIN2 (nnd2s2)                                    0.49      0.00       4.26 f
+  U24121/Q (nnd2s2)                                       0.22      0.13       4.39 r
+  n20425 (net)                                  1                   0.00       4.39 r
+  U29142/DIN (ib1s1)                                      0.22      0.00       4.39 r
+  U29142/Q (ib1s1)                                        0.79      0.37       4.76 f
+  n27430 (net)                                 10                   0.00       4.76 f
+  data_cache_1/str_w_addr[index][2] (dcache)                        0.00       4.76 f
+  data_cache_1/str_w_addr[index][2] (net)                           0.00       4.76 f
+  data_cache_1/D_cachemem/rd_idx[0][2] (cachemem_rw)                0.00       4.76 f
+  data_cache_1/D_cachemem/N564 (net)                                0.00       4.76 f
+  data_cache_1/D_cachemem/U4871/DIN (ib1s1)               0.79      0.00       4.76 f
+  data_cache_1/D_cachemem/U4871/Q (ib1s1)                 0.28      0.13       4.89 r
+  data_cache_1/D_cachemem/n13251 (net)          2                   0.00       4.89 r
+  data_cache_1/D_cachemem/U10921/DIN1 (nor2s1)            0.28      0.00       4.90 r
+  data_cache_1/D_cachemem/U10921/Q (nor2s1)               0.50      0.27       5.16 f
+  data_cache_1/D_cachemem/n196 (net)            4                   0.00       5.16 f
+  data_cache_1/D_cachemem/U38/DIN1 (nnd2s2)               0.50      0.00       5.17 f
+  data_cache_1/D_cachemem/U38/Q (nnd2s2)                  0.28      0.15       5.31 r
+  data_cache_1/D_cachemem/n13 (net)             3                   0.00       5.31 r
+  data_cache_1/D_cachemem/U951/DIN (ib1s1)                0.28      0.00       5.32 r
+  data_cache_1/D_cachemem/U951/Q (ib1s1)                  0.53      0.27       5.58 f
+  data_cache_1/D_cachemem/n13286 (net)         14                   0.00       5.58 f
+  data_cache_1/D_cachemem/U62/DIN (ib1s1)                 0.53      0.00       5.58 f
+  data_cache_1/D_cachemem/U62/Q (ib1s1)                   0.37      0.19       5.78 r
+  data_cache_1/D_cachemem/n13278 (net)          5                   0.00       5.78 r
+  data_cache_1/D_cachemem/U1120/DIN (ib1s1)               0.37      0.00       5.78 r
+  data_cache_1/D_cachemem/U1120/Q (ib1s1)                 0.87      0.43       6.21 f
+  data_cache_1/D_cachemem/n13284 (net)         25                   0.00       6.21 f
+  data_cache_1/D_cachemem/U11242/DIN2 (aoi22s1)           0.87      0.00       6.21 f
+  data_cache_1/D_cachemem/U11242/Q (aoi22s1)              0.44      0.22       6.43 r
+  data_cache_1/D_cachemem/n3010 (net)           1                   0.00       6.43 r
+  data_cache_1/D_cachemem/U11245/DIN2 (nnd4s1)            0.44      0.00       6.43 r
+  data_cache_1/D_cachemem/U11245/Q (nnd4s1)               0.27      0.11       6.54 f
+  data_cache_1/D_cachemem/n3081 (net)           1                   0.00       6.54 f
+  data_cache_1/D_cachemem/U11251/DIN1 (oai21s1)           0.27      0.00       6.54 f
+  data_cache_1/D_cachemem/U11251/Q (oai21s1)              0.29      0.13       6.67 r
+  data_cache_1/D_cachemem/n3083 (net)           1                   0.00       6.67 r
+  data_cache_1/D_cachemem/U11252/DIN3 (oai21s1)           0.29      0.00       6.67 r
+  data_cache_1/D_cachemem/U11252/Q (oai21s1)              0.42      0.16       6.84 f
+  data_cache_1/D_cachemem/N596 (net)            1                   0.00       6.84 f
+  data_cache_1/D_cachemem/U19230/DIN2 (xor2s1)            0.42      0.00       6.84 f
+  data_cache_1/D_cachemem/U19230/Q (xor2s1)               0.18      0.26       7.10 r
+  data_cache_1/D_cachemem/n21010 (net)          1                   0.00       7.10 r
+  data_cache_1/D_cachemem/U19233/DIN4 (nor6s1)            0.18      0.00       7.10 r
+  data_cache_1/D_cachemem/U19233/Q (nor6s1)               0.10      0.30       7.40 f
+  data_cache_1/D_cachemem/n21024 (net)          1                   0.00       7.40 f
+  data_cache_1/D_cachemem/U5579/DIN3 (and4s1)             0.10      0.00       7.40 f
+  data_cache_1/D_cachemem/U5579/Q (and4s1)                0.13      0.19       7.59 f
+  data_cache_1/D_cachemem/N607 (net)            1                   0.00       7.59 f
+  data_cache_1/D_cachemem/U5576/DIN1 (and2s1)             0.13      0.00       7.59 f
+  data_cache_1/D_cachemem/U5576/Q (and2s1)                0.19      0.21       7.80 f
+  data_cache_1/D_cachemem/rd_hit[0] (net)       2                   0.00       7.80 f
+  data_cache_1/D_cachemem/rd_hit[0] (cachemem_rw)                   0.00       7.80 f
+  data_cache_1/str_cachemem_hit (net)                               0.00       7.80 f
+  data_cache_1/U26/DIN2 (oai21s2)                         0.19      0.00       7.80 f
+  data_cache_1/U26/Q (oai21s2)                            0.46      0.18       7.98 r
+  data_cache_1/n274 (net)                       3                   0.00       7.98 r
+  data_cache_1/U97/DIN (ib1s1)                            0.46      0.00       7.98 r
+  data_cache_1/U97/Q (ib1s1)                              0.18      0.08       8.05 f
+  data_cache_1/n61 (net)                        1                   0.00       8.05 f
+  data_cache_1/U48/DIN (ib1s1)                            0.18      0.00       8.06 f
+  data_cache_1/U48/Q (ib1s1)                              0.30      0.13       8.19 r
+  data_cache_1/n54 (net)                        4                   0.00       8.19 r
+  data_cache_1/U63/DIN (i1s3)                             0.30      0.00       8.19 r
+  data_cache_1/U63/Q (i1s3)                               0.64      0.31       8.51 f
+  data_cache_1/proc2mem_command[1] (net)       31                   0.00       8.51 f
+  data_cache_1/dcache_MSHR/mem_busy (MSHR)                          0.00       8.51 f
+  data_cache_1/dcache_MSHR/mem_busy (net)                           0.00       8.51 f
+  data_cache_1/dcache_MSHR/U183/DIN (i1s3)                0.64      0.00       8.51 f
+  data_cache_1/dcache_MSHR/U183/Q (i1s3)                  0.60      0.30       8.82 r
+  data_cache_1/dcache_MSHR/n43 (net)           17                   0.00       8.82 r
+  data_cache_1/dcache_MSHR/U2815/DIN1 (nnd3s2)            0.60      0.00       8.82 r
+  data_cache_1/dcache_MSHR/U2815/Q (nnd3s2)               0.38      0.16       8.98 f
+  data_cache_1/dcache_MSHR/n1230 (net)          4                   0.00       8.98 f
+  data_cache_1/dcache_MSHR/U109/DIN2 (nnd2s2)             0.38      0.00       8.98 f
+  data_cache_1/dcache_MSHR/U109/Q (nnd2s2)                0.23      0.13       9.11 r
+  data_cache_1/dcache_MSHR/n32 (net)            2                   0.00       9.11 r
+  data_cache_1/dcache_MSHR/U690/DIN (ib1s1)               0.23      0.00       9.11 r
+  data_cache_1/dcache_MSHR/U690/Q (ib1s1)                 0.51      0.25       9.36 f
+  data_cache_1/dcache_MSHR/n324 (net)          11                   0.00       9.36 f
+  data_cache_1/dcache_MSHR/U2808/DIN1 (nnd2s2)            0.51      0.00       9.37 f
+  data_cache_1/dcache_MSHR/U2808/Q (nnd2s2)               0.23      0.13       9.49 r
+  data_cache_1/dcache_MSHR/n2221 (net)          2                   0.00       9.49 r
+  data_cache_1/dcache_MSHR/U681/DIN (ib1s1)               0.23      0.00       9.49 r
+  data_cache_1/dcache_MSHR/U681/Q (ib1s1)                 0.74      0.35       9.84 f
+  data_cache_1/dcache_MSHR/n5747 (net)         30                   0.00       9.84 f
+  data_cache_1/dcache_MSHR/U47/DIN1 (and2s2)              0.74      0.00       9.85 f
+  data_cache_1/dcache_MSHR/U47/Q (and2s2)                 0.14      0.25      10.10 f
+  data_cache_1/dcache_MSHR/n15 (net)            2                   0.00      10.10 f
+  data_cache_1/dcache_MSHR/U2806/DIN1 (nnd2s2)            0.14      0.00      10.10 f
+  data_cache_1/dcache_MSHR/U2806/Q (nnd2s2)               0.34      0.12      10.22 r
+  data_cache_1/dcache_MSHR/n1245 (net)          5                   0.00      10.22 r
+  data_cache_1/dcache_MSHR/U985/DIN1 (nor2s1)             0.34      0.00      10.22 r
+  data_cache_1/dcache_MSHR/U985/Q (nor2s1)                0.99      0.49      10.71 f
+  data_cache_1/dcache_MSHR/n47 (net)           11                   0.00      10.71 f
+  data_cache_1/dcache_MSHR/U108/DIN1 (and2s1)             0.99      0.00      10.71 f
+  data_cache_1/dcache_MSHR/U108/Q (and2s1)                0.28      0.41      11.12 f
+  data_cache_1/dcache_MSHR/n31 (net)            3                   0.00      11.12 f
+  data_cache_1/dcache_MSHR/U986/DIN1 (nnd2s2)             0.28      0.00      11.12 f
+  data_cache_1/dcache_MSHR/U986/Q (nnd2s2)                0.44      0.19      11.32 r
+  data_cache_1/dcache_MSHR/n1238 (net)         15                   0.00      11.32 r
+  data_cache_1/dcache_MSHR/U59/DIN1 (or2s1)               0.44      0.00      11.32 r
+  data_cache_1/dcache_MSHR/U59/Q (or2s1)                  0.21      0.21      11.53 r
+  data_cache_1/dcache_MSHR/n21 (net)            2                   0.00      11.53 r
+  data_cache_1/dcache_MSHR/U672/DIN (ib1s1)               0.21      0.00      11.53 r
+  data_cache_1/dcache_MSHR/U672/Q (ib1s1)                 0.73      0.34      11.88 f
+  data_cache_1/dcache_MSHR/n51 (net)           15                   0.00      11.88 f
+  data_cache_1/dcache_MSHR/U110/DIN1 (nnd2s2)             0.73      0.00      11.88 f
+  data_cache_1/dcache_MSHR/U110/Q (nnd2s2)                0.28      0.15      12.03 r
+  data_cache_1/dcache_MSHR/n33 (net)            2                   0.00      12.03 r
+  data_cache_1/dcache_MSHR/U699/DIN (ib1s1)               0.28      0.00      12.03 r
+  data_cache_1/dcache_MSHR/U699/Q (ib1s1)                 0.69      0.34      12.37 f
+  data_cache_1/dcache_MSHR/n315 (net)          14                   0.00      12.37 f
+  data_cache_1/dcache_MSHR/U988/DIN1 (and2s1)             0.69      0.00      12.37 f
+  data_cache_1/dcache_MSHR/U988/Q (and2s1)                0.25      0.34      12.71 f
+  data_cache_1/dcache_MSHR/n1535 (net)          3                   0.00      12.71 f
+  data_cache_1/dcache_MSHR/U2795/DIN1 (nnd2s2)            0.25      0.00      12.72 f
+  data_cache_1/dcache_MSHR/U2795/Q (nnd2s2)               0.25      0.11      12.82 r
+  data_cache_1/dcache_MSHR/n1536 (net)          4                   0.00      12.82 r
+  data_cache_1/dcache_MSHR/U302/DIN (ib1s1)               0.25      0.00      12.83 r
+  data_cache_1/dcache_MSHR/U302/Q (ib1s1)                 0.39      0.20      13.03 f
+  data_cache_1/dcache_MSHR/n64 (net)            6                   0.00      13.03 f
+  data_cache_1/dcache_MSHR/U2793/DIN1 (nnd2s2)            0.39      0.00      13.03 f
+  data_cache_1/dcache_MSHR/U2793/Q (nnd2s2)               0.27      0.13      13.16 r
+  data_cache_1/dcache_MSHR/n2624 (net)          2                   0.00      13.16 r
+  data_cache_1/dcache_MSHR/U174/DIN5 (or5s1)              0.27      0.00      13.16 r
+  data_cache_1/dcache_MSHR/U174/Q (or5s1)                 0.66      0.35      13.50 r
+  data_cache_1/dcache_MSHR/n1228 (net)          9                   0.00      13.50 r
+  data_cache_1/dcache_MSHR/U987/DIN (i1s3)                0.66      0.00      13.51 r
+  data_cache_1/dcache_MSHR/U987/Q (i1s3)                  0.70      0.37      13.88 f
+  data_cache_1/dcache_MSHR/n5733 (net)         29                   0.00      13.88 f
+  data_cache_1/dcache_MSHR/U479/DIN1 (aoi23s2)            0.70      0.00      13.88 f
+  data_cache_1/dcache_MSHR/U479/Q (aoi23s2)               0.37      0.14      14.02 r
+  data_cache_1/dcache_MSHR/n1274 (net)          1                   0.00      14.02 r
+  data_cache_1/dcache_MSHR/U478/DIN3 (oai1112s2)          0.37      0.00      14.02 r
+  data_cache_1/dcache_MSHR/U478/Q (oai1112s2)             0.29      0.08      14.10 f
+  data_cache_1/dcache_MSHR/n1271 (net)          1                   0.00      14.10 f
+  data_cache_1/dcache_MSHR/U477/DIN2 (aoi23s2)            0.29      0.00      14.10 f
+  data_cache_1/dcache_MSHR/U477/Q (aoi23s2)               0.35      0.09      14.19 r
+  data_cache_1/dcache_MSHR/n1270 (net)          1                   0.00      14.19 r
+  data_cache_1/dcache_MSHR/U476/DIN1 (oai13s2)            0.35      0.00      14.19 r
+  data_cache_1/dcache_MSHR/U476/Q (oai13s2)               0.57      0.10      14.29 f
+  data_cache_1/dcache_MSHR/n1267 (net)          1                   0.00      14.29 f
+  data_cache_1/dcache_MSHR/U475/DIN2 (oai13s2)            0.57      0.00      14.29 f
+  data_cache_1/dcache_MSHR/U475/Q (oai13s2)               0.39      0.18      14.47 r
+  data_cache_1/dcache_MSHR/n1265 (net)          1                   0.00      14.47 r
+  data_cache_1/dcache_MSHR/U473/DIN3 (oai211s2)           0.39      0.00      14.47 r
+  data_cache_1/dcache_MSHR/U473/Q (oai211s2)              0.38      0.10      14.57 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[7] (net)     1             0.00      14.57 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[7] (MSHR)                  0.00      14.57 f
+  data_cache_1/MSHR_proc2mem_addr[7] (net)                          0.00      14.57 f
+  data_cache_1/U704/DIN1 (aoi22s2)                        0.38      0.00      14.58 f
+  data_cache_1/U704/Q (aoi22s2)                           0.36      0.12      14.70 r
+  data_cache_1/n366 (net)                       1                   0.00      14.70 r
+  data_cache_1/U231/DIN (ib1s1)                           0.36      0.00      14.70 r
+  data_cache_1/U231/Q (ib1s1)                             0.65      0.33      15.03 f
+  data_cache_1/proc2mem_addr[7] (net)           5                   0.00      15.03 f
+  data_cache_1/D_cachemem/wr_addr[1][index][4] (cachemem_rw)        0.00      15.03 f
+  data_cache_1/D_cachemem/wr_addr[1][index][4] (net)                0.00      15.03 f
+  data_cache_1/D_cachemem/U4849/DIN2 (nor2s1)             0.65      0.00      15.03 f
+  data_cache_1/D_cachemem/U4849/Q (nor2s1)                1.03      0.45      15.48 r
+  data_cache_1/D_cachemem/n6299 (net)           8                   0.00      15.48 r
+  data_cache_1/D_cachemem/U8384/DIN2 (nnd2s2)             1.03      0.00      15.48 r
+  data_cache_1/D_cachemem/U8384/Q (nnd2s2)                0.47      0.18      15.66 f
+  data_cache_1/D_cachemem/n4141 (net)           7                   0.00      15.66 f
+  data_cache_1/D_cachemem/U263/DIN (ib1s1)                0.47      0.00      15.66 f
+  data_cache_1/D_cachemem/U263/Q (ib1s1)                  0.97      0.43      16.09 r
+  data_cache_1/D_cachemem/n21211 (net)         16                   0.00      16.09 r
+  data_cache_1/D_cachemem/U6456/DIN2 (nnd2s2)             0.97      0.00      16.09 r
+  data_cache_1/D_cachemem/U6456/Q (nnd2s2)                0.97      0.44      16.54 f
+  data_cache_1/D_cachemem/n4149 (net)          28                   0.00      16.54 f
+  data_cache_1/D_cachemem/U3102/DIN3 (oai21s2)            0.97      0.00      16.54 f
+  data_cache_1/D_cachemem/U3102/Q (oai21s2)               1.45      0.69      17.23 r
+  data_cache_1/D_cachemem/n4220 (net)          11                   0.00      17.23 r
+  data_cache_1/D_cachemem/U16/DIN (ib1s1)                 1.45      0.00      17.23 r
+  data_cache_1/D_cachemem/U16/Q (ib1s1)                   0.91      0.48      17.71 f
+  data_cache_1/D_cachemem/n21207 (net)         17                   0.00      17.71 f
+  data_cache_1/D_cachemem/U3284/DIN3 (oai21s2)            0.91      0.00      17.71 f
+  data_cache_1/D_cachemem/U3284/Q (oai21s2)               0.48      0.28      18.00 r
+  data_cache_1/D_cachemem/n4259 (net)           2                   0.00      18.00 r
+  data_cache_1/D_cachemem/U3377/DIN3 (aoi21s2)            0.48      0.00      18.00 r
+  data_cache_1/D_cachemem/U3377/Q (aoi21s2)               0.45      0.15      18.15 f
+  data_cache_1/D_cachemem/n5353 (net)           2                   0.00      18.15 f
+  data_cache_1/D_cachemem/U3253/DIN1 (oai22s2)            0.45      0.00      18.15 f
+  data_cache_1/D_cachemem/U3253/Q (oai22s2)               1.19      0.37      18.53 r
+  data_cache_1/D_cachemem/n5346 (net)           9                   0.00      18.53 r
+  data_cache_1/D_cachemem/U2133/DIN (ib1s1)               1.19      0.00      18.53 r
+  data_cache_1/D_cachemem/U2133/Q (ib1s1)                 0.60      0.29      18.82 f
+  data_cache_1/D_cachemem/n21203 (net)          9                   0.00      18.82 f
+  data_cache_1/D_cachemem/U884/DIN2 (nor2s1)              0.60      0.00      18.82 f
+  data_cache_1/D_cachemem/U884/Q (nor2s1)                 0.43      0.20      19.02 r
+  data_cache_1/D_cachemem/n5350 (net)           2                   0.00      19.02 r
+  data_cache_1/D_cachemem/U6408/DIN1 (nnd2s2)             0.43      0.00      19.02 r
+  data_cache_1/D_cachemem/U6408/Q (nnd2s2)                0.34      0.17      19.19 f
+  data_cache_1/D_cachemem/n5349 (net)           8                   0.00      19.19 f
+  data_cache_1/D_cachemem/U6404/DIN8 (oai2222s3)          0.34      0.00      19.19 f
+  data_cache_1/D_cachemem/U6404/Q (oai2222s3)             0.10      0.38      19.57 r
+  data_cache_1/D_cachemem/n10896 (net)          1                   0.00      19.57 r
+  data_cache_1/D_cachemem/data_reg[5][4]/CLRB (dffcs1)     0.10     0.00      19.57 r
+  data arrival time                                                           19.57
+
+  clock clock (rise edge)                                          20.00      20.00
+  clock network delay (ideal)                                       0.00      20.00
+  clock uncertainty                                                -0.10      19.90
+  data_cache_1/D_cachemem/data_reg[5][4]/CLK (dffcs1)               0.00      19.90 r
+  library setup time                                               -0.30      19.60
+  data required time                                                          19.60
+  ------------------------------------------------------------------------------------
+  data required time                                                          19.60
+  data arrival time                                                          -19.57
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.03
+
+
+  Startpoint: stores_ready[1][lsq_index][1]
+              (input port clocked by clock)
+  Endpoint: data_cache_1/D_cachemem/data_reg[5][3]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  lsq                tsmcwire              lec25dscc25_TT
+
+  Point                                       Fanout     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clock (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  input external delay                                              0.10       0.10 r
+  stores_ready[1][lsq_index][1] (in)                      0.45      0.12       0.22 r
+  N2786 (net)                                   7                   0.00       0.22 r
+  U32295/DIN (ib1s1)                                      0.45      0.00       0.22 r
+  U32295/Q (ib1s1)                                        0.42      0.23       0.45 f
+  n29716 (net)                                  8                   0.00       0.45 f
+  U46369/DIN1 (nor2s1)                                    0.42      0.00       0.45 f
+  U46369/Q (nor2s1)                                       0.42      0.19       0.64 r
+  n27639 (net)                                  4                   0.00       0.64 r
+  U46370/DIN4 (aoi22s1)                                   0.42      0.00       0.65 r
+  U46370/Q (aoi22s1)                                      0.35      0.17       0.82 f
+  n27632 (net)                                  1                   0.00       0.82 f
+  U46374/DIN1 (aoi21s1)                                   0.35      0.00       0.82 f
+  U46374/Q (aoi21s1)                                      0.25      0.13       0.95 r
+  n27636 (net)                                  1                   0.00       0.95 r
+  U46378/DIN1 (or2s1)                                     0.25      0.00       0.95 r
+  U46378/Q (or2s1)                                        0.14      0.16       1.11 r
+  N21314 (net)                                  1                   0.00       1.11 r
+  U32287/DIN1 (nor2s1)                                    0.14      0.00       1.11 r
+  U32287/Q (nor2s1)                                       0.34      0.19       1.30 f
+  n14506 (net)                                  3                   0.00       1.30 f
+  U29139/DIN (ib1s1)                                      0.34      0.00       1.30 f
+  U29139/Q (ib1s1)                                        0.19      0.09       1.39 r
+  n29713 (net)                                  1                   0.00       1.39 r
+  U12340/DIN2 (nnd3s2)                                    0.19      0.00       1.40 r
+  U12340/Q (nnd3s2)                                       0.23      0.09       1.49 f
+  n14504 (net)                                  3                   0.00       1.49 f
+  U18882/DIN2 (oai222s1)                                  0.23      0.00       1.49 f
+  U18882/Q (oai222s1)                                     0.82      0.35       1.84 r
+  N2792 (net)                                   5                   0.00       1.84 r
+  U27018/DIN (ib1s1)                                      0.82      0.00       1.84 r
+  U27018/Q (ib1s1)                                        0.43      0.21       2.06 f
+  n29706 (net)                                  8                   0.00       2.06 f
+  U25164/DIN1 (and2s1)                                    0.43      0.00       2.06 f
+  U25164/Q (and2s1)                                       0.14      0.23       2.29 f
+  n24427 (net)                                  2                   0.00       2.29 f
+  U44453/DIN1 (and2s1)                                    0.14      0.00       2.29 f
+  U44453/Q (and2s1)                                       0.51      0.36       2.65 f
+  n24700 (net)                                 10                   0.00       2.65 f
+  U23908/DIN (ib1s1)                                      0.51      0.00       2.65 f
+  U23908/Q (ib1s1)                                        0.20      0.10       2.75 r
+  n24739 (net)                                  1                   0.00       2.75 r
+  U24408/DIN (ib1s1)                                      0.20      0.00       2.75 r
+  U24408/Q (ib1s1)                                        0.36      0.18       2.93 f
+  n24740 (net)                                  9                   0.00       2.93 f
+  U44785/DIN2 (aoi22s1)                                   0.36      0.00       2.93 f
+  U44785/Q (aoi22s1)                                      0.33      0.14       3.08 r
+  n24701 (net)                                  1                   0.00       3.08 r
+  U44786/DIN4 (nnd4s1)                                    0.33      0.00       3.08 r
+  U44786/Q (nnd4s1)                                       0.25      0.12       3.21 f
+  N21328 (net)                                  1                   0.00       3.21 f
+  U13116/DIN1 (oai13s2)                                   0.25      0.00       3.21 f
+  U13116/Q (oai13s2)                                      0.59      0.18       3.38 r
+  n7056 (net)                                   3                   0.00       3.38 r
+  U29140/DIN (ib1s1)                                      0.59      0.00       3.38 r
+  U29140/Q (ib1s1)                                        0.82      0.43       3.81 f
+  n29705 (net)                                 31                   0.00       3.81 f
+  U23546/DIN (i1s1)                                       0.82      0.00       3.81 f
+  U23546/Q (i1s1)                                         0.36      0.18       4.00 r
+  n26235 (net)                                  2                   0.00       4.00 r
+  U27019/DIN (ib1s1)                                      0.36      0.00       4.00 r
+  U27019/Q (ib1s1)                                        0.49      0.26       4.26 f
+  n26233 (net)                                 20                   0.00       4.26 f
+  U24121/DIN2 (nnd2s2)                                    0.49      0.00       4.26 f
+  U24121/Q (nnd2s2)                                       0.22      0.13       4.39 r
+  n20425 (net)                                  1                   0.00       4.39 r
+  U29142/DIN (ib1s1)                                      0.22      0.00       4.39 r
+  U29142/Q (ib1s1)                                        0.79      0.37       4.76 f
+  n27430 (net)                                 10                   0.00       4.76 f
+  data_cache_1/str_w_addr[index][2] (dcache)                        0.00       4.76 f
+  data_cache_1/str_w_addr[index][2] (net)                           0.00       4.76 f
+  data_cache_1/D_cachemem/rd_idx[0][2] (cachemem_rw)                0.00       4.76 f
+  data_cache_1/D_cachemem/N564 (net)                                0.00       4.76 f
+  data_cache_1/D_cachemem/U4871/DIN (ib1s1)               0.79      0.00       4.76 f
+  data_cache_1/D_cachemem/U4871/Q (ib1s1)                 0.28      0.13       4.89 r
+  data_cache_1/D_cachemem/n13251 (net)          2                   0.00       4.89 r
+  data_cache_1/D_cachemem/U10921/DIN1 (nor2s1)            0.28      0.00       4.90 r
+  data_cache_1/D_cachemem/U10921/Q (nor2s1)               0.50      0.27       5.16 f
+  data_cache_1/D_cachemem/n196 (net)            4                   0.00       5.16 f
+  data_cache_1/D_cachemem/U38/DIN1 (nnd2s2)               0.50      0.00       5.17 f
+  data_cache_1/D_cachemem/U38/Q (nnd2s2)                  0.28      0.15       5.31 r
+  data_cache_1/D_cachemem/n13 (net)             3                   0.00       5.31 r
+  data_cache_1/D_cachemem/U951/DIN (ib1s1)                0.28      0.00       5.32 r
+  data_cache_1/D_cachemem/U951/Q (ib1s1)                  0.53      0.27       5.58 f
+  data_cache_1/D_cachemem/n13286 (net)         14                   0.00       5.58 f
+  data_cache_1/D_cachemem/U62/DIN (ib1s1)                 0.53      0.00       5.58 f
+  data_cache_1/D_cachemem/U62/Q (ib1s1)                   0.37      0.19       5.78 r
+  data_cache_1/D_cachemem/n13278 (net)          5                   0.00       5.78 r
+  data_cache_1/D_cachemem/U1120/DIN (ib1s1)               0.37      0.00       5.78 r
+  data_cache_1/D_cachemem/U1120/Q (ib1s1)                 0.87      0.43       6.21 f
+  data_cache_1/D_cachemem/n13284 (net)         25                   0.00       6.21 f
+  data_cache_1/D_cachemem/U11242/DIN2 (aoi22s1)           0.87      0.00       6.21 f
+  data_cache_1/D_cachemem/U11242/Q (aoi22s1)              0.44      0.22       6.43 r
+  data_cache_1/D_cachemem/n3010 (net)           1                   0.00       6.43 r
+  data_cache_1/D_cachemem/U11245/DIN2 (nnd4s1)            0.44      0.00       6.43 r
+  data_cache_1/D_cachemem/U11245/Q (nnd4s1)               0.27      0.11       6.54 f
+  data_cache_1/D_cachemem/n3081 (net)           1                   0.00       6.54 f
+  data_cache_1/D_cachemem/U11251/DIN1 (oai21s1)           0.27      0.00       6.54 f
+  data_cache_1/D_cachemem/U11251/Q (oai21s1)              0.29      0.13       6.67 r
+  data_cache_1/D_cachemem/n3083 (net)           1                   0.00       6.67 r
+  data_cache_1/D_cachemem/U11252/DIN3 (oai21s1)           0.29      0.00       6.67 r
+  data_cache_1/D_cachemem/U11252/Q (oai21s1)              0.42      0.16       6.84 f
+  data_cache_1/D_cachemem/N596 (net)            1                   0.00       6.84 f
+  data_cache_1/D_cachemem/U19230/DIN2 (xor2s1)            0.42      0.00       6.84 f
+  data_cache_1/D_cachemem/U19230/Q (xor2s1)               0.18      0.26       7.10 r
+  data_cache_1/D_cachemem/n21010 (net)          1                   0.00       7.10 r
+  data_cache_1/D_cachemem/U19233/DIN4 (nor6s1)            0.18      0.00       7.10 r
+  data_cache_1/D_cachemem/U19233/Q (nor6s1)               0.10      0.30       7.40 f
+  data_cache_1/D_cachemem/n21024 (net)          1                   0.00       7.40 f
+  data_cache_1/D_cachemem/U5579/DIN3 (and4s1)             0.10      0.00       7.40 f
+  data_cache_1/D_cachemem/U5579/Q (and4s1)                0.13      0.19       7.59 f
+  data_cache_1/D_cachemem/N607 (net)            1                   0.00       7.59 f
+  data_cache_1/D_cachemem/U5576/DIN1 (and2s1)             0.13      0.00       7.59 f
+  data_cache_1/D_cachemem/U5576/Q (and2s1)                0.19      0.21       7.80 f
+  data_cache_1/D_cachemem/rd_hit[0] (net)       2                   0.00       7.80 f
+  data_cache_1/D_cachemem/rd_hit[0] (cachemem_rw)                   0.00       7.80 f
+  data_cache_1/str_cachemem_hit (net)                               0.00       7.80 f
+  data_cache_1/U26/DIN2 (oai21s2)                         0.19      0.00       7.80 f
+  data_cache_1/U26/Q (oai21s2)                            0.46      0.18       7.98 r
+  data_cache_1/n274 (net)                       3                   0.00       7.98 r
+  data_cache_1/U97/DIN (ib1s1)                            0.46      0.00       7.98 r
+  data_cache_1/U97/Q (ib1s1)                              0.18      0.08       8.05 f
+  data_cache_1/n61 (net)                        1                   0.00       8.05 f
+  data_cache_1/U48/DIN (ib1s1)                            0.18      0.00       8.06 f
+  data_cache_1/U48/Q (ib1s1)                              0.30      0.13       8.19 r
+  data_cache_1/n54 (net)                        4                   0.00       8.19 r
+  data_cache_1/U63/DIN (i1s3)                             0.30      0.00       8.19 r
+  data_cache_1/U63/Q (i1s3)                               0.64      0.31       8.51 f
+  data_cache_1/proc2mem_command[1] (net)       31                   0.00       8.51 f
+  data_cache_1/dcache_MSHR/mem_busy (MSHR)                          0.00       8.51 f
+  data_cache_1/dcache_MSHR/mem_busy (net)                           0.00       8.51 f
+  data_cache_1/dcache_MSHR/U183/DIN (i1s3)                0.64      0.00       8.51 f
+  data_cache_1/dcache_MSHR/U183/Q (i1s3)                  0.60      0.30       8.82 r
+  data_cache_1/dcache_MSHR/n43 (net)           17                   0.00       8.82 r
+  data_cache_1/dcache_MSHR/U2815/DIN1 (nnd3s2)            0.60      0.00       8.82 r
+  data_cache_1/dcache_MSHR/U2815/Q (nnd3s2)               0.38      0.16       8.98 f
+  data_cache_1/dcache_MSHR/n1230 (net)          4                   0.00       8.98 f
+  data_cache_1/dcache_MSHR/U109/DIN2 (nnd2s2)             0.38      0.00       8.98 f
+  data_cache_1/dcache_MSHR/U109/Q (nnd2s2)                0.23      0.13       9.11 r
+  data_cache_1/dcache_MSHR/n32 (net)            2                   0.00       9.11 r
+  data_cache_1/dcache_MSHR/U690/DIN (ib1s1)               0.23      0.00       9.11 r
+  data_cache_1/dcache_MSHR/U690/Q (ib1s1)                 0.51      0.25       9.36 f
+  data_cache_1/dcache_MSHR/n324 (net)          11                   0.00       9.36 f
+  data_cache_1/dcache_MSHR/U2808/DIN1 (nnd2s2)            0.51      0.00       9.37 f
+  data_cache_1/dcache_MSHR/U2808/Q (nnd2s2)               0.23      0.13       9.49 r
+  data_cache_1/dcache_MSHR/n2221 (net)          2                   0.00       9.49 r
+  data_cache_1/dcache_MSHR/U681/DIN (ib1s1)               0.23      0.00       9.49 r
+  data_cache_1/dcache_MSHR/U681/Q (ib1s1)                 0.74      0.35       9.84 f
+  data_cache_1/dcache_MSHR/n5747 (net)         30                   0.00       9.84 f
+  data_cache_1/dcache_MSHR/U47/DIN1 (and2s2)              0.74      0.00       9.85 f
+  data_cache_1/dcache_MSHR/U47/Q (and2s2)                 0.14      0.25      10.10 f
+  data_cache_1/dcache_MSHR/n15 (net)            2                   0.00      10.10 f
+  data_cache_1/dcache_MSHR/U2806/DIN1 (nnd2s2)            0.14      0.00      10.10 f
+  data_cache_1/dcache_MSHR/U2806/Q (nnd2s2)               0.34      0.12      10.22 r
+  data_cache_1/dcache_MSHR/n1245 (net)          5                   0.00      10.22 r
+  data_cache_1/dcache_MSHR/U985/DIN1 (nor2s1)             0.34      0.00      10.22 r
+  data_cache_1/dcache_MSHR/U985/Q (nor2s1)                0.99      0.49      10.71 f
+  data_cache_1/dcache_MSHR/n47 (net)           11                   0.00      10.71 f
+  data_cache_1/dcache_MSHR/U108/DIN1 (and2s1)             0.99      0.00      10.71 f
+  data_cache_1/dcache_MSHR/U108/Q (and2s1)                0.28      0.41      11.12 f
+  data_cache_1/dcache_MSHR/n31 (net)            3                   0.00      11.12 f
+  data_cache_1/dcache_MSHR/U986/DIN1 (nnd2s2)             0.28      0.00      11.12 f
+  data_cache_1/dcache_MSHR/U986/Q (nnd2s2)                0.44      0.19      11.32 r
+  data_cache_1/dcache_MSHR/n1238 (net)         15                   0.00      11.32 r
+  data_cache_1/dcache_MSHR/U59/DIN1 (or2s1)               0.44      0.00      11.32 r
+  data_cache_1/dcache_MSHR/U59/Q (or2s1)                  0.21      0.21      11.53 r
+  data_cache_1/dcache_MSHR/n21 (net)            2                   0.00      11.53 r
+  data_cache_1/dcache_MSHR/U672/DIN (ib1s1)               0.21      0.00      11.53 r
+  data_cache_1/dcache_MSHR/U672/Q (ib1s1)                 0.73      0.34      11.88 f
+  data_cache_1/dcache_MSHR/n51 (net)           15                   0.00      11.88 f
+  data_cache_1/dcache_MSHR/U110/DIN1 (nnd2s2)             0.73      0.00      11.88 f
+  data_cache_1/dcache_MSHR/U110/Q (nnd2s2)                0.28      0.15      12.03 r
+  data_cache_1/dcache_MSHR/n33 (net)            2                   0.00      12.03 r
+  data_cache_1/dcache_MSHR/U699/DIN (ib1s1)               0.28      0.00      12.03 r
+  data_cache_1/dcache_MSHR/U699/Q (ib1s1)                 0.69      0.34      12.37 f
+  data_cache_1/dcache_MSHR/n315 (net)          14                   0.00      12.37 f
+  data_cache_1/dcache_MSHR/U988/DIN1 (and2s1)             0.69      0.00      12.37 f
+  data_cache_1/dcache_MSHR/U988/Q (and2s1)                0.25      0.34      12.71 f
+  data_cache_1/dcache_MSHR/n1535 (net)          3                   0.00      12.71 f
+  data_cache_1/dcache_MSHR/U2795/DIN1 (nnd2s2)            0.25      0.00      12.72 f
+  data_cache_1/dcache_MSHR/U2795/Q (nnd2s2)               0.25      0.11      12.82 r
+  data_cache_1/dcache_MSHR/n1536 (net)          4                   0.00      12.82 r
+  data_cache_1/dcache_MSHR/U302/DIN (ib1s1)               0.25      0.00      12.83 r
+  data_cache_1/dcache_MSHR/U302/Q (ib1s1)                 0.39      0.20      13.03 f
+  data_cache_1/dcache_MSHR/n64 (net)            6                   0.00      13.03 f
+  data_cache_1/dcache_MSHR/U2793/DIN1 (nnd2s2)            0.39      0.00      13.03 f
+  data_cache_1/dcache_MSHR/U2793/Q (nnd2s2)               0.27      0.13      13.16 r
+  data_cache_1/dcache_MSHR/n2624 (net)          2                   0.00      13.16 r
+  data_cache_1/dcache_MSHR/U174/DIN5 (or5s1)              0.27      0.00      13.16 r
+  data_cache_1/dcache_MSHR/U174/Q (or5s1)                 0.66      0.35      13.50 r
+  data_cache_1/dcache_MSHR/n1228 (net)          9                   0.00      13.50 r
+  data_cache_1/dcache_MSHR/U987/DIN (i1s3)                0.66      0.00      13.51 r
+  data_cache_1/dcache_MSHR/U987/Q (i1s3)                  0.70      0.37      13.88 f
+  data_cache_1/dcache_MSHR/n5733 (net)         29                   0.00      13.88 f
+  data_cache_1/dcache_MSHR/U479/DIN1 (aoi23s2)            0.70      0.00      13.88 f
+  data_cache_1/dcache_MSHR/U479/Q (aoi23s2)               0.37      0.14      14.02 r
+  data_cache_1/dcache_MSHR/n1274 (net)          1                   0.00      14.02 r
+  data_cache_1/dcache_MSHR/U478/DIN3 (oai1112s2)          0.37      0.00      14.02 r
+  data_cache_1/dcache_MSHR/U478/Q (oai1112s2)             0.29      0.08      14.10 f
+  data_cache_1/dcache_MSHR/n1271 (net)          1                   0.00      14.10 f
+  data_cache_1/dcache_MSHR/U477/DIN2 (aoi23s2)            0.29      0.00      14.10 f
+  data_cache_1/dcache_MSHR/U477/Q (aoi23s2)               0.35      0.09      14.19 r
+  data_cache_1/dcache_MSHR/n1270 (net)          1                   0.00      14.19 r
+  data_cache_1/dcache_MSHR/U476/DIN1 (oai13s2)            0.35      0.00      14.19 r
+  data_cache_1/dcache_MSHR/U476/Q (oai13s2)               0.57      0.10      14.29 f
+  data_cache_1/dcache_MSHR/n1267 (net)          1                   0.00      14.29 f
+  data_cache_1/dcache_MSHR/U475/DIN2 (oai13s2)            0.57      0.00      14.29 f
+  data_cache_1/dcache_MSHR/U475/Q (oai13s2)               0.39      0.18      14.47 r
+  data_cache_1/dcache_MSHR/n1265 (net)          1                   0.00      14.47 r
+  data_cache_1/dcache_MSHR/U473/DIN3 (oai211s2)           0.39      0.00      14.47 r
+  data_cache_1/dcache_MSHR/U473/Q (oai211s2)              0.38      0.10      14.57 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[7] (net)     1             0.00      14.57 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[7] (MSHR)                  0.00      14.57 f
+  data_cache_1/MSHR_proc2mem_addr[7] (net)                          0.00      14.57 f
+  data_cache_1/U704/DIN1 (aoi22s2)                        0.38      0.00      14.58 f
+  data_cache_1/U704/Q (aoi22s2)                           0.36      0.12      14.70 r
+  data_cache_1/n366 (net)                       1                   0.00      14.70 r
+  data_cache_1/U231/DIN (ib1s1)                           0.36      0.00      14.70 r
+  data_cache_1/U231/Q (ib1s1)                             0.65      0.33      15.03 f
+  data_cache_1/proc2mem_addr[7] (net)           5                   0.00      15.03 f
+  data_cache_1/D_cachemem/wr_addr[1][index][4] (cachemem_rw)        0.00      15.03 f
+  data_cache_1/D_cachemem/wr_addr[1][index][4] (net)                0.00      15.03 f
+  data_cache_1/D_cachemem/U4849/DIN2 (nor2s1)             0.65      0.00      15.03 f
+  data_cache_1/D_cachemem/U4849/Q (nor2s1)                1.03      0.45      15.48 r
+  data_cache_1/D_cachemem/n6299 (net)           8                   0.00      15.48 r
+  data_cache_1/D_cachemem/U8384/DIN2 (nnd2s2)             1.03      0.00      15.48 r
+  data_cache_1/D_cachemem/U8384/Q (nnd2s2)                0.47      0.18      15.66 f
+  data_cache_1/D_cachemem/n4141 (net)           7                   0.00      15.66 f
+  data_cache_1/D_cachemem/U263/DIN (ib1s1)                0.47      0.00      15.66 f
+  data_cache_1/D_cachemem/U263/Q (ib1s1)                  0.97      0.43      16.09 r
+  data_cache_1/D_cachemem/n21211 (net)         16                   0.00      16.09 r
+  data_cache_1/D_cachemem/U6456/DIN2 (nnd2s2)             0.97      0.00      16.09 r
+  data_cache_1/D_cachemem/U6456/Q (nnd2s2)                0.97      0.44      16.54 f
+  data_cache_1/D_cachemem/n4149 (net)          28                   0.00      16.54 f
+  data_cache_1/D_cachemem/U3102/DIN3 (oai21s2)            0.97      0.00      16.54 f
+  data_cache_1/D_cachemem/U3102/Q (oai21s2)               1.45      0.69      17.23 r
+  data_cache_1/D_cachemem/n4220 (net)          11                   0.00      17.23 r
+  data_cache_1/D_cachemem/U16/DIN (ib1s1)                 1.45      0.00      17.23 r
+  data_cache_1/D_cachemem/U16/Q (ib1s1)                   0.91      0.48      17.71 f
+  data_cache_1/D_cachemem/n21207 (net)         17                   0.00      17.71 f
+  data_cache_1/D_cachemem/U3284/DIN3 (oai21s2)            0.91      0.00      17.71 f
+  data_cache_1/D_cachemem/U3284/Q (oai21s2)               0.48      0.28      18.00 r
+  data_cache_1/D_cachemem/n4259 (net)           2                   0.00      18.00 r
+  data_cache_1/D_cachemem/U3377/DIN3 (aoi21s2)            0.48      0.00      18.00 r
+  data_cache_1/D_cachemem/U3377/Q (aoi21s2)               0.45      0.15      18.15 f
+  data_cache_1/D_cachemem/n5353 (net)           2                   0.00      18.15 f
+  data_cache_1/D_cachemem/U3253/DIN1 (oai22s2)            0.45      0.00      18.15 f
+  data_cache_1/D_cachemem/U3253/Q (oai22s2)               1.19      0.37      18.53 r
+  data_cache_1/D_cachemem/n5346 (net)           9                   0.00      18.53 r
+  data_cache_1/D_cachemem/U2133/DIN (ib1s1)               1.19      0.00      18.53 r
+  data_cache_1/D_cachemem/U2133/Q (ib1s1)                 0.60      0.29      18.82 f
+  data_cache_1/D_cachemem/n21203 (net)          9                   0.00      18.82 f
+  data_cache_1/D_cachemem/U884/DIN2 (nor2s1)              0.60      0.00      18.82 f
+  data_cache_1/D_cachemem/U884/Q (nor2s1)                 0.43      0.20      19.02 r
+  data_cache_1/D_cachemem/n5350 (net)           2                   0.00      19.02 r
+  data_cache_1/D_cachemem/U6408/DIN1 (nnd2s2)             0.43      0.00      19.02 r
+  data_cache_1/D_cachemem/U6408/Q (nnd2s2)                0.34      0.17      19.19 f
+  data_cache_1/D_cachemem/n5349 (net)           8                   0.00      19.19 f
+  data_cache_1/D_cachemem/U6403/DIN8 (oai2222s3)          0.34      0.00      19.19 f
+  data_cache_1/D_cachemem/U6403/Q (oai2222s3)             0.10      0.38      19.57 r
+  data_cache_1/D_cachemem/n10895 (net)          1                   0.00      19.57 r
+  data_cache_1/D_cachemem/data_reg[5][3]/CLRB (dffcs1)     0.10     0.00      19.57 r
+  data arrival time                                                           19.57
+
+  clock clock (rise edge)                                          20.00      20.00
+  clock network delay (ideal)                                       0.00      20.00
+  clock uncertainty                                                -0.10      19.90
+  data_cache_1/D_cachemem/data_reg[5][3]/CLK (dffcs1)               0.00      19.90 r
+  library setup time                                               -0.30      19.60
+  data required time                                                          19.60
+  ------------------------------------------------------------------------------------
+  data required time                                                          19.60
+  data arrival time                                                          -19.57
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.03
+
+
+  Startpoint: store_queue_reg[1][out_ready]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: proc2mem_addr[tag][17]
+            (output port clocked by clock)
+  Path Group: output_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  lsq                tsmcwire              lec25dscc25_TT
+
+  Point                                       Fanout     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  store_queue_reg[1][out_ready]/CLK (dffcs2)              0.00      0.00 #     0.00 r
+  store_queue_reg[1][out_ready]/QN (dffcs2)               0.15      0.15       0.15 f
+  n4964 (net)                                   1                   0.00       0.15 f
+  store_queue_reg[1][out_ready]/Q (dffcs2)                0.36      0.15       0.31 r
+  store_queue[1][out_ready] (net)               5                   0.00       0.31 r
+  U46355/DIN3 (aoi22s1)                                   0.36      0.00       0.31 r
+  U46355/Q (aoi22s1)                                      0.36      0.18       0.49 f
+  n27614 (net)                                  1                   0.00       0.49 f
+  U46356/DIN2 (aoi21s1)                                   0.36      0.00       0.49 f
+  U46356/Q (aoi21s1)                                      0.25      0.12       0.61 r
+  n27619 (net)                                  1                   0.00       0.61 r
+  U46360/DIN1 (or2s1)                                     0.25      0.00       0.61 r
+  U46360/Q (or2s1)                                        0.14      0.16       0.77 r
+  N21321 (net)                                  1                   0.00       0.77 r
+  U32289/DIN1 (nor2s1)                                    0.14      0.00       0.77 r
+  U32289/Q (nor2s1)                                       0.26      0.15       0.91 f
+  n14508 (net)                                  2                   0.00       0.91 f
+  U29141/DIN (ib1s1)                                      0.26      0.00       0.92 f
+  U29141/Q (ib1s1)                                        0.32      0.15       1.07 r
+  n29718 (net)                                  5                   0.00       1.07 r
+  U12340/DIN1 (nnd3s2)                                    0.32      0.00       1.07 r
+  U12340/Q (nnd3s2)                                       0.23      0.10       1.16 f
+  n14504 (net)                                  3                   0.00       1.16 f
+  U18882/DIN2 (oai222s1)                                  0.23      0.00       1.16 f
+  U18882/Q (oai222s1)                                     0.82      0.35       1.52 r
+  N2792 (net)                                   5                   0.00       1.52 r
+  U27018/DIN (ib1s1)                                      0.82      0.00       1.52 r
+  U27018/Q (ib1s1)                                        0.43      0.21       1.73 f
+  n29706 (net)                                  8                   0.00       1.73 f
+  U25164/DIN1 (and2s1)                                    0.43      0.00       1.73 f
+  U25164/Q (and2s1)                                       0.14      0.23       1.96 f
+  n24427 (net)                                  2                   0.00       1.96 f
+  U44453/DIN1 (and2s1)                                    0.14      0.00       1.96 f
+  U44453/Q (and2s1)                                       0.51      0.36       2.32 f
+  n24700 (net)                                 10                   0.00       2.32 f
+  U23908/DIN (ib1s1)                                      0.51      0.00       2.33 f
+  U23908/Q (ib1s1)                                        0.20      0.10       2.42 r
+  n24739 (net)                                  1                   0.00       2.42 r
+  U24408/DIN (ib1s1)                                      0.20      0.00       2.43 r
+  U24408/Q (ib1s1)                                        0.36      0.18       2.61 f
+  n24740 (net)                                  9                   0.00       2.61 f
+  U44785/DIN2 (aoi22s1)                                   0.36      0.00       2.61 f
+  U44785/Q (aoi22s1)                                      0.33      0.14       2.76 r
+  n24701 (net)                                  1                   0.00       2.76 r
+  U44786/DIN4 (nnd4s1)                                    0.33      0.00       2.76 r
+  U44786/Q (nnd4s1)                                       0.25      0.12       2.88 f
+  N21328 (net)                                  1                   0.00       2.88 f
+  U13116/DIN1 (oai13s2)                                   0.25      0.00       2.88 f
+  U13116/Q (oai13s2)                                      0.59      0.18       3.06 r
+  n7056 (net)                                   3                   0.00       3.06 r
+  U29140/DIN (ib1s1)                                      0.59      0.00       3.06 r
+  U29140/Q (ib1s1)                                        0.82      0.43       3.49 f
+  n29705 (net)                                 31                   0.00       3.49 f
+  U23546/DIN (i1s1)                                       0.82      0.00       3.49 f
+  U23546/Q (i1s1)                                         0.36      0.18       3.67 r
+  n26235 (net)                                  2                   0.00       3.67 r
+  U27019/DIN (ib1s1)                                      0.36      0.00       3.67 r
+  U27019/Q (ib1s1)                                        0.49      0.26       3.93 f
+  n26233 (net)                                 20                   0.00       3.93 f
+  U24121/DIN2 (nnd2s2)                                    0.49      0.00       3.93 f
+  U24121/Q (nnd2s2)                                       0.22      0.13       4.06 r
+  n20425 (net)                                  1                   0.00       4.06 r
+  U29142/DIN (ib1s1)                                      0.22      0.00       4.06 r
+  U29142/Q (ib1s1)                                        0.79      0.37       4.44 f
+  n27430 (net)                                 10                   0.00       4.44 f
+  data_cache_1/str_w_addr[index][2] (dcache)                        0.00       4.44 f
+  data_cache_1/str_w_addr[index][2] (net)                           0.00       4.44 f
+  data_cache_1/D_cachemem/rd_idx[0][2] (cachemem_rw)                0.00       4.44 f
+  data_cache_1/D_cachemem/N564 (net)                                0.00       4.44 f
+  data_cache_1/D_cachemem/U4871/DIN (ib1s1)               0.79      0.00       4.44 f
+  data_cache_1/D_cachemem/U4871/Q (ib1s1)                 0.28      0.13       4.57 r
+  data_cache_1/D_cachemem/n13251 (net)          2                   0.00       4.57 r
+  data_cache_1/D_cachemem/U10921/DIN1 (nor2s1)            0.28      0.00       4.57 r
+  data_cache_1/D_cachemem/U10921/Q (nor2s1)               0.50      0.27       4.84 f
+  data_cache_1/D_cachemem/n196 (net)            4                   0.00       4.84 f
+  data_cache_1/D_cachemem/U38/DIN1 (nnd2s2)               0.50      0.00       4.84 f
+  data_cache_1/D_cachemem/U38/Q (nnd2s2)                  0.28      0.15       4.99 r
+  data_cache_1/D_cachemem/n13 (net)             3                   0.00       4.99 r
+  data_cache_1/D_cachemem/U951/DIN (ib1s1)                0.28      0.00       4.99 r
+  data_cache_1/D_cachemem/U951/Q (ib1s1)                  0.53      0.27       5.26 f
+  data_cache_1/D_cachemem/n13286 (net)         14                   0.00       5.26 f
+  data_cache_1/D_cachemem/U62/DIN (ib1s1)                 0.53      0.00       5.26 f
+  data_cache_1/D_cachemem/U62/Q (ib1s1)                   0.37      0.19       5.45 r
+  data_cache_1/D_cachemem/n13278 (net)          5                   0.00       5.45 r
+  data_cache_1/D_cachemem/U1120/DIN (ib1s1)               0.37      0.00       5.46 r
+  data_cache_1/D_cachemem/U1120/Q (ib1s1)                 0.87      0.43       5.89 f
+  data_cache_1/D_cachemem/n13284 (net)         25                   0.00       5.89 f
+  data_cache_1/D_cachemem/U11242/DIN2 (aoi22s1)           0.87      0.00       5.89 f
+  data_cache_1/D_cachemem/U11242/Q (aoi22s1)              0.44      0.22       6.10 r
+  data_cache_1/D_cachemem/n3010 (net)           1                   0.00       6.10 r
+  data_cache_1/D_cachemem/U11245/DIN2 (nnd4s1)            0.44      0.00       6.10 r
+  data_cache_1/D_cachemem/U11245/Q (nnd4s1)               0.27      0.11       6.22 f
+  data_cache_1/D_cachemem/n3081 (net)           1                   0.00       6.22 f
+  data_cache_1/D_cachemem/U11251/DIN1 (oai21s1)           0.27      0.00       6.22 f
+  data_cache_1/D_cachemem/U11251/Q (oai21s1)              0.29      0.13       6.35 r
+  data_cache_1/D_cachemem/n3083 (net)           1                   0.00       6.35 r
+  data_cache_1/D_cachemem/U11252/DIN3 (oai21s1)           0.29      0.00       6.35 r
+  data_cache_1/D_cachemem/U11252/Q (oai21s1)              0.42      0.16       6.51 f
+  data_cache_1/D_cachemem/N596 (net)            1                   0.00       6.51 f
+  data_cache_1/D_cachemem/U19230/DIN2 (xor2s1)            0.42      0.00       6.52 f
+  data_cache_1/D_cachemem/U19230/Q (xor2s1)               0.18      0.26       6.78 r
+  data_cache_1/D_cachemem/n21010 (net)          1                   0.00       6.78 r
+  data_cache_1/D_cachemem/U19233/DIN4 (nor6s1)            0.18      0.00       6.78 r
+  data_cache_1/D_cachemem/U19233/Q (nor6s1)               0.10      0.30       7.08 f
+  data_cache_1/D_cachemem/n21024 (net)          1                   0.00       7.08 f
+  data_cache_1/D_cachemem/U5579/DIN3 (and4s1)             0.10      0.00       7.08 f
+  data_cache_1/D_cachemem/U5579/Q (and4s1)                0.13      0.19       7.27 f
+  data_cache_1/D_cachemem/N607 (net)            1                   0.00       7.27 f
+  data_cache_1/D_cachemem/U5576/DIN1 (and2s1)             0.13      0.00       7.27 f
+  data_cache_1/D_cachemem/U5576/Q (and2s1)                0.19      0.21       7.48 f
+  data_cache_1/D_cachemem/rd_hit[0] (net)       2                   0.00       7.48 f
+  data_cache_1/D_cachemem/rd_hit[0] (cachemem_rw)                   0.00       7.48 f
+  data_cache_1/str_cachemem_hit (net)                               0.00       7.48 f
+  data_cache_1/U26/DIN2 (oai21s2)                         0.19      0.00       7.48 f
+  data_cache_1/U26/Q (oai21s2)                            0.46      0.18       7.65 r
+  data_cache_1/n274 (net)                       3                   0.00       7.65 r
+  data_cache_1/U97/DIN (ib1s1)                            0.46      0.00       7.65 r
+  data_cache_1/U97/Q (ib1s1)                              0.18      0.08       7.73 f
+  data_cache_1/n61 (net)                        1                   0.00       7.73 f
+  data_cache_1/U48/DIN (ib1s1)                            0.18      0.00       7.73 f
+  data_cache_1/U48/Q (ib1s1)                              0.30      0.13       7.87 r
+  data_cache_1/n54 (net)                        4                   0.00       7.87 r
+  data_cache_1/U63/DIN (i1s3)                             0.30      0.00       7.87 r
+  data_cache_1/U63/Q (i1s3)                               0.64      0.31       8.19 f
+  data_cache_1/proc2mem_command[1] (net)       31                   0.00       8.19 f
+  data_cache_1/dcache_MSHR/mem_busy (MSHR)                          0.00       8.19 f
+  data_cache_1/dcache_MSHR/mem_busy (net)                           0.00       8.19 f
+  data_cache_1/dcache_MSHR/U183/DIN (i1s3)                0.64      0.00       8.19 f
+  data_cache_1/dcache_MSHR/U183/Q (i1s3)                  0.60      0.30       8.49 r
+  data_cache_1/dcache_MSHR/n43 (net)           17                   0.00       8.49 r
+  data_cache_1/dcache_MSHR/U2815/DIN1 (nnd3s2)            0.60      0.00       8.49 r
+  data_cache_1/dcache_MSHR/U2815/Q (nnd3s2)               0.38      0.16       8.66 f
+  data_cache_1/dcache_MSHR/n1230 (net)          4                   0.00       8.66 f
+  data_cache_1/dcache_MSHR/U109/DIN2 (nnd2s2)             0.38      0.00       8.66 f
+  data_cache_1/dcache_MSHR/U109/Q (nnd2s2)                0.23      0.13       8.79 r
+  data_cache_1/dcache_MSHR/n32 (net)            2                   0.00       8.79 r
+  data_cache_1/dcache_MSHR/U690/DIN (ib1s1)               0.23      0.00       8.79 r
+  data_cache_1/dcache_MSHR/U690/Q (ib1s1)                 0.51      0.25       9.04 f
+  data_cache_1/dcache_MSHR/n324 (net)          11                   0.00       9.04 f
+  data_cache_1/dcache_MSHR/U2808/DIN1 (nnd2s2)            0.51      0.00       9.04 f
+  data_cache_1/dcache_MSHR/U2808/Q (nnd2s2)               0.23      0.13       9.17 r
+  data_cache_1/dcache_MSHR/n2221 (net)          2                   0.00       9.17 r
+  data_cache_1/dcache_MSHR/U681/DIN (ib1s1)               0.23      0.00       9.17 r
+  data_cache_1/dcache_MSHR/U681/Q (ib1s1)                 0.74      0.35       9.52 f
+  data_cache_1/dcache_MSHR/n5747 (net)         30                   0.00       9.52 f
+  data_cache_1/dcache_MSHR/U47/DIN1 (and2s2)              0.74      0.00       9.52 f
+  data_cache_1/dcache_MSHR/U47/Q (and2s2)                 0.14      0.25       9.78 f
+  data_cache_1/dcache_MSHR/n15 (net)            2                   0.00       9.78 f
+  data_cache_1/dcache_MSHR/U2806/DIN1 (nnd2s2)            0.14      0.00       9.78 f
+  data_cache_1/dcache_MSHR/U2806/Q (nnd2s2)               0.34      0.12       9.90 r
+  data_cache_1/dcache_MSHR/n1245 (net)          5                   0.00       9.90 r
+  data_cache_1/dcache_MSHR/U985/DIN1 (nor2s1)             0.34      0.00       9.90 r
+  data_cache_1/dcache_MSHR/U985/Q (nor2s1)                0.99      0.49      10.39 f
+  data_cache_1/dcache_MSHR/n47 (net)           11                   0.00      10.39 f
+  data_cache_1/dcache_MSHR/U108/DIN1 (and2s1)             0.99      0.00      10.39 f
+  data_cache_1/dcache_MSHR/U108/Q (and2s1)                0.28      0.41      10.80 f
+  data_cache_1/dcache_MSHR/n31 (net)            3                   0.00      10.80 f
+  data_cache_1/dcache_MSHR/U986/DIN1 (nnd2s2)             0.28      0.00      10.80 f
+  data_cache_1/dcache_MSHR/U986/Q (nnd2s2)                0.44      0.19      10.99 r
+  data_cache_1/dcache_MSHR/n1238 (net)         15                   0.00      10.99 r
+  data_cache_1/dcache_MSHR/U59/DIN1 (or2s1)               0.44      0.00      10.99 r
+  data_cache_1/dcache_MSHR/U59/Q (or2s1)                  0.21      0.21      11.21 r
+  data_cache_1/dcache_MSHR/n21 (net)            2                   0.00      11.21 r
+  data_cache_1/dcache_MSHR/U672/DIN (ib1s1)               0.21      0.00      11.21 r
+  data_cache_1/dcache_MSHR/U672/Q (ib1s1)                 0.73      0.34      11.55 f
+  data_cache_1/dcache_MSHR/n51 (net)           15                   0.00      11.55 f
+  data_cache_1/dcache_MSHR/U110/DIN1 (nnd2s2)             0.73      0.00      11.55 f
+  data_cache_1/dcache_MSHR/U110/Q (nnd2s2)                0.28      0.15      11.70 r
+  data_cache_1/dcache_MSHR/n33 (net)            2                   0.00      11.70 r
+  data_cache_1/dcache_MSHR/U699/DIN (ib1s1)               0.28      0.00      11.71 r
+  data_cache_1/dcache_MSHR/U699/Q (ib1s1)                 0.69      0.34      12.05 f
+  data_cache_1/dcache_MSHR/n315 (net)          14                   0.00      12.05 f
+  data_cache_1/dcache_MSHR/U988/DIN1 (and2s1)             0.69      0.00      12.05 f
+  data_cache_1/dcache_MSHR/U988/Q (and2s1)                0.25      0.34      12.39 f
+  data_cache_1/dcache_MSHR/n1535 (net)          3                   0.00      12.39 f
+  data_cache_1/dcache_MSHR/U2795/DIN1 (nnd2s2)            0.25      0.00      12.39 f
+  data_cache_1/dcache_MSHR/U2795/Q (nnd2s2)               0.25      0.11      12.50 r
+  data_cache_1/dcache_MSHR/n1536 (net)          4                   0.00      12.50 r
+  data_cache_1/dcache_MSHR/U46/DIN (hi1s1)                0.25      0.00      12.50 r
+  data_cache_1/dcache_MSHR/U46/Q (hi1s1)                  2.34      0.97      13.48 f
+  data_cache_1/dcache_MSHR/n5736 (net)         10                   0.00      13.48 f
+  data_cache_1/dcache_MSHR/U579/DIN1 (nnd3s2)             2.34      0.00      13.48 f
+  data_cache_1/dcache_MSHR/U579/Q (nnd3s2)                0.59      0.28      13.76 r
+  data_cache_1/dcache_MSHR/n1383 (net)          1                   0.00      13.76 r
+  data_cache_1/dcache_MSHR/U577/DIN2 (oai1112s2)          0.59      0.00      13.76 r
+  data_cache_1/dcache_MSHR/U577/Q (oai1112s2)             0.31      0.06      13.82 f
+  data_cache_1/dcache_MSHR/n1381 (net)          1                   0.00      13.82 f
+  data_cache_1/dcache_MSHR/U576/DIN2 (aoi23s2)            0.31      0.00      13.83 f
+  data_cache_1/dcache_MSHR/U576/Q (aoi23s2)               0.36      0.10      13.92 r
+  data_cache_1/dcache_MSHR/n1380 (net)          1                   0.00      13.92 r
+  data_cache_1/dcache_MSHR/U575/DIN1 (oai13s2)            0.36      0.00      13.92 r
+  data_cache_1/dcache_MSHR/U575/Q (oai13s2)               0.57      0.10      14.02 f
+  data_cache_1/dcache_MSHR/n1377 (net)          1                   0.00      14.02 f
+  data_cache_1/dcache_MSHR/U574/DIN2 (oai13s2)            0.57      0.00      14.02 f
+  data_cache_1/dcache_MSHR/U574/Q (oai13s2)               0.39      0.18      14.20 r
+  data_cache_1/dcache_MSHR/n1375 (net)          1                   0.00      14.20 r
+  data_cache_1/dcache_MSHR/U572/DIN3 (oai211s2)           0.39      0.00      14.20 r
+  data_cache_1/dcache_MSHR/U572/Q (oai211s2)              0.39      0.10      14.30 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[25] (net)     1            0.00      14.30 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[25] (MSHR)                 0.00      14.30 f
+  data_cache_1/MSHR_proc2mem_addr[25] (net)                         0.00      14.30 f
+  data_cache_1/U717/DIN1 (aoi22s2)                        0.39      0.00      14.30 f
+  data_cache_1/U717/Q (aoi22s2)                           0.42      0.12      14.43 r
+  data_cache_1/n377 (net)                       1                   0.00      14.43 r
+  data_cache_1/U251/DIN (ib1s1)                           0.42      0.00      14.43 r
+  data_cache_1/U251/Q (ib1s1)                             0.58      0.30      14.73 f
+  data_cache_1/proc2mem_addr[25] (net)          2                   0.00      14.73 f
+  data_cache_1/proc2mem_addr[25] (dcache)                           0.00      14.73 f
+  proc2mem_addr[tag][17] (net)                                      0.00      14.73 f
+  proc2mem_addr[tag][17] (out)                            0.58      0.02      14.75 f
+  data arrival time                                                           14.75
+
+  max_delay                                                        20.00      20.00
+  clock uncertainty                                                -0.10      19.90
+  output external delay                                            -0.10      19.80
+  data required time                                                          19.80
+  ------------------------------------------------------------------------------------
+  data required time                                                          19.80
+  data arrival time                                                          -14.75
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  5.05
+
+
+  Startpoint: store_queue_reg[1][out_ready]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: proc2mem_addr[tag][6]
+            (output port clocked by clock)
+  Path Group: output_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  lsq                tsmcwire              lec25dscc25_TT
+
+  Point                                       Fanout     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  store_queue_reg[1][out_ready]/CLK (dffcs2)              0.00      0.00 #     0.00 r
+  store_queue_reg[1][out_ready]/QN (dffcs2)               0.15      0.15       0.15 f
+  n4964 (net)                                   1                   0.00       0.15 f
+  store_queue_reg[1][out_ready]/Q (dffcs2)                0.36      0.15       0.31 r
+  store_queue[1][out_ready] (net)               5                   0.00       0.31 r
+  U46355/DIN3 (aoi22s1)                                   0.36      0.00       0.31 r
+  U46355/Q (aoi22s1)                                      0.36      0.18       0.49 f
+  n27614 (net)                                  1                   0.00       0.49 f
+  U46356/DIN2 (aoi21s1)                                   0.36      0.00       0.49 f
+  U46356/Q (aoi21s1)                                      0.25      0.12       0.61 r
+  n27619 (net)                                  1                   0.00       0.61 r
+  U46360/DIN1 (or2s1)                                     0.25      0.00       0.61 r
+  U46360/Q (or2s1)                                        0.14      0.16       0.77 r
+  N21321 (net)                                  1                   0.00       0.77 r
+  U32289/DIN1 (nor2s1)                                    0.14      0.00       0.77 r
+  U32289/Q (nor2s1)                                       0.26      0.15       0.91 f
+  n14508 (net)                                  2                   0.00       0.91 f
+  U29141/DIN (ib1s1)                                      0.26      0.00       0.92 f
+  U29141/Q (ib1s1)                                        0.32      0.15       1.07 r
+  n29718 (net)                                  5                   0.00       1.07 r
+  U12340/DIN1 (nnd3s2)                                    0.32      0.00       1.07 r
+  U12340/Q (nnd3s2)                                       0.23      0.10       1.16 f
+  n14504 (net)                                  3                   0.00       1.16 f
+  U18882/DIN2 (oai222s1)                                  0.23      0.00       1.16 f
+  U18882/Q (oai222s1)                                     0.82      0.35       1.52 r
+  N2792 (net)                                   5                   0.00       1.52 r
+  U27018/DIN (ib1s1)                                      0.82      0.00       1.52 r
+  U27018/Q (ib1s1)                                        0.43      0.21       1.73 f
+  n29706 (net)                                  8                   0.00       1.73 f
+  U25164/DIN1 (and2s1)                                    0.43      0.00       1.73 f
+  U25164/Q (and2s1)                                       0.14      0.23       1.96 f
+  n24427 (net)                                  2                   0.00       1.96 f
+  U44453/DIN1 (and2s1)                                    0.14      0.00       1.96 f
+  U44453/Q (and2s1)                                       0.51      0.36       2.32 f
+  n24700 (net)                                 10                   0.00       2.32 f
+  U23908/DIN (ib1s1)                                      0.51      0.00       2.33 f
+  U23908/Q (ib1s1)                                        0.20      0.10       2.42 r
+  n24739 (net)                                  1                   0.00       2.42 r
+  U24408/DIN (ib1s1)                                      0.20      0.00       2.43 r
+  U24408/Q (ib1s1)                                        0.36      0.18       2.61 f
+  n24740 (net)                                  9                   0.00       2.61 f
+  U44785/DIN2 (aoi22s1)                                   0.36      0.00       2.61 f
+  U44785/Q (aoi22s1)                                      0.33      0.14       2.76 r
+  n24701 (net)                                  1                   0.00       2.76 r
+  U44786/DIN4 (nnd4s1)                                    0.33      0.00       2.76 r
+  U44786/Q (nnd4s1)                                       0.25      0.12       2.88 f
+  N21328 (net)                                  1                   0.00       2.88 f
+  U13116/DIN1 (oai13s2)                                   0.25      0.00       2.88 f
+  U13116/Q (oai13s2)                                      0.59      0.18       3.06 r
+  n7056 (net)                                   3                   0.00       3.06 r
+  U29140/DIN (ib1s1)                                      0.59      0.00       3.06 r
+  U29140/Q (ib1s1)                                        0.82      0.43       3.49 f
+  n29705 (net)                                 31                   0.00       3.49 f
+  U23546/DIN (i1s1)                                       0.82      0.00       3.49 f
+  U23546/Q (i1s1)                                         0.36      0.18       3.67 r
+  n26235 (net)                                  2                   0.00       3.67 r
+  U27019/DIN (ib1s1)                                      0.36      0.00       3.67 r
+  U27019/Q (ib1s1)                                        0.49      0.26       3.93 f
+  n26233 (net)                                 20                   0.00       3.93 f
+  U24121/DIN2 (nnd2s2)                                    0.49      0.00       3.93 f
+  U24121/Q (nnd2s2)                                       0.22      0.13       4.06 r
+  n20425 (net)                                  1                   0.00       4.06 r
+  U29142/DIN (ib1s1)                                      0.22      0.00       4.06 r
+  U29142/Q (ib1s1)                                        0.79      0.37       4.44 f
+  n27430 (net)                                 10                   0.00       4.44 f
+  data_cache_1/str_w_addr[index][2] (dcache)                        0.00       4.44 f
+  data_cache_1/str_w_addr[index][2] (net)                           0.00       4.44 f
+  data_cache_1/D_cachemem/rd_idx[0][2] (cachemem_rw)                0.00       4.44 f
+  data_cache_1/D_cachemem/N564 (net)                                0.00       4.44 f
+  data_cache_1/D_cachemem/U4871/DIN (ib1s1)               0.79      0.00       4.44 f
+  data_cache_1/D_cachemem/U4871/Q (ib1s1)                 0.28      0.13       4.57 r
+  data_cache_1/D_cachemem/n13251 (net)          2                   0.00       4.57 r
+  data_cache_1/D_cachemem/U10921/DIN1 (nor2s1)            0.28      0.00       4.57 r
+  data_cache_1/D_cachemem/U10921/Q (nor2s1)               0.50      0.27       4.84 f
+  data_cache_1/D_cachemem/n196 (net)            4                   0.00       4.84 f
+  data_cache_1/D_cachemem/U38/DIN1 (nnd2s2)               0.50      0.00       4.84 f
+  data_cache_1/D_cachemem/U38/Q (nnd2s2)                  0.28      0.15       4.99 r
+  data_cache_1/D_cachemem/n13 (net)             3                   0.00       4.99 r
+  data_cache_1/D_cachemem/U951/DIN (ib1s1)                0.28      0.00       4.99 r
+  data_cache_1/D_cachemem/U951/Q (ib1s1)                  0.53      0.27       5.26 f
+  data_cache_1/D_cachemem/n13286 (net)         14                   0.00       5.26 f
+  data_cache_1/D_cachemem/U62/DIN (ib1s1)                 0.53      0.00       5.26 f
+  data_cache_1/D_cachemem/U62/Q (ib1s1)                   0.37      0.19       5.45 r
+  data_cache_1/D_cachemem/n13278 (net)          5                   0.00       5.45 r
+  data_cache_1/D_cachemem/U1120/DIN (ib1s1)               0.37      0.00       5.46 r
+  data_cache_1/D_cachemem/U1120/Q (ib1s1)                 0.87      0.43       5.89 f
+  data_cache_1/D_cachemem/n13284 (net)         25                   0.00       5.89 f
+  data_cache_1/D_cachemem/U11242/DIN2 (aoi22s1)           0.87      0.00       5.89 f
+  data_cache_1/D_cachemem/U11242/Q (aoi22s1)              0.44      0.22       6.10 r
+  data_cache_1/D_cachemem/n3010 (net)           1                   0.00       6.10 r
+  data_cache_1/D_cachemem/U11245/DIN2 (nnd4s1)            0.44      0.00       6.10 r
+  data_cache_1/D_cachemem/U11245/Q (nnd4s1)               0.27      0.11       6.22 f
+  data_cache_1/D_cachemem/n3081 (net)           1                   0.00       6.22 f
+  data_cache_1/D_cachemem/U11251/DIN1 (oai21s1)           0.27      0.00       6.22 f
+  data_cache_1/D_cachemem/U11251/Q (oai21s1)              0.29      0.13       6.35 r
+  data_cache_1/D_cachemem/n3083 (net)           1                   0.00       6.35 r
+  data_cache_1/D_cachemem/U11252/DIN3 (oai21s1)           0.29      0.00       6.35 r
+  data_cache_1/D_cachemem/U11252/Q (oai21s1)              0.42      0.16       6.51 f
+  data_cache_1/D_cachemem/N596 (net)            1                   0.00       6.51 f
+  data_cache_1/D_cachemem/U19230/DIN2 (xor2s1)            0.42      0.00       6.52 f
+  data_cache_1/D_cachemem/U19230/Q (xor2s1)               0.18      0.26       6.78 r
+  data_cache_1/D_cachemem/n21010 (net)          1                   0.00       6.78 r
+  data_cache_1/D_cachemem/U19233/DIN4 (nor6s1)            0.18      0.00       6.78 r
+  data_cache_1/D_cachemem/U19233/Q (nor6s1)               0.10      0.30       7.08 f
+  data_cache_1/D_cachemem/n21024 (net)          1                   0.00       7.08 f
+  data_cache_1/D_cachemem/U5579/DIN3 (and4s1)             0.10      0.00       7.08 f
+  data_cache_1/D_cachemem/U5579/Q (and4s1)                0.13      0.19       7.27 f
+  data_cache_1/D_cachemem/N607 (net)            1                   0.00       7.27 f
+  data_cache_1/D_cachemem/U5576/DIN1 (and2s1)             0.13      0.00       7.27 f
+  data_cache_1/D_cachemem/U5576/Q (and2s1)                0.19      0.21       7.48 f
+  data_cache_1/D_cachemem/rd_hit[0] (net)       2                   0.00       7.48 f
+  data_cache_1/D_cachemem/rd_hit[0] (cachemem_rw)                   0.00       7.48 f
+  data_cache_1/str_cachemem_hit (net)                               0.00       7.48 f
+  data_cache_1/U26/DIN2 (oai21s2)                         0.19      0.00       7.48 f
+  data_cache_1/U26/Q (oai21s2)                            0.46      0.18       7.65 r
+  data_cache_1/n274 (net)                       3                   0.00       7.65 r
+  data_cache_1/U97/DIN (ib1s1)                            0.46      0.00       7.65 r
+  data_cache_1/U97/Q (ib1s1)                              0.18      0.08       7.73 f
+  data_cache_1/n61 (net)                        1                   0.00       7.73 f
+  data_cache_1/U48/DIN (ib1s1)                            0.18      0.00       7.73 f
+  data_cache_1/U48/Q (ib1s1)                              0.30      0.13       7.87 r
+  data_cache_1/n54 (net)                        4                   0.00       7.87 r
+  data_cache_1/U63/DIN (i1s3)                             0.30      0.00       7.87 r
+  data_cache_1/U63/Q (i1s3)                               0.64      0.31       8.19 f
+  data_cache_1/proc2mem_command[1] (net)       31                   0.00       8.19 f
+  data_cache_1/dcache_MSHR/mem_busy (MSHR)                          0.00       8.19 f
+  data_cache_1/dcache_MSHR/mem_busy (net)                           0.00       8.19 f
+  data_cache_1/dcache_MSHR/U183/DIN (i1s3)                0.64      0.00       8.19 f
+  data_cache_1/dcache_MSHR/U183/Q (i1s3)                  0.60      0.30       8.49 r
+  data_cache_1/dcache_MSHR/n43 (net)           17                   0.00       8.49 r
+  data_cache_1/dcache_MSHR/U2815/DIN1 (nnd3s2)            0.60      0.00       8.49 r
+  data_cache_1/dcache_MSHR/U2815/Q (nnd3s2)               0.38      0.16       8.66 f
+  data_cache_1/dcache_MSHR/n1230 (net)          4                   0.00       8.66 f
+  data_cache_1/dcache_MSHR/U109/DIN2 (nnd2s2)             0.38      0.00       8.66 f
+  data_cache_1/dcache_MSHR/U109/Q (nnd2s2)                0.23      0.13       8.79 r
+  data_cache_1/dcache_MSHR/n32 (net)            2                   0.00       8.79 r
+  data_cache_1/dcache_MSHR/U690/DIN (ib1s1)               0.23      0.00       8.79 r
+  data_cache_1/dcache_MSHR/U690/Q (ib1s1)                 0.51      0.25       9.04 f
+  data_cache_1/dcache_MSHR/n324 (net)          11                   0.00       9.04 f
+  data_cache_1/dcache_MSHR/U2808/DIN1 (nnd2s2)            0.51      0.00       9.04 f
+  data_cache_1/dcache_MSHR/U2808/Q (nnd2s2)               0.23      0.13       9.17 r
+  data_cache_1/dcache_MSHR/n2221 (net)          2                   0.00       9.17 r
+  data_cache_1/dcache_MSHR/U681/DIN (ib1s1)               0.23      0.00       9.17 r
+  data_cache_1/dcache_MSHR/U681/Q (ib1s1)                 0.74      0.35       9.52 f
+  data_cache_1/dcache_MSHR/n5747 (net)         30                   0.00       9.52 f
+  data_cache_1/dcache_MSHR/U47/DIN1 (and2s2)              0.74      0.00       9.52 f
+  data_cache_1/dcache_MSHR/U47/Q (and2s2)                 0.14      0.25       9.78 f
+  data_cache_1/dcache_MSHR/n15 (net)            2                   0.00       9.78 f
+  data_cache_1/dcache_MSHR/U2806/DIN1 (nnd2s2)            0.14      0.00       9.78 f
+  data_cache_1/dcache_MSHR/U2806/Q (nnd2s2)               0.34      0.12       9.90 r
+  data_cache_1/dcache_MSHR/n1245 (net)          5                   0.00       9.90 r
+  data_cache_1/dcache_MSHR/U985/DIN1 (nor2s1)             0.34      0.00       9.90 r
+  data_cache_1/dcache_MSHR/U985/Q (nor2s1)                0.99      0.49      10.39 f
+  data_cache_1/dcache_MSHR/n47 (net)           11                   0.00      10.39 f
+  data_cache_1/dcache_MSHR/U108/DIN1 (and2s1)             0.99      0.00      10.39 f
+  data_cache_1/dcache_MSHR/U108/Q (and2s1)                0.28      0.41      10.80 f
+  data_cache_1/dcache_MSHR/n31 (net)            3                   0.00      10.80 f
+  data_cache_1/dcache_MSHR/U986/DIN1 (nnd2s2)             0.28      0.00      10.80 f
+  data_cache_1/dcache_MSHR/U986/Q (nnd2s2)                0.44      0.19      10.99 r
+  data_cache_1/dcache_MSHR/n1238 (net)         15                   0.00      10.99 r
+  data_cache_1/dcache_MSHR/U59/DIN1 (or2s1)               0.44      0.00      10.99 r
+  data_cache_1/dcache_MSHR/U59/Q (or2s1)                  0.21      0.21      11.21 r
+  data_cache_1/dcache_MSHR/n21 (net)            2                   0.00      11.21 r
+  data_cache_1/dcache_MSHR/U672/DIN (ib1s1)               0.21      0.00      11.21 r
+  data_cache_1/dcache_MSHR/U672/Q (ib1s1)                 0.73      0.34      11.55 f
+  data_cache_1/dcache_MSHR/n51 (net)           15                   0.00      11.55 f
+  data_cache_1/dcache_MSHR/U110/DIN1 (nnd2s2)             0.73      0.00      11.55 f
+  data_cache_1/dcache_MSHR/U110/Q (nnd2s2)                0.28      0.15      11.70 r
+  data_cache_1/dcache_MSHR/n33 (net)            2                   0.00      11.70 r
+  data_cache_1/dcache_MSHR/U699/DIN (ib1s1)               0.28      0.00      11.71 r
+  data_cache_1/dcache_MSHR/U699/Q (ib1s1)                 0.69      0.34      12.05 f
+  data_cache_1/dcache_MSHR/n315 (net)          14                   0.00      12.05 f
+  data_cache_1/dcache_MSHR/U988/DIN1 (and2s1)             0.69      0.00      12.05 f
+  data_cache_1/dcache_MSHR/U988/Q (and2s1)                0.25      0.34      12.39 f
+  data_cache_1/dcache_MSHR/n1535 (net)          3                   0.00      12.39 f
+  data_cache_1/dcache_MSHR/U2795/DIN1 (nnd2s2)            0.25      0.00      12.39 f
+  data_cache_1/dcache_MSHR/U2795/Q (nnd2s2)               0.25      0.11      12.50 r
+  data_cache_1/dcache_MSHR/n1536 (net)          4                   0.00      12.50 r
+  data_cache_1/dcache_MSHR/U46/DIN (hi1s1)                0.25      0.00      12.50 r
+  data_cache_1/dcache_MSHR/U46/Q (hi1s1)                  2.34      0.97      13.48 f
+  data_cache_1/dcache_MSHR/n5736 (net)         10                   0.00      13.48 f
+  data_cache_1/dcache_MSHR/U678/DIN1 (nnd3s2)             2.34      0.00      13.48 f
+  data_cache_1/dcache_MSHR/U678/Q (nnd3s2)                0.59      0.28      13.76 r
+  data_cache_1/dcache_MSHR/n1493 (net)          1                   0.00      13.76 r
+  data_cache_1/dcache_MSHR/U676/DIN2 (oai1112s2)          0.59      0.00      13.76 r
+  data_cache_1/dcache_MSHR/U676/Q (oai1112s2)             0.31      0.06      13.82 f
+  data_cache_1/dcache_MSHR/n1491 (net)          1                   0.00      13.82 f
+  data_cache_1/dcache_MSHR/U675/DIN2 (aoi23s2)            0.31      0.00      13.83 f
+  data_cache_1/dcache_MSHR/U675/Q (aoi23s2)               0.35      0.10      13.92 r
+  data_cache_1/dcache_MSHR/n1490 (net)          1                   0.00      13.92 r
+  data_cache_1/dcache_MSHR/U674/DIN1 (oai13s2)            0.35      0.00      13.92 r
+  data_cache_1/dcache_MSHR/U674/Q (oai13s2)               0.57      0.10      14.02 f
+  data_cache_1/dcache_MSHR/n1487 (net)          1                   0.00      14.02 f
+  data_cache_1/dcache_MSHR/U673/DIN2 (oai13s2)            0.57      0.00      14.02 f
+  data_cache_1/dcache_MSHR/U673/Q (oai13s2)               0.39      0.18      14.20 r
+  data_cache_1/dcache_MSHR/n1485 (net)          1                   0.00      14.20 r
+  data_cache_1/dcache_MSHR/U671/DIN3 (oai211s2)           0.39      0.00      14.20 r
+  data_cache_1/dcache_MSHR/U671/Q (oai211s2)              0.39      0.10      14.30 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[14] (net)     1            0.00      14.30 f
+  data_cache_1/dcache_MSHR/proc2mem_addr[14] (MSHR)                 0.00      14.30 f
+  data_cache_1/MSHR_proc2mem_addr[14] (net)                         0.00      14.30 f
+  data_cache_1/U730/DIN1 (aoi22s2)                        0.39      0.00      14.30 f
+  data_cache_1/U730/Q (aoi22s2)                           0.42      0.12      14.43 r
+  data_cache_1/n388 (net)                       1                   0.00      14.43 r
+  data_cache_1/U240/DIN (ib1s1)                           0.42      0.00      14.43 r
+  data_cache_1/U240/Q (ib1s1)                             0.58      0.30      14.73 f
+  data_cache_1/proc2mem_addr[14] (net)          2                   0.00      14.73 f
+  data_cache_1/proc2mem_addr[14] (dcache)                           0.00      14.73 f
+  proc2mem_addr[tag][6] (net)                                       0.00      14.73 f
+  proc2mem_addr[tag][6] (out)                             0.58      0.02      14.75 f
+  data arrival time                                                           14.75
+
+  max_delay                                                        20.00      20.00
+  clock uncertainty                                                -0.10      19.90
+  output external delay                                            -0.10      19.80
+  data required time                                                          19.80
+  ------------------------------------------------------------------------------------
+  data required time                                                          19.80
+  data arrival time                                                          -14.75
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  5.05
+
+
+1
+ 
+****************************************
+Report : constraint
+        -verbose
+        -max_delay
+Design : lsq
+Version: O-2018.06
+Date   : Tue Apr 14 01:12:52 2020
+****************************************
+
+
+  Startpoint: store_queue_reg[1][out_ready]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: data_cache_1/D_cachemem/data_reg[5][3]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  lsq                tsmcwire              lec25dscc25_TT
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  store_queue_reg[1][out_ready]/CLK (dffcs2)              0.00 #     0.00 r
+  store_queue_reg[1][out_ready]/QN (dffcs2)               0.15       0.15 f
+  store_queue_reg[1][out_ready]/Q (dffcs2)                0.15       0.31 r
+  U46355/Q (aoi22s1)                                      0.18       0.49 f
+  U46356/Q (aoi21s1)                                      0.12       0.61 r
+  U46360/Q (or2s1)                                        0.16       0.77 r
+  U32289/Q (nor2s1)                                       0.15       0.91 f
+  U29141/Q (ib1s1)                                        0.15       1.07 r
+  U12340/Q (nnd3s2)                                       0.10       1.16 f
+  U18882/Q (oai222s1)                                     0.35       1.52 r
+  U27018/Q (ib1s1)                                        0.21       1.73 f
+  U25164/Q (and2s1)                                       0.23       1.96 f
+  U44453/Q (and2s1)                                       0.36       2.32 f
+  U23908/Q (ib1s1)                                        0.10       2.42 r
+  U24408/Q (ib1s1)                                        0.18       2.61 f
+  U44785/Q (aoi22s1)                                      0.15       2.76 r
+  U44786/Q (nnd4s1)                                       0.13       2.88 f
+  U13116/Q (oai13s2)                                      0.18       3.06 r
+  U29140/Q (ib1s1)                                        0.43       3.49 f
+  U23546/Q (i1s1)                                         0.18       3.67 r
+  U27019/Q (ib1s1)                                        0.26       3.93 f
+  U24121/Q (nnd2s2)                                       0.13       4.06 r
+  U29142/Q (ib1s1)                                        0.37       4.44 f
+  data_cache_1/D_cachemem/U4871/Q (ib1s1)                 0.13       4.57 r
+  data_cache_1/D_cachemem/U10921/Q (nor2s1)               0.27       4.84 f
+  data_cache_1/D_cachemem/U38/Q (nnd2s2)                  0.15       4.99 r
+  data_cache_1/D_cachemem/U951/Q (ib1s1)                  0.27       5.26 f
+  data_cache_1/D_cachemem/U62/Q (ib1s1)                   0.20       5.45 r
+  data_cache_1/D_cachemem/U1120/Q (ib1s1)                 0.43       5.89 f
+  data_cache_1/D_cachemem/U11242/Q (aoi22s1)              0.22       6.10 r
+  data_cache_1/D_cachemem/U11245/Q (nnd4s1)               0.12       6.22 f
+  data_cache_1/D_cachemem/U11251/Q (oai21s1)              0.13       6.35 r
+  data_cache_1/D_cachemem/U11252/Q (oai21s1)              0.16       6.51 f
+  data_cache_1/D_cachemem/U19230/Q (xor2s1)               0.27       6.78 r
+  data_cache_1/D_cachemem/U19233/Q (nor6s1)               0.30       7.08 f
+  data_cache_1/D_cachemem/U5579/Q (and4s1)                0.19       7.27 f
+  data_cache_1/D_cachemem/U5576/Q (and2s1)                0.21       7.48 f
+  data_cache_1/U26/Q (oai21s2)                            0.18       7.65 r
+  data_cache_1/U97/Q (ib1s1)                              0.08       7.73 f
+  data_cache_1/U48/Q (ib1s1)                              0.14       7.87 r
+  data_cache_1/U63/Q (i1s3)                               0.32       8.19 f
+  data_cache_1/dcache_MSHR/U183/Q (i1s3)                  0.31       8.49 r
+  data_cache_1/dcache_MSHR/U2815/Q (nnd3s2)               0.17       8.66 f
+  data_cache_1/dcache_MSHR/U109/Q (nnd2s2)                0.13       8.79 r
+  data_cache_1/dcache_MSHR/U690/Q (ib1s1)                 0.25       9.04 f
+  data_cache_1/dcache_MSHR/U2808/Q (nnd2s2)               0.13       9.17 r
+  data_cache_1/dcache_MSHR/U681/Q (ib1s1)                 0.35       9.52 f
+  data_cache_1/dcache_MSHR/U47/Q (and2s2)                 0.26       9.78 f
+  data_cache_1/dcache_MSHR/U2806/Q (nnd2s2)               0.12       9.90 r
+  data_cache_1/dcache_MSHR/U985/Q (nor2s1)                0.49      10.39 f
+  data_cache_1/dcache_MSHR/U108/Q (and2s1)                0.41      10.80 f
+  data_cache_1/dcache_MSHR/U986/Q (nnd2s2)                0.19      10.99 r
+  data_cache_1/dcache_MSHR/U59/Q (or2s1)                  0.21      11.21 r
+  data_cache_1/dcache_MSHR/U672/Q (ib1s1)                 0.35      11.55 f
+  data_cache_1/dcache_MSHR/U110/Q (nnd2s2)                0.15      11.70 r
+  data_cache_1/dcache_MSHR/U699/Q (ib1s1)                 0.34      12.05 f
+  data_cache_1/dcache_MSHR/U988/Q (and2s1)                0.34      12.39 f
+  data_cache_1/dcache_MSHR/U2795/Q (nnd2s2)               0.11      12.50 r
+  data_cache_1/dcache_MSHR/U302/Q (ib1s1)                 0.20      12.70 f
+  data_cache_1/dcache_MSHR/U2793/Q (nnd2s2)               0.13      12.83 r
+  data_cache_1/dcache_MSHR/U174/Q (or5s1)                 0.35      13.18 r
+  data_cache_1/dcache_MSHR/U987/Q (i1s3)                  0.37      13.55 f
+  data_cache_1/dcache_MSHR/U479/Q (aoi23s2)               0.14      13.70 r
+  data_cache_1/dcache_MSHR/U478/Q (oai1112s2)             0.08      13.77 f
+  data_cache_1/dcache_MSHR/U477/Q (aoi23s2)               0.09      13.87 r
+  data_cache_1/dcache_MSHR/U476/Q (oai13s2)               0.10      13.97 f
+  data_cache_1/dcache_MSHR/U475/Q (oai13s2)               0.18      14.15 r
+  data_cache_1/dcache_MSHR/U473/Q (oai211s2)              0.10      14.25 f
+  data_cache_1/U704/Q (aoi22s2)                           0.12      14.37 r
+  data_cache_1/U231/Q (ib1s1)                             0.33      14.70 f
+  data_cache_1/D_cachemem/U4849/Q (nor2s1)                0.45      15.15 r
+  data_cache_1/D_cachemem/U8384/Q (nnd2s2)                0.18      15.33 f
+  data_cache_1/D_cachemem/U263/Q (ib1s1)                  0.44      15.77 r
+  data_cache_1/D_cachemem/U6456/Q (nnd2s2)                0.44      16.21 f
+  data_cache_1/D_cachemem/U3102/Q (oai21s2)               0.69      16.91 r
+  data_cache_1/D_cachemem/U16/Q (ib1s1)                   0.48      17.39 f
+  data_cache_1/D_cachemem/U3284/Q (oai21s2)               0.29      17.67 r
+  data_cache_1/D_cachemem/U3377/Q (aoi21s2)               0.16      17.83 f
+  data_cache_1/D_cachemem/U3253/Q (oai22s2)               0.37      18.20 r
+  data_cache_1/D_cachemem/U2133/Q (ib1s1)                 0.29      18.50 f
+  data_cache_1/D_cachemem/U884/Q (nor2s1)                 0.20      18.69 r
+  data_cache_1/D_cachemem/U6408/Q (nnd2s2)                0.17      18.86 f
+  data_cache_1/D_cachemem/U6403/Q (oai2222s3)             0.39      19.25 r
+  data_cache_1/D_cachemem/data_reg[5][3]/CLRB (dffcs1)     0.00     19.25 r
+  data arrival time                                                 19.25
+
+  clock clock (rise edge)                                20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  clock uncertainty                                      -0.10      19.90
+  data_cache_1/D_cachemem/data_reg[5][3]/CLK (dffcs1)     0.00      19.90 r
+  library setup time                                     -0.30      19.60
+  data required time                                                19.60
+  --------------------------------------------------------------------------
+  data required time                                                19.60
+  data arrival time                                                -19.25
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.35
+
+
+  Startpoint: stores_ready[1][lsq_index][1]
+              (input port clocked by clock)
+  Endpoint: data_cache_1/D_cachemem/data_reg[5][3]
+            (rising edge-triggered flip-flop clocked by clock)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  lsq                tsmcwire              lec25dscc25_TT
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clock (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.10       0.10 r
+  stores_ready[1][lsq_index][1] (in)                      0.12       0.22 r
+  U32295/Q (ib1s1)                                        0.23       0.45 f
+  U46369/Q (nor2s1)                                       0.19       0.64 r
+  U46370/Q (aoi22s1)                                      0.17       0.82 f
+  U46374/Q (aoi21s1)                                      0.13       0.95 r
+  U46378/Q (or2s1)                                        0.16       1.11 r
+  U32287/Q (nor2s1)                                       0.19       1.30 f
+  U29139/Q (ib1s1)                                        0.09       1.39 r
+  U12340/Q (nnd3s2)                                       0.09       1.49 f
+  U18882/Q (oai222s1)                                     0.35       1.84 r
+  U27018/Q (ib1s1)                                        0.21       2.06 f
+  U25164/Q (and2s1)                                       0.23       2.29 f
+  U44453/Q (and2s1)                                       0.36       2.65 f
+  U23908/Q (ib1s1)                                        0.10       2.75 r
+  U24408/Q (ib1s1)                                        0.18       2.93 f
+  U44785/Q (aoi22s1)                                      0.15       3.08 r
+  U44786/Q (nnd4s1)                                       0.13       3.21 f
+  U13116/Q (oai13s2)                                      0.18       3.38 r
+  U29140/Q (ib1s1)                                        0.43       3.81 f
+  U23546/Q (i1s1)                                         0.18       4.00 r
+  U27019/Q (ib1s1)                                        0.26       4.26 f
+  U24121/Q (nnd2s2)                                       0.13       4.39 r
+  U29142/Q (ib1s1)                                        0.37       4.76 f
+  data_cache_1/D_cachemem/U4871/Q (ib1s1)                 0.13       4.89 r
+  data_cache_1/D_cachemem/U10921/Q (nor2s1)               0.27       5.16 f
+  data_cache_1/D_cachemem/U38/Q (nnd2s2)                  0.15       5.31 r
+  data_cache_1/D_cachemem/U951/Q (ib1s1)                  0.27       5.58 f
+  data_cache_1/D_cachemem/U62/Q (ib1s1)                   0.20       5.78 r
+  data_cache_1/D_cachemem/U1120/Q (ib1s1)                 0.43       6.21 f
+  data_cache_1/D_cachemem/U11242/Q (aoi22s1)              0.22       6.43 r
+  data_cache_1/D_cachemem/U11245/Q (nnd4s1)               0.12       6.54 f
+  data_cache_1/D_cachemem/U11251/Q (oai21s1)              0.13       6.67 r
+  data_cache_1/D_cachemem/U11252/Q (oai21s1)              0.16       6.84 f
+  data_cache_1/D_cachemem/U19230/Q (xor2s1)               0.27       7.10 r
+  data_cache_1/D_cachemem/U19233/Q (nor6s1)               0.30       7.40 f
+  data_cache_1/D_cachemem/U5579/Q (and4s1)                0.19       7.59 f
+  data_cache_1/D_cachemem/U5576/Q (and2s1)                0.21       7.80 f
+  data_cache_1/U26/Q (oai21s2)                            0.18       7.98 r
+  data_cache_1/U97/Q (ib1s1)                              0.08       8.05 f
+  data_cache_1/U48/Q (ib1s1)                              0.14       8.19 r
+  data_cache_1/U63/Q (i1s3)                               0.32       8.51 f
+  data_cache_1/dcache_MSHR/U183/Q (i1s3)                  0.31       8.82 r
+  data_cache_1/dcache_MSHR/U2815/Q (nnd3s2)               0.17       8.98 f
+  data_cache_1/dcache_MSHR/U109/Q (nnd2s2)                0.13       9.11 r
+  data_cache_1/dcache_MSHR/U690/Q (ib1s1)                 0.25       9.36 f
+  data_cache_1/dcache_MSHR/U2808/Q (nnd2s2)               0.13       9.49 r
+  data_cache_1/dcache_MSHR/U681/Q (ib1s1)                 0.35       9.84 f
+  data_cache_1/dcache_MSHR/U47/Q (and2s2)                 0.26      10.10 f
+  data_cache_1/dcache_MSHR/U2806/Q (nnd2s2)               0.12      10.22 r
+  data_cache_1/dcache_MSHR/U985/Q (nor2s1)                0.49      10.71 f
+  data_cache_1/dcache_MSHR/U108/Q (and2s1)                0.41      11.12 f
+  data_cache_1/dcache_MSHR/U986/Q (nnd2s2)                0.19      11.32 r
+  data_cache_1/dcache_MSHR/U59/Q (or2s1)                  0.21      11.53 r
+  data_cache_1/dcache_MSHR/U672/Q (ib1s1)                 0.35      11.88 f
+  data_cache_1/dcache_MSHR/U110/Q (nnd2s2)                0.15      12.03 r
+  data_cache_1/dcache_MSHR/U699/Q (ib1s1)                 0.34      12.37 f
+  data_cache_1/dcache_MSHR/U988/Q (and2s1)                0.34      12.71 f
+  data_cache_1/dcache_MSHR/U2795/Q (nnd2s2)               0.11      12.82 r
+  data_cache_1/dcache_MSHR/U302/Q (ib1s1)                 0.20      13.03 f
+  data_cache_1/dcache_MSHR/U2793/Q (nnd2s2)               0.13      13.16 r
+  data_cache_1/dcache_MSHR/U174/Q (or5s1)                 0.35      13.50 r
+  data_cache_1/dcache_MSHR/U987/Q (i1s3)                  0.37      13.88 f
+  data_cache_1/dcache_MSHR/U479/Q (aoi23s2)               0.14      14.02 r
+  data_cache_1/dcache_MSHR/U478/Q (oai1112s2)             0.08      14.10 f
+  data_cache_1/dcache_MSHR/U477/Q (aoi23s2)               0.09      14.19 r
+  data_cache_1/dcache_MSHR/U476/Q (oai13s2)               0.10      14.29 f
+  data_cache_1/dcache_MSHR/U475/Q (oai13s2)               0.18      14.47 r
+  data_cache_1/dcache_MSHR/U473/Q (oai211s2)              0.10      14.57 f
+  data_cache_1/U704/Q (aoi22s2)                           0.12      14.70 r
+  data_cache_1/U231/Q (ib1s1)                             0.33      15.03 f
+  data_cache_1/D_cachemem/U4849/Q (nor2s1)                0.45      15.48 r
+  data_cache_1/D_cachemem/U8384/Q (nnd2s2)                0.18      15.66 f
+  data_cache_1/D_cachemem/U263/Q (ib1s1)                  0.44      16.09 r
+  data_cache_1/D_cachemem/U6456/Q (nnd2s2)                0.44      16.54 f
+  data_cache_1/D_cachemem/U3102/Q (oai21s2)               0.69      17.23 r
+  data_cache_1/D_cachemem/U16/Q (ib1s1)                   0.48      17.71 f
+  data_cache_1/D_cachemem/U3284/Q (oai21s2)               0.29      18.00 r
+  data_cache_1/D_cachemem/U3377/Q (aoi21s2)               0.16      18.15 f
+  data_cache_1/D_cachemem/U3253/Q (oai22s2)               0.37      18.53 r
+  data_cache_1/D_cachemem/U2133/Q (ib1s1)                 0.29      18.82 f
+  data_cache_1/D_cachemem/U884/Q (nor2s1)                 0.20      19.02 r
+  data_cache_1/D_cachemem/U6408/Q (nnd2s2)                0.17      19.19 f
+  data_cache_1/D_cachemem/U6403/Q (oai2222s3)             0.39      19.57 r
+  data_cache_1/D_cachemem/data_reg[5][3]/CLRB (dffcs1)     0.00     19.57 r
+  data arrival time                                                 19.57
+
+  clock clock (rise edge)                                20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  clock uncertainty                                      -0.10      19.90
+  data_cache_1/D_cachemem/data_reg[5][3]/CLK (dffcs1)     0.00      19.90 r
+  library setup time                                     -0.30      19.60
+  data required time                                                19.60
+  --------------------------------------------------------------------------
+  data required time                                                19.60
+  data arrival time                                                -19.57
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.03
+
+
+  Startpoint: store_queue_reg[1][out_ready]
+              (rising edge-triggered flip-flop clocked by clock)
+  Endpoint: proc2mem_addr[tag][17]
+            (output port clocked by clock)
+  Path Group: output_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  lsq                tsmcwire              lec25dscc25_TT
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  store_queue_reg[1][out_ready]/CLK (dffcs2)              0.00 #     0.00 r
+  store_queue_reg[1][out_ready]/QN (dffcs2)               0.15       0.15 f
+  store_queue_reg[1][out_ready]/Q (dffcs2)                0.15       0.31 r
+  U46355/Q (aoi22s1)                                      0.18       0.49 f
+  U46356/Q (aoi21s1)                                      0.12       0.61 r
+  U46360/Q (or2s1)                                        0.16       0.77 r
+  U32289/Q (nor2s1)                                       0.15       0.91 f
+  U29141/Q (ib1s1)                                        0.15       1.07 r
+  U12340/Q (nnd3s2)                                       0.10       1.16 f
+  U18882/Q (oai222s1)                                     0.35       1.52 r
+  U27018/Q (ib1s1)                                        0.21       1.73 f
+  U25164/Q (and2s1)                                       0.23       1.96 f
+  U44453/Q (and2s1)                                       0.36       2.32 f
+  U23908/Q (ib1s1)                                        0.10       2.42 r
+  U24408/Q (ib1s1)                                        0.18       2.61 f
+  U44785/Q (aoi22s1)                                      0.15       2.76 r
+  U44786/Q (nnd4s1)                                       0.13       2.88 f
+  U13116/Q (oai13s2)                                      0.18       3.06 r
+  U29140/Q (ib1s1)                                        0.43       3.49 f
+  U23546/Q (i1s1)                                         0.18       3.67 r
+  U27019/Q (ib1s1)                                        0.26       3.93 f
+  U24121/Q (nnd2s2)                                       0.13       4.06 r
+  U29142/Q (ib1s1)                                        0.37       4.44 f
+  data_cache_1/D_cachemem/U4871/Q (ib1s1)                 0.13       4.57 r
+  data_cache_1/D_cachemem/U10921/Q (nor2s1)               0.27       4.84 f
+  data_cache_1/D_cachemem/U38/Q (nnd2s2)                  0.15       4.99 r
+  data_cache_1/D_cachemem/U951/Q (ib1s1)                  0.27       5.26 f
+  data_cache_1/D_cachemem/U62/Q (ib1s1)                   0.20       5.45 r
+  data_cache_1/D_cachemem/U1120/Q (ib1s1)                 0.43       5.89 f
+  data_cache_1/D_cachemem/U11242/Q (aoi22s1)              0.22       6.10 r
+  data_cache_1/D_cachemem/U11245/Q (nnd4s1)               0.12       6.22 f
+  data_cache_1/D_cachemem/U11251/Q (oai21s1)              0.13       6.35 r
+  data_cache_1/D_cachemem/U11252/Q (oai21s1)              0.16       6.51 f
+  data_cache_1/D_cachemem/U19230/Q (xor2s1)               0.27       6.78 r
+  data_cache_1/D_cachemem/U19233/Q (nor6s1)               0.30       7.08 f
+  data_cache_1/D_cachemem/U5579/Q (and4s1)                0.19       7.27 f
+  data_cache_1/D_cachemem/U5576/Q (and2s1)                0.21       7.48 f
+  data_cache_1/U26/Q (oai21s2)                            0.18       7.65 r
+  data_cache_1/U97/Q (ib1s1)                              0.08       7.73 f
+  data_cache_1/U48/Q (ib1s1)                              0.14       7.87 r
+  data_cache_1/U63/Q (i1s3)                               0.32       8.19 f
+  data_cache_1/dcache_MSHR/U183/Q (i1s3)                  0.31       8.49 r
+  data_cache_1/dcache_MSHR/U2815/Q (nnd3s2)               0.17       8.66 f
+  data_cache_1/dcache_MSHR/U109/Q (nnd2s2)                0.13       8.79 r
+  data_cache_1/dcache_MSHR/U690/Q (ib1s1)                 0.25       9.04 f
+  data_cache_1/dcache_MSHR/U2808/Q (nnd2s2)               0.13       9.17 r
+  data_cache_1/dcache_MSHR/U681/Q (ib1s1)                 0.35       9.52 f
+  data_cache_1/dcache_MSHR/U47/Q (and2s2)                 0.26       9.78 f
+  data_cache_1/dcache_MSHR/U2806/Q (nnd2s2)               0.12       9.90 r
+  data_cache_1/dcache_MSHR/U985/Q (nor2s1)                0.49      10.39 f
+  data_cache_1/dcache_MSHR/U108/Q (and2s1)                0.41      10.80 f
+  data_cache_1/dcache_MSHR/U986/Q (nnd2s2)                0.19      10.99 r
+  data_cache_1/dcache_MSHR/U59/Q (or2s1)                  0.21      11.21 r
+  data_cache_1/dcache_MSHR/U672/Q (ib1s1)                 0.35      11.55 f
+  data_cache_1/dcache_MSHR/U110/Q (nnd2s2)                0.15      11.70 r
+  data_cache_1/dcache_MSHR/U699/Q (ib1s1)                 0.34      12.05 f
+  data_cache_1/dcache_MSHR/U988/Q (and2s1)                0.34      12.39 f
+  data_cache_1/dcache_MSHR/U2795/Q (nnd2s2)               0.11      12.50 r
+  data_cache_1/dcache_MSHR/U46/Q (hi1s1)                  0.97      13.48 f
+  data_cache_1/dcache_MSHR/U579/Q (nnd3s2)                0.28      13.76 r
+  data_cache_1/dcache_MSHR/U577/Q (oai1112s2)             0.07      13.82 f
+  data_cache_1/dcache_MSHR/U576/Q (aoi23s2)               0.10      13.92 r
+  data_cache_1/dcache_MSHR/U575/Q (oai13s2)               0.10      14.02 f
+  data_cache_1/dcache_MSHR/U574/Q (oai13s2)               0.18      14.20 r
+  data_cache_1/dcache_MSHR/U572/Q (oai211s2)              0.10      14.30 f
+  data_cache_1/U717/Q (aoi22s2)                           0.12      14.43 r
+  data_cache_1/U251/Q (ib1s1)                             0.31      14.73 f
+  proc2mem_addr[tag][17] (out)                            0.02      14.75 f
+  data arrival time                                                 14.75
+
+  max_delay                                              20.00      20.00
+  clock uncertainty                                      -0.10      19.90
+  output external delay                                  -0.10      19.80
+  data required time                                                19.80
+  --------------------------------------------------------------------------
+  data required time                                                19.80
+  data arrival time                                                -14.75
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.05
+
+
+1
+Information: Updating graph... (UID-83)
+Warning: Design 'lsq' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : reference
+Design : lsq
+Version: O-2018.06
+Date   : Tue Apr 14 01:12:57 2020
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+and2s1             lec25dscc25_TT    49.766399     590 29362.175636
+and2s2             lec25dscc25_TT    58.060799      36  2090.188751
+and2s3             lec25dscc25_TT    99.532799      17  1692.057579
+and3s1             lec25dscc25_TT    66.355202      29  1924.300850
+and3s2             lec25dscc25_TT    99.532799       3   298.598396
+and3s3             lec25dscc25_TT   174.182007       8  1393.456055
+and4s1             lec25dscc25_TT    74.649597      24  1791.590332
+aoai122s2          lec25dscc25_TT    74.649597      64  4777.574219
+aoai1112s2         lec25dscc25_TT    66.355202      25  1658.880043
+aoi13s1            lec25dscc25_TT    58.060799       5   290.303993
+aoi13s2            lec25dscc25_TT    58.060799      90  5225.471878
+aoi13s3            lec25dscc25_TT    91.238403      21  1916.006470
+aoi21s1            lec25dscc25_TT    49.766399     233 11595.571056
+aoi21s2            lec25dscc25_TT    49.766399     205 10202.111874
+aoi22s1            lec25dscc25_TT    58.060799    5066 294136.005936
+aoi22s2            lec25dscc25_TT    58.060799    1936 112405.706177
+aoi23s2            lec25dscc25_TT    66.355202      16  1061.683228
+aoi33s1            lec25dscc25_TT    74.649597       2   149.299194
+aoi123s1           lec25dscc25_TT    82.944000       8   663.552002
+aoi211s1           lec25dscc25_TT    58.060799     106  6154.444656
+aoi211s2           lec25dscc25_TT    99.532799       1    99.532799
+aoi221s1           lec25dscc25_TT    74.649597     144 10749.541992
+aoi222s1           lec25dscc25_TT    82.944000     224 18579.456055
+aoi4111s1          lec25dscc25_TT   132.710007      67  8891.570450
+dcache                        2190287.515686       1 2190287.515686 h, n
+dffcs1             lec25dscc25_TT   165.888000    1130 187453.440552 n
+dffcs2             lec25dscc25_TT   182.477005    1257 229373.595291 n
+hi1s1              lec25dscc25_TT    33.177601     218  7232.716988
+i1s1               lec25dscc25_TT    33.177601      50  1658.880043
+i1s3               lec25dscc25_TT    41.472000      64  2654.208008
+ib1s1              lec25dscc25_TT    33.177601    5083 168641.745174
+ib1s2              lec25dscc25_TT    41.472000       1    41.472000
+lsq_DW01_add_0                 3832.012791       1   3832.012791  h
+lsq_DW01_add_1                 3790.540791       1   3790.540791  h
+lsq_DW01_add_2                 3823.718391       1   3823.718391  h
+lsq_DW01_add_3                 3823.718391       1   3823.718391  h
+lsq_DW01_add_4                 3823.718391       1   3823.718391  h
+lsq_DW01_add_5                 3823.718391       1   3823.718391  h
+lsq_DW01_add_6                 3823.718391       1   3823.718391  h
+lsq_DW01_add_7                 3823.718391       1   3823.718391  h
+lsq_DW01_add_8                 3823.718391       1   3823.718391  h
+lsq_DW01_add_9                 5275.238415       1   5275.238415  h
+lsq_DW01_add_10                5275.238415       1   5275.238415  h
+lsq_DW01_add_11                5275.238415       1   5275.238415  h
+lsq_DW01_cmp6_0                3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_1                3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_2                3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_3                3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_4                3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_5                3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_6                3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_7                3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_8                3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_9                3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_10               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_11               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_12               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_13               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_14               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_15               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_16               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_17               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_18               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_19               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_20               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_21               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_22               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_23               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_24               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_25               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_26               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_27               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_28               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_29               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_30               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_31               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_32               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_33               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_34               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_35               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_36               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_37               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_38               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_39               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_40               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_41               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_42               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_43               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_44               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_45               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_46               3433.881599       1   3433.881599  h
+lsq_DW01_cmp6_47               3433.881599       1   3433.881599  h
+nb1s1              lec25dscc25_TT    41.472000     319 13229.568039
+nb1s2              lec25dscc25_TT    49.766399       1    49.766399
+nnd2s1             lec25dscc25_TT    41.472000     869 36039.168106
+nnd2s2             lec25dscc25_TT    41.472000    1179 48895.488144
+nnd2s3             lec25dscc25_TT    58.060799       1    58.060799
+nnd3s1             lec25dscc25_TT    49.766399       1    49.766399
+nnd3s2             lec25dscc25_TT    49.766399     175  8709.119892
+nnd4s1             lec25dscc25_TT    58.060799     851 49409.739647
+nnd4s2             lec25dscc25_TT    91.238403       5   456.192017
+nor2s1             lec25dscc25_TT    41.472000     501 20777.472061
+nor2s2             lec25dscc25_TT    58.060799       9   522.547188
+nor3s1             lec25dscc25_TT    82.944000       1    82.944000
+nor4s1             lec25dscc25_TT    82.944000       9   746.496002
+nor5s1             lec25dscc25_TT    99.532799       3   298.598396
+nor6s1             lec25dscc25_TT   107.827003      10  1078.270035
+oai13s2            lec25dscc25_TT    58.060799     150  8709.119797
+oai13s3            lec25dscc25_TT    91.238403       1    91.238403
+oai21s1            lec25dscc25_TT    49.766399     579 28814.745243
+oai21s2            lec25dscc25_TT    49.766399     927 46133.452229
+oai22s1            lec25dscc25_TT    58.060799       9   522.547188
+oai22s2            lec25dscc25_TT    58.060799    4435 257499.641991
+oai24s1            lec25dscc25_TT    91.238403       2   182.476807
+oai32s1            lec25dscc25_TT    74.649597      11   821.145569
+oai33s1            lec25dscc25_TT    55.271999      83  4587.575947
+oai211s1           lec25dscc25_TT    58.060799      67  3890.073509
+oai211s2           lec25dscc25_TT    58.060799      85  4935.167885
+oai221s2           lec25dscc25_TT    74.649597     307 22917.426331
+oai222s1           lec25dscc25_TT    82.944000     262 21731.328064
+oai321s1           lec25dscc25_TT   103.635002       1   103.635002
+oai1112s2          lec25dscc25_TT    66.355202      69  4578.508919
+oai2222s3          lec25dscc25_TT   132.710007     100 13271.000671
+or2s1              lec25dscc25_TT    49.766399     125  6220.799923
+or2s2              lec25dscc25_TT    58.060799       3   174.182396
+or3s1              lec25dscc25_TT    58.060799       9   522.547188
+or4s1              lec25dscc25_TT    82.944000       2   165.888000
+priority_selector_REQS3_WIDTH8_0  4760.985622       1  4760.985622 h
+priority_selector_REQS3_WIDTH8_1  4860.518421       1  4860.518421 h
+priority_selector_REQS3_WIDTH8_2  4628.275219       1  4628.275219 h
+xnr2s1             lec25dscc25_TT    82.944000      99  8211.456024
+xor2s1             lec25dscc25_TT    82.944000      26  2156.544006
+-----------------------------------------------------------------------------
+Total 132 references                                4160386.745178
+1

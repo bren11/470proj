@@ -1,0 +1,1666 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+                 Version O-2018.06 for linux64 - May 21, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+################################################################################
+## DO NOT EDIT THESE FILES BY HAND
+##
+## CONFIGURATION HAS BEEN MOVED TO THE MAKEFILE
+################################################################################
+set search_path [ list "./" "/afs/umich.edu/class/eecs470/lib/synopsys/" ]
+./ /afs/umich.edu/class/eecs470/lib/synopsys/
+set target_library "lec25dscc25_TT.db"
+lec25dscc25_TT.db
+set link_library [concat  "*" $target_library]
+* lec25dscc25_TT.db
+#/***********************************************************/
+#/* Set some flags to suppress warnings we don't care about */
+set suppress_errors [concat $suppress_errors "UID-401"]
+UID-401
+suppress_message {"VER-130"}
+#/***********************************************************/
+#/* The following lines are set from environment variables
+#/* automatically by the Makefile
+#/***********************************************************/
+lappend search_path ../
+./ /afs/umich.edu/class/eecs470/lib/synopsys/ ../
+set headers [getenv HEADERS]
+sys_defs.svh ISA.svh
+set sources [getenv DCACHE_SIMFILES ]
+verilog/utility/wand_sel.v	verilog/utility/ps.v verilog/cache/cachemem_rw.sv	verilog/mshr.sv	verilog/dcache.sv
+read_file -f sverilog [list ${headers} ${sources}]
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2018.06/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2018.06/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading sverilog files: '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/sys_defs.svh' '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/ISA.svh' '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/utility/wand_sel.v' '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/utility/ps.v' '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/cache/cachemem_rw.sv' '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/mshr.sv' '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/dcache.sv' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/sys_defs.svh
+Compiling source file /afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/ISA.svh
+Compiling source file /afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/utility/wand_sel.v
+Compiling source file /afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/utility/ps.v
+Module 'wand_sel' was not elaborated because it contains the 'template' attribute.  Instead, it has been saved as a template.
+Compiling source file /afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/cache/cachemem_rw.sv
+Module 'priority_selector' was not elaborated because it contains the 'template' attribute.  Instead, it has been saved as a template.
+Compiling source file /afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/mshr.sv
+Compiling source file /afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/dcache.sv
+
+Statistics for case statements in always block at line 41 in file
+	'/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/cache/cachemem_rw.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            56            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine cachemem_rw line 41 in file
+		'/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/cache/cachemem_rw.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     valids_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      tags_reg       | Flip-flop |  768  |  Y  | N  | N  | N  | Y  | N  | N  |
+|      data_reg       | Flip-flop | 2048  |  Y  | N  | N  | N  | Y  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|  cachemem_rw/35  |   32   |   64    |      5       |
+|  cachemem_rw/36  |   32   |    1    |      5       |
+|  cachemem_rw/36  |   32   |   24    |      5       |
+|  cachemem_rw/35  |   32   |   64    |      5       |
+|  cachemem_rw/36  |   32   |    1    |      5       |
+|  cachemem_rw/36  |   32   |   24    |      5       |
+|  cachemem_rw/35  |   32   |   64    |      5       |
+|  cachemem_rw/36  |   32   |    1    |      5       |
+|  cachemem_rw/36  |   32   |   24    |      5       |
+|  cachemem_rw/35  |   32   |   64    |      5       |
+|  cachemem_rw/36  |   32   |    1    |      5       |
+|  cachemem_rw/36  |   32   |   24    |      5       |
+======================================================
+Warning:  /afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/mshr.sv:111: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine MSHR line 186 in file
+		'/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/mshr.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      mshr_reg       | Flip-flop |  525  |  Y  | N  | N  | N  | Y  | N  | N  |
+===============================================================================
+
+Statistics for case statements in always block at line 162 in file
+	'/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/dcache.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           176            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 193 in file
+	'/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/dcache.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           208            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Current design is now '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/cachemem_rw.db:cachemem_rw'
+Loaded 3 designs.
+Current design is 'cachemem_rw'.
+cachemem_rw MSHR dcache
+set design_name dcache
+dcache
+set clock_name [getenv CLOCK_NET_NAME]
+clock
+set reset_name [getenv RESET_NET_NAME]
+reset
+set CLK_PERIOD [getenv CLOCK_PERIOD]
+5	
+#/***********************************************************/
+#/* The rest of this file may be left alone for most small  */
+#/* to moderate sized designs.  You may need to alter it    */
+#/* when synthesizing your final project.                   */
+#/***********************************************************/
+set SYN_DIR ./
+./
+#/***********************************************************/
+#/* Set some flags for optimisation */
+set compile_top_all_paths "true"
+true
+set auto_wire_load_selection "false"
+false
+set compile_seqmap_synchronous_extraction "true"
+true
+# uncomment this and change number appropriately if on multi-core machine
+#set_host_options -max_cores 2
+#/***********************************************************/
+#/*  Clk Periods/uncertainty/transition                     */
+set CLK_TRANSITION 0.1
+0.1
+set CLK_UNCERTAINTY 0.1
+0.1
+set CLK_LATENCY 0.1
+0.1
+#/* Input/output Delay values */
+set AVG_INPUT_DELAY 0.1
+0.1
+set AVG_OUTPUT_DELAY 0.1
+0.1
+#/* Critical Range (ns) */
+set CRIT_RANGE 1.0
+1.0
+#/***********************************************************/
+#/* Design Constrains: Not all used                         */
+set MAX_TRANSITION 1.0
+1.0
+set FAST_TRANSITION 0.1
+0.1
+set MAX_FANOUT 32
+32
+set MID_FANOUT 8
+8
+set LOW_FANOUT 1
+1
+set HIGH_DRIVE 0
+0
+set HIGH_LOAD 1.0
+1.0
+set AVG_LOAD 0.1
+0.1
+set AVG_FANOUT_LOAD 10
+10
+#/***********************************************************/
+#/*BASIC_INPUT = cb18os120_tsmc_max/nd02d1/A1
+#BASIC_OUTPUT = cb18os120_tsmc_max/nd02d1/ZN*/
+set DRIVING_CELL dffacs1
+dffacs1
+#/* DONT_USE_LIST = {   } */
+#/*************operation cons**************/
+#/*OP_WCASE = WCCOM;
+#OP_BCASE = BCCOM;*/
+set WIRE_LOAD "tsmcwire"
+tsmcwire
+set LOGICLIB lec25dscc25_TT
+lec25dscc25_TT
+#/*****************************/
+#/* Sourcing the file that sets the Search path and the libraries(target,link) */
+set sys_clk $clock_name
+clock
+set netlist_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".vg"]
+./dcache.vg
+set ddc_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".ddc"]
+./dcache.ddc
+set rep_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".rep"]
+./dcache.rep
+set dc_shell_status [ set chk_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".chk"] ]
+./dcache.chk
+#/* if we didnt find errors at this point, run */
+if {  $dc_shell_status != [list] } {
+   current_design $design_name
+  link
+  set_wire_load_model -name $WIRE_LOAD -lib $LOGICLIB $design_name
+  set_wire_load_mode top
+  set_fix_multiple_port_nets -outputs -buffer_constants
+  create_clock -period $CLK_PERIOD -name $sys_clk [find port $sys_clk]
+  set_clock_uncertainty $CLK_UNCERTAINTY $sys_clk
+  set_fix_hold $sys_clk
+  group_path -from [all_inputs] -name input_grp
+  group_path -to [all_outputs] -name output_grp
+  set_driving_cell  -lib_cell $DRIVING_CELL [all_inputs]
+  remove_driving_cell [find port $sys_clk]
+  set_fanout_load $AVG_FANOUT_LOAD [all_outputs]
+  set_load $AVG_LOAD [all_outputs]
+  set_input_delay $AVG_INPUT_DELAY -clock $sys_clk [all_inputs]
+  remove_input_delay -clock $sys_clk [find port $sys_clk]
+  set_output_delay $AVG_OUTPUT_DELAY -clock $sys_clk [all_outputs]
+  set_dont_touch $reset_name
+  set_resistance 0 $reset_name
+  set_drive 0 $reset_name
+  set_critical_range $CRIT_RANGE [current_design]
+  set_max_delay $CLK_PERIOD [all_outputs]
+  set MAX_FANOUT $MAX_FANOUT
+  set MAX_TRANSITION $MAX_TRANSITION
+  uniquify
+  ungroup -all #-flatten
+  redirect $chk_file { check_design }
+  compile -map_effort medium
+  write -hier -format verilog -output $netlist_file $design_name
+  write -hier -format ddc -output $ddc_file $design_name
+  redirect $rep_file { report_design -nosplit }
+  redirect -append $rep_file { report_area }
+  redirect -append $rep_file { report_timing -max_paths 2 -input_pins -nets -transition_time -nosplit }
+  redirect -append $rep_file { report_constraint -max_delay -verbose -nosplit }
+  remove_design -all
+  read_file -format verilog $netlist_file
+  current_design $design_name
+  redirect -append $rep_file { report_reference -nosplit }
+  quit
+} else {
+   quit
+}
+Current design is 'dcache'.
+
+  Linking design 'dcache'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (3 designs)               /afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/verilog/dcache.db, etc
+  lec25dscc25_TT (library)    /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db
+
+Information: Building the design 'priority_selector' instantiated from design 'MSHR' with
+	the parameters "REQS=4,WIDTH=15". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'wand_sel' instantiated from design 'priority_selector_REQS4_WIDTH15' with
+	the parameters "15". (HDL-193)
+Presto compilation completed successfully.
+Current design is 'dcache'.
+Information: Uniquified 4 instances of design 'wand_sel_WIDTH15'. (OPT-1056)
+Warning: Can't find cell '#-flatten' in design 'dcache'. (UID-95)
+Error: Value for list 'cell_list' must have 1 elements. (CMD-036)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.0 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 56 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'cachemem_rw'
+  Processing 'wand_sel_WIDTH15_0'
+  Processing 'priority_selector_REQS4_WIDTH15'
+  Processing 'MSHR'
+  Processing 'dcache'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'dcache_DW01_cmp6_0'
+  Processing 'dcache_DW01_cmp6_1'
+  Processing 'dcache_DW01_cmp6_2'
+  Processing 'dcache_DW01_cmp6_3'
+  Processing 'dcache_DW01_cmp6_4'
+  Processing 'dcache_DW01_cmp6_5'
+  Processing 'dcache_DW01_cmp6_6'
+  Processing 'dcache_DW01_cmp6_7'
+  Processing 'dcache_DW01_cmp6_8'
+  Processing 'dcache_DW01_cmp6_9'
+  Processing 'dcache_DW01_cmp6_10'
+  Processing 'dcache_DW01_cmp6_11'
+  Processing 'cachemem_rw_DW01_cmp6_0'
+  Processing 'cachemem_rw_DW01_cmp6_1'
+  Processing 'cachemem_rw_DW01_cmp6_2'
+  Processing 'cachemem_rw_DW01_cmp6_3'
+  Processing 'MSHR_DW01_cmp6_0'
+  Processing 'MSHR_DW01_cmp6_1'
+  Processing 'MSHR_DW01_cmp6_2'
+  Processing 'MSHR_DW01_cmp6_3'
+  Processing 'MSHR_DW01_cmp6_4'
+  Processing 'MSHR_DW01_cmp6_5'
+  Processing 'MSHR_DW01_cmp6_6'
+  Processing 'MSHR_DW01_cmp6_7'
+  Processing 'MSHR_DW01_cmp6_8'
+  Processing 'MSHR_DW01_cmp6_9'
+  Processing 'MSHR_DW01_cmp6_10'
+  Processing 'MSHR_DW01_cmp6_11'
+  Processing 'MSHR_DW01_cmp6_12'
+  Processing 'MSHR_DW01_cmp6_13'
+  Processing 'MSHR_DW01_cmp6_14'
+  Processing 'MSHR_DW01_cmp6_15'
+  Processing 'MSHR_DW01_cmp6_16'
+  Processing 'MSHR_DW01_cmp6_17'
+  Processing 'MSHR_DW01_cmp6_18'
+  Processing 'MSHR_DW01_cmp6_19'
+  Processing 'MSHR_DW01_cmp6_20'
+  Processing 'MSHR_DW01_cmp6_21'
+  Processing 'MSHR_DW01_cmp6_22'
+  Processing 'MSHR_DW01_cmp6_23'
+  Processing 'MSHR_DW01_cmp6_24'
+  Processing 'MSHR_DW01_cmp6_25'
+  Processing 'MSHR_DW01_cmp6_26'
+  Processing 'MSHR_DW01_cmp6_27'
+  Processing 'MSHR_DW01_cmp6_28'
+  Processing 'MSHR_DW01_cmp6_29'
+  Processing 'MSHR_DW01_cmp6_30'
+  Processing 'MSHR_DW01_cmp6_31'
+  Processing 'MSHR_DW01_cmp6_32'
+  Processing 'MSHR_DW01_cmp6_33'
+  Processing 'MSHR_DW01_cmp6_34'
+  Processing 'MSHR_DW01_cmp6_35'
+  Processing 'MSHR_DW01_cmp6_36'
+  Processing 'MSHR_DW01_cmp6_37'
+  Processing 'MSHR_DW01_cmp6_38'
+  Processing 'MSHR_DW01_cmp6_39'
+  Processing 'MSHR_DW01_cmp6_40'
+  Processing 'MSHR_DW01_cmp6_41'
+  Processing 'MSHR_DW01_cmp6_42'
+  Processing 'MSHR_DW01_cmp6_43'
+  Processing 'MSHR_DW01_cmp6_44'
+  Processing 'MSHR_DW01_cmp6_45'
+  Processing 'MSHR_DW01_cmp6_46'
+  Processing 'MSHR_DW01_cmp6_47'
+  Processing 'MSHR_DW01_cmp6_48'
+  Processing 'MSHR_DW01_cmp6_49'
+  Processing 'MSHR_DW01_cmp6_50'
+  Processing 'MSHR_DW01_cmp6_51'
+  Processing 'MSHR_DW01_cmp6_52'
+  Processing 'MSHR_DW01_cmp6_53'
+  Processing 'MSHR_DW01_cmp6_54'
+  Processing 'MSHR_DW01_cmp6_55'
+  Processing 'MSHR_DW01_cmp6_56'
+  Processing 'MSHR_DW01_cmp6_57'
+  Processing 'MSHR_DW01_cmp6_58'
+  Processing 'MSHR_DW01_cmp6_59'
+  Processing 'MSHR_DW01_cmp6_60'
+  Processing 'MSHR_DW01_cmp6_61'
+  Processing 'MSHR_DW01_cmp6_62'
+  Processing 'MSHR_DW01_cmp6_63'
+  Processing 'MSHR_DW01_cmp6_64'
+  Processing 'MSHR_DW01_cmp6_65'
+  Processing 'MSHR_DW01_cmp6_66'
+  Processing 'MSHR_DW01_cmp6_67'
+  Processing 'MSHR_DW01_cmp6_68'
+  Processing 'MSHR_DW01_cmp6_69'
+  Processing 'MSHR_DW01_cmp6_70'
+  Processing 'MSHR_DW01_cmp6_71'
+  Processing 'MSHR_DW01_cmp6_72'
+  Processing 'MSHR_DW01_cmp6_73'
+  Processing 'MSHR_DW01_cmp6_74'
+  Processing 'MSHR_DW01_cmp6_75'
+  Processing 'MSHR_DW01_cmp6_76'
+  Processing 'MSHR_DW01_cmp6_77'
+  Processing 'MSHR_DW01_cmp6_78'
+  Processing 'MSHR_DW01_cmp6_79'
+  Processing 'MSHR_DW01_cmp6_80'
+  Processing 'MSHR_DW01_cmp6_81'
+  Processing 'MSHR_DW01_cmp6_82'
+  Processing 'MSHR_DW01_cmp6_83'
+  Processing 'MSHR_DW01_cmp6_84'
+  Processing 'MSHR_DW01_cmp6_85'
+  Processing 'MSHR_DW01_cmp6_86'
+  Processing 'MSHR_DW01_cmp6_87'
+  Processing 'MSHR_DW01_cmp6_88'
+  Processing 'MSHR_DW01_cmp6_89'
+  Processing 'MSHR_DW01_cmp6_90'
+  Processing 'MSHR_DW01_cmp6_91'
+  Processing 'MSHR_DW01_cmp6_92'
+  Processing 'MSHR_DW01_cmp6_93'
+  Processing 'MSHR_DW01_cmp6_94'
+  Processing 'MSHR_DW01_cmp6_95'
+  Processing 'MSHR_DW01_cmp6_96'
+  Processing 'MSHR_DW01_cmp6_97'
+  Processing 'MSHR_DW01_cmp6_98'
+  Processing 'MSHR_DW01_cmp6_99'
+  Processing 'MSHR_DW01_cmp6_100'
+  Processing 'MSHR_DW01_cmp6_101'
+  Processing 'MSHR_DW01_cmp6_102'
+  Processing 'MSHR_DW01_cmp6_103'
+  Processing 'MSHR_DW01_cmp6_104'
+  Processing 'MSHR_DW01_cmp6_105'
+  Processing 'MSHR_DW01_cmp6_106'
+  Processing 'MSHR_DW01_cmp6_107'
+  Processing 'MSHR_DW01_cmp6_108'
+  Processing 'MSHR_DW01_cmp6_109'
+  Processing 'MSHR_DW01_cmp6_110'
+  Processing 'MSHR_DW01_cmp6_111'
+  Processing 'MSHR_DW01_cmp6_112'
+  Processing 'MSHR_DW01_cmp6_113'
+  Processing 'MSHR_DW01_cmp6_114'
+  Processing 'MSHR_DW01_cmp6_115'
+  Processing 'MSHR_DW01_cmp6_116'
+  Processing 'MSHR_DW01_cmp6_117'
+  Processing 'MSHR_DW01_cmp6_118'
+  Processing 'MSHR_DW01_cmp6_119'
+  Processing 'MSHR_DW01_cmp6_120'
+  Processing 'MSHR_DW01_cmp6_121'
+  Processing 'MSHR_DW01_cmp6_122'
+  Processing 'MSHR_DW01_cmp6_123'
+  Processing 'MSHR_DW01_cmp6_124'
+  Processing 'MSHR_DW01_cmp6_125'
+  Processing 'MSHR_DW01_cmp6_126'
+  Processing 'MSHR_DW01_cmp6_127'
+  Processing 'MSHR_DW01_cmp6_128'
+  Processing 'MSHR_DW01_cmp6_129'
+  Processing 'MSHR_DW01_cmp6_130'
+  Processing 'MSHR_DW01_cmp6_131'
+  Processing 'DW01_add_width4'
+  Processing 'DW01_add_width4'
+  Processing 'DW01_add_width4'
+  Processing 'DW01_add_width4'
+  Processing 'DW01_add_width4'
+  Processing 'DW01_add_width4'
+  Processing 'DW01_add_width3'
+  Processing 'DW01_add_width2'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:02:58 2657773.7   3755.92 20960012.0 1744744.6                                0.00  
+    0:02:58 2657773.7   3755.92 20960012.0 1744744.6                                0.00  
+    0:03:00 3205212.3      8.97   39562.2   18546.2                                0.00  
+    0:03:01 3636006.5      8.97   39466.3   17966.8                                0.00  
+    0:04:29 3796560.7      2.03    9233.3      89.8                                0.00  
+    0:04:37 3748892.5      2.04    9965.2    1448.8                                0.00  
+    0:04:37 3748892.5      2.04    9965.2    1448.8                                0.00  
+    0:04:39 3748875.9      2.04    9964.8    1448.8                                0.00  
+    0:04:39 3748875.9      2.04    9964.8    1448.8                                0.00  
+    0:04:39 3748875.9      2.04    9964.7    1448.8                                0.00  
+    0:04:51 2437289.6      3.60   14212.0    1402.3                                0.00  
+    0:04:56 2423346.8      3.51   14301.0    1401.9                                0.00  
+    0:04:59 2424093.3      3.36   13720.9    1401.4                                0.00  
+    0:05:01 2424284.0      3.26   13210.9    1401.4                                0.00  
+    0:05:02 2426639.6      3.33   13565.9    1401.4                                0.00  
+    0:05:03 2425403.8      2.88   11702.9    1401.4                                0.00  
+    0:05:04 2425378.9      2.82   11735.8    1401.4                                0.00  
+    0:05:05 2425743.8      2.81   11738.0    1401.4                                0.00  
+    0:05:06 2425544.8      2.71   11542.0    1401.4                                0.00  
+    0:05:07 2425860.0      2.65   11545.8    1401.4                                0.00  
+    0:05:08 2426100.5      2.63   11483.2    1401.4                                0.00  
+    0:05:08 2426764.0      2.63   11442.5    1401.4                                0.00  
+    0:05:09 2426863.6      2.61   11435.0    1401.4                                0.00  
+    0:05:09 2427029.5      2.61   11378.1    1401.4                                0.00  
+    0:05:10 2427253.4      2.61   11371.9    1401.4                                0.00  
+    0:05:11 2427452.5      2.60   11284.7    1401.4                                0.00  
+    0:05:11 2428066.3      2.58   11168.3    1401.4                                0.00  
+    0:05:12 2428265.3      2.55   11068.1    1401.4                                0.00  
+    0:05:13 2428680.1      2.55   11036.5    1401.4                                0.00  
+    0:05:13 2428680.1      2.55   11036.5    1401.4                                0.00  
+    0:05:13 2428680.1      2.55   11036.5    1401.4                                0.00  
+    0:05:13 2428688.4      2.55   11064.1    1376.6                                0.00  
+    0:05:14 2428688.4      2.55   11066.6    1376.6                                0.00  
+    0:05:14 2428688.4      2.55   11068.3    1376.5                                0.00  
+    0:05:14 2428688.4      2.55   11070.0    1376.5                                0.00  
+    0:05:14 2428743.6      2.55   11076.5    1376.4                                0.00  
+    0:05:14 2428743.6      2.55   11078.2    1376.4                                0.00  
+    0:05:14 2428743.6      2.55   11079.8    1376.4                                0.00  
+    0:05:14 2428743.6      2.55   11080.6    1376.3                                0.00  
+    0:05:15 2428743.6      2.55   11081.6    1376.3                                0.00  
+    0:05:15 2428743.6      2.55   11081.6    1376.3                                0.00  
+    0:05:16 2433587.5      2.43   10761.1    1376.3 D_cachemem/data_reg[20][55]/CLRB      0.00  
+    0:05:17 2437195.6      2.27   10215.5    1376.6 D_cachemem/data_reg[6][31]/CLRB      0.00  
+    0:05:18 2441483.8      2.17   10066.4    1376.9 Dcache_rd_data[2][23]          0.00  
+    0:05:19 2446269.7      2.17   10039.7    1376.9 D_cachemem/data_reg[4][48]/CLRB      0.00  
+    0:05:21 2455012.0      1.99    9343.6    1376.9 D_cachemem/data_reg[5][30]/CLRB      0.00  
+    0:05:23 2461257.7      1.90    9107.8    1377.3 D_cachemem/data_reg[19][47]/CLRB      0.00  
+    0:05:24 2464401.3      1.89    9079.2    1377.3 Dcache_rd_data[2][2]           0.00  
+    0:05:24 2465944.0      1.88    9031.1    1377.3 D_cachemem/data_reg[14][10]/CLRB      0.00  
+    0:05:25 2467926.4      1.85    8987.8    1377.9 D_cachemem/data_reg[29][53]/CLRB      0.00  
+    0:05:29 2476378.4      1.83    8688.6    1378.5 Dcache_rd_data[1][14]          0.00  
+    0:05:29 2477655.7      1.83    8670.3    1378.6 Dcache_rd_data[2][29]          0.00  
+    0:05:34 2479660.2      1.81    8454.6    1378.9 D_cachemem/data_reg[15][0]/CLRB      0.00  
+    0:05:34 2480083.2      1.80    8440.2    1379.1                                0.00  
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:05:34 2480083.2      1.80    8440.2    1379.1                                0.00  
+    0:05:36 2481435.2      1.79    8307.0    1378.6 dcache_MSHR/mshr_reg[7][tag][23]/CLRB      0.00  
+    0:05:37 2482438.8      1.73    8160.6    1378.6 D_cachemem/data_reg[6][34]/CLRB      0.00  
+    0:05:39 2483293.1      1.73    8104.1    1378.6 dcache_MSHR/mshr_reg[7][tag][23]/CLRB      0.00  
+    0:05:40 2484321.6      1.71    8013.4    1378.7 D_cachemem/tags_reg[12][21]/CLRB      0.00  
+    0:05:41 2484905.0      1.71    7992.0    1378.7 D_cachemem/data_reg[19][5]/CLRB      0.00  
+    0:05:42 2485369.5      1.70    7978.7    1378.7 D_cachemem/data_reg[19][1]/CLRB      0.00  
+    0:05:42 2485858.9      1.70    7958.5    1378.8 D_cachemem/tags_reg[23][15]/CLRB      0.00  
+    0:05:43 2486588.8      1.70    7948.9    1378.5 D_cachemem/data_reg[5][44]/CLRB      0.00  
+    0:05:43 2486879.1      1.70    7917.2    1378.5 dcache_MSHR/mshr_reg[10][tag][23]/CLRB      0.00  
+    0:05:44 2487368.5      1.69    7915.4    1378.4 dcache_MSHR/mshr_reg[4][tag][19]/CLRB      0.00  
+    0:05:44 2487824.7      1.69    7893.3    1378.4 D_cachemem/tags_reg[24][16]/CLRB      0.00  
+    0:05:45 2487907.6      1.69    7887.9    1378.4 dcache_MSHR/mshr_reg[6][tag][23]/CLRB      0.00  
+    0:05:45 2487998.9      1.69    7885.7    1378.4 dcache_MSHR/mshr_reg[3][tag][19]/CLRB      0.00  
+    0:05:45 2487907.6      1.69    7878.1    1378.5 D_cachemem/data_reg[17][8]/CLRB      0.00  
+    0:05:46 2488571.2      1.69    7861.8    1378.5 dcache_MSHR/mshr_reg[11][tag][23]/CLRB      0.00  
+    0:05:46 2489350.8      1.68    7806.8    1378.5 D_cachemem/tags_reg[0][16]/CLRB      0.00  
+    0:05:50 2490644.8      1.57    7468.4    1378.4 D_cachemem/data_reg[2][55]/CLRB      0.00  
+    0:05:52 2490918.5      1.55    7407.4    1378.4 D_cachemem/data_reg[4][48]/CLRB      0.00  
+    0:05:53 2490951.7      1.54    7357.1    1378.4 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:05:54 2490810.7      1.54    7320.4    1378.4 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:05:56 2491117.6      1.53    7283.1    1379.0 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:05:57 2491291.7      1.52    7257.8    1379.0 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:05:58 2491806.0      1.51    7237.0    1379.0 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:00 2488977.6      1.51    7214.3    1525.7 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:01 2488861.5      1.50    7192.5    1527.6 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:03 2489433.8      1.49    7164.8    1496.0 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:03 2486265.3      1.49    7142.2    1642.7 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:04 2486605.4      1.48    7133.5    1642.7 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:05 2486530.7      1.48    7119.3    1642.5 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:07 2485941.8      1.47    7076.1    1658.5 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:07 2485925.2      1.46    7058.0    1658.5 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:09 2485825.7      1.46    7054.2    1658.5 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:09 2485726.2      1.46    7048.9    1658.5 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:10 2485610.1      1.46    7042.1    1658.5 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:11 2485610.1      1.45    7036.1    1658.5 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:12 2485518.8      1.45    7033.8    1658.5 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:13 2485518.8      1.45    7030.4    1658.5 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:14 2485435.9      1.45    7028.3    1658.5 D_cachemem/data_reg[10][40]/CLRB      0.00  
+    0:06:14 2485460.8      1.45    7027.7    1658.4 Dcache_rd_data[2][29]          0.00  
+    0:06:15 2486074.5      1.45    7018.5    1658.6 dcache_MSHR/mshr_reg[11][tag][5]/CLRB      0.00  
+    0:06:16 2486588.8      1.44    6919.7    1658.6 dcache_MSHR/mshr_reg[11][tag][23]/CLRB      0.00  
+    0:06:17 2487152.8      1.43    6849.8    1658.7 D_cachemem/data_reg[24][10]/CLRB      0.00  
+    0:06:18 2487542.7      1.43    6812.1    1658.7 dcache_MSHR/mshr_reg[9][tag][23]/CLRB      0.00  
+    0:06:19 2488405.3      1.43    6794.7    1658.7 D_cachemem/data_reg[19][57]/CLRB      0.00  
+    0:06:20 2488952.7      1.43    6720.8    1658.7 D_cachemem/data_reg[0][27]/CLRB      0.00  
+    0:06:21 2489541.6      1.41    6676.6    1658.7 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:22 2489773.9      1.39    6614.1    1627.1 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:24 2489699.2      1.38    6587.8    1627.0 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:24 2489558.2      1.38    6573.6    1627.0 D_cachemem/data_reg[26][33]/CLRB      0.00  
+    0:06:25 2489599.7      1.37    6559.8    1627.0 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:26 2489641.1      1.37    6547.6    1627.1 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:27 2489782.1      1.37    6542.4    1627.1 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:28 2489856.8      1.36    6526.0    1627.1 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:29 2489890.0      1.36    6511.5    1627.1 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:30 2490097.3      1.36    6500.8    1625.1 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:32 2490089.0      1.35    6486.7    1625.1 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:33 2490097.3      1.35    6478.9    1625.1 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:33 2490147.1      1.35    6470.5    1625.1 D_cachemem/data_reg[14][48]/CLRB      0.00  
+    0:06:34 2490354.5      1.35    6474.7    1625.1 Dcache_rd_data[2][29]          0.00  
+    0:06:34 2490346.2      1.35    6467.6    1625.4 Dcache_rd_data[2][32]          0.00  
+    0:06:35 2490387.6      1.35    6468.7    1625.4 Dcache_rd_data[2][29]          0.00  
+    0:06:35 2490437.4      1.33    6325.2    1625.4 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:06:35 2490669.7      1.33    6317.2    1625.2 D_cachemem/data_reg[27][7]/CLRB      0.00  
+    0:06:36 2491147.9      1.33    6300.2    1625.2 dcache_MSHR/mshr_reg[14][tag][19]/CLRB      0.00  
+    0:06:37 2491297.2      1.33    6256.1    1625.2 D_cachemem/data_reg[2][16]/CLRB      0.00  
+    0:06:37 2491562.6      1.32    6251.2    1625.2 D_cachemem/data_reg[4][24]/CLRB      0.00  
+    0:06:38 2491620.7      1.31    6240.5    1625.2 D_cachemem/data_reg[2][20]/CLRB      0.00  
+    0:06:39 2491944.2      1.31    6238.1    1625.2 Dcache_rd_data[2][29]          0.00  
+    0:06:39 2492085.2      1.31    6237.2    1625.3 Dcache_rd_data[2][35]          0.00  
+    0:06:40 2492682.4      1.31    6233.8    1625.5 dcache_MSHR/mshr_reg[14][tag][19]/CLRB      0.00  
+    0:06:40 2492765.3      1.30    6300.9    1625.5 dcache_MSHR/mshr_reg[14][tag][19]/CLRB      0.00  
+    0:06:41 2492781.9      1.30    6158.2    1625.6 dcache_MSHR/mshr_reg[3][tag][19]/CLRB      0.00  
+    0:06:42 2493545.0      1.30    6092.7    1625.9 dcache_MSHR/mshr_reg[4][tag][20]/CLRB      0.00  
+    0:06:42 2493868.5      1.30    6066.0    1625.9 dcache_MSHR/mshr_reg[8][tag][5]/CLRB      0.00  
+    0:06:43 2494333.0      1.28    5990.7    1625.9 D_cachemem/data_reg[12][6]/CLRB      0.00  
+    0:06:45 2495179.0      1.25    5902.4    1625.9 D_cachemem/data_reg[8][52]/CLRB      0.00  
+    0:06:46 2496365.1      1.25    5894.9    1625.9 D_cachemem/data_reg[4][11]/CLRB      0.00  
+    0:06:46 2496978.9      1.25    5886.5    1626.0 Dcache_rd_data[0][4]           0.00  
+    0:06:47 2497493.1      1.25    5880.4    1626.0 Dcache_rd_data[2][8]           0.00  
+    0:06:47 2497907.9      1.25    5886.4    1625.9 Dcache_rd_data[2][47]          0.00  
+    0:06:47 2498488.5      1.25    5886.2    1625.9 Dcache_rd_data[2][35]          0.00  
+    0:06:48 2498621.2      1.25    5883.4    1625.9 dcache_MSHR/mshr_reg[6][tag][23]/CLRB      0.00  
+    0:06:48 2498596.3      1.24    5842.9    1625.9 D_cachemem/data_reg[4][11]/CLRB      0.00  
+    0:06:49 2499102.3      1.23    5736.0    1625.9 D_cachemem/data_reg[4][11]/CLRB      0.00  
+    0:06:51 2498986.1      1.22    5698.7    1625.9 Dcache_rd_data[2][38]          0.00  
+    0:06:51 2498894.9      1.22    5695.8    1626.7 Dcache_rd_data[0][2]           0.00  
+    0:06:51 2499317.9      1.22    5694.8    1626.7 Dcache_rd_data[2][38]          0.00  
+    0:06:52 2499367.7      1.22    5694.1    1626.9 Dcache_rd_data[2][38]          0.00  
+    0:06:52 2499857.0      1.22    5688.9    1626.9 dcache_MSHR/mshr_reg[3][tag][19]/CLRB      0.00  
+    0:06:53 2500047.8      1.22    5666.3    1626.9 D_cachemem/data_reg[4][11]/CLRB      0.00  
+    0:06:53 2500031.2      1.22    5650.5    1626.9 dcache_MSHR/mshr_reg[6][tag][23]/CLRB      0.00  
+    0:06:54 2500022.9      1.22    5613.0    1626.9 dcache_MSHR/mshr_reg[13][tag][5]/CLRB      0.00  
+    0:06:55 2500412.8      1.22    5580.2    1627.3 D_cachemem/data_reg[4][11]/CLRB      0.00  
+    0:06:56 2500620.1      1.22    5555.7    1627.3 dcache_MSHR/mshr_reg[3][tag][21]/CLRB      0.00  
+    0:06:57 2500661.6      1.22    5549.6    1627.4 D_cachemem/data_reg[4][11]/CLRB      0.00  
+    0:06:58 2500877.3      1.21    5527.2    1627.4 D_cachemem/data_reg[18][6]/CLRB      0.00  
+    0:06:58 2501217.3      1.21    5518.1    1627.4 D_cachemem/data_reg[18][6]/CLRB      0.00  
+    0:06:59 2502428.3      1.21    5491.3    1627.4 Dcache_rd_data[0][2]           0.00  
+    0:07:00 2503050.4      1.21    5490.9    1627.4 Dcache_rd_data[2][4]           0.00  
+    0:07:00 2503879.8      1.21    5490.1    1627.4 dcache_MSHR/mshr_reg[13][tag][5]/CLRB      0.00  
+    0:07:00 2504170.1      1.21    5488.6    1627.4 dcache_MSHR/mshr_reg[7][tag][19]/CLRB      0.00  
+    0:07:01 2504419.0      1.21    5481.6    1627.4 dcache_MSHR/mshr_reg[7][tag][19]/CLRB      0.00  
+    0:07:02 2504543.4      1.20    5474.7    1627.4 dcache_MSHR/mshr_reg[7][tag][19]/CLRB      0.00  
+    0:07:03 2504593.2      1.20    5429.9    1627.4 D_cachemem/data_reg[4][45]/CLRB      0.00  
+    0:07:05 2505065.9      1.19    5351.9    1627.4 D_cachemem/data_reg[4][11]/CLRB      0.00  
+    0:07:06 2505099.1      1.18    5347.5    1627.3 D_cachemem/data_reg[15][8]/CLRB      0.00  
+    0:07:06 2505679.7      1.18    5332.0    1627.3 D_cachemem/data_reg[16][47]/CLRB      0.00  
+    0:07:07 2505912.0      1.18    5318.4    1627.3 Dcache_rd_data[2][56]          0.00  
+    0:07:07 2506152.5      1.18    5314.3    1627.3 dcache_MSHR/mshr_reg[7][tag][19]/CLRB      0.00  
+    0:07:08 2506641.9      1.18    5304.0    1627.3 dcache_MSHR/mshr_reg[14][tag][23]/CLRB      0.00  
+    0:07:08 2506832.6      1.18    5285.9    1627.1 D_cachemem/data_reg[0][24]/CLRB      0.00  
+    0:07:09 2506824.4      1.18    5277.9    1627.1 D_cachemem/data_reg[3][24]/CLRB      0.00  
+    0:07:10 2506733.1      1.17    5262.1    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:11 2506882.4      1.17    5163.8    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:13 2506998.5      1.16    5151.7    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:13 2506882.4      1.16    5149.7    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:14 2507247.4      1.16    5143.3    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:15 2507040.0      1.16    5132.3    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:16 2507064.9      1.15    5108.5    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:17 2506857.5      1.15    5099.4    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:18 2507031.7      1.15    5091.6    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:19 2507048.3      1.14    5083.3    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:20 2506749.7      1.14    5076.0    1633.1 D_cachemem/data_reg[5][7]/CLRB      0.00  
+    0:07:21 2506641.9      1.14    5057.8    1633.1 D_cachemem/data_reg[3][15]/CLRB      0.00  
+    0:07:21 2506716.5      1.14    5051.3    1633.1 Dcache_rd_data[2][56]          0.00  
+    0:07:22 2506957.1      1.14    5049.5    1633.1 dcache_MSHR/mshr_reg[7][tag][19]/CLRB      0.00  
+    0:07:22 2507828.0      1.14    5033.9    1633.1 dcache_MSHR/mshr_reg[7][tag][19]/CLRB      0.00  
+    0:07:23 2507944.1      1.13    5025.3    1633.1 D_cachemem/data_reg[3][15]/CLRB      0.00  
+    0:07:23 2508018.7      1.13    5024.6    1633.1 dcache_MSHR/mshr_reg[7][tag][19]/CLRB      0.00  
+    0:07:24 2508533.0      1.13    5016.8    1633.1 dcache_MSHR/mshr_reg[7][tag][19]/CLRB      0.00  
+    0:07:24 2508748.7      1.13    5005.7    1633.1 D_cachemem/data_reg[4][45]/CLRB      0.00  
+    0:07:24 2508740.4      1.13    5002.3    1633.1 D_cachemem/data_reg[22][1]/CLRB      0.00  
+    0:07:25 2509180.0      1.13    4998.2    1633.1 D_cachemem/data_reg[9][8]/CLRB      0.00  
+    0:07:25 2509511.7      1.13    4996.5    1633.1 dcache_MSHR/mshr_reg[7][tag][19]/CLRB      0.00  
+    0:07:26 2509528.3      1.13    4993.5    1633.1 D_cachemem/data_reg[3][15]/CLRB      0.00  
+    0:07:27 2509528.3      1.12    4989.7    1625.1 D_cachemem/data_reg[3][15]/CLRB      0.00  
+    0:07:28 2509951.3      1.12    4987.8    1625.1 D_cachemem/data_reg[3][15]/CLRB      0.00  
+    0:07:29 2510001.1      1.12    4978.8    1625.1 D_cachemem/data_reg[3][15]/CLRB      0.00  
+    0:07:30 2510050.9      1.12    4977.4    1625.1 D_cachemem/data_reg[3][15]/CLRB      0.00  
+    0:07:30 2510158.7      1.12    4971.7    1625.1 D_cachemem/data_reg[3][15]/CLRB      0.00  
+    0:07:32 2510084.0      1.12    4969.9    1625.1 Dcache_rd_data[2][56]          0.00  
+    0:07:33 2510009.4      1.12    4966.6    1625.1 D_cachemem/data_reg[3][15]/CLRB      0.00  
+    0:07:35 2510150.4      1.12    5055.8    1625.1 D_cachemem/data_reg[23][56]/CLRB      0.00  
+    0:07:35 2510531.9      1.12    5051.8    1625.2 Dcache_rd_data[2][30]          0.00  
+    0:07:35 2510689.5      1.12    5047.4    1625.3 Dcache_rd_data[2][30]          0.00  
+    0:07:36 2511004.7      1.12    5043.9    1625.2 D_cachemem/data_reg[22][0]/CLRB      0.00  
+    0:07:38 2511616.4      1.12    5021.2    1625.2 D_cachemem/data_reg[15][7]/CLRB      0.00  
+    0:07:38 2513018.1      1.11    5003.4    1625.2 D_cachemem/data_reg[3][15]/CLRB      0.00  
+    0:07:39 2512868.8      1.11    4992.5    1625.3 D_cachemem/data_reg[6][6]/CLRB      0.00  
+    0:07:40 2512827.3      1.11    4991.7    1625.6 Dcache_rd_data[2][30]          0.00  
+    0:07:41 2512810.8      1.11    4988.3    1625.5 Dcache_rd_data[2][30]          0.00  
+    0:07:41 2513009.8      1.11    4985.1    1625.7 Dcache_rd_data[2][30]          0.00  
+    0:07:41 2512993.2      1.11    4986.4    1625.7 Dcache_rd_data[2][30]          0.00  
+    0:07:42 2513252.5      1.11    4984.5    1625.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:07:42 2513302.3      1.11    4978.8    1625.6 D_cachemem/data_reg[1][25]/CLRB      0.00  
+    0:07:42 2513476.5      1.11    4970.4    1625.6 dcache_MSHR/mshr_reg[14][tag][23]/CLRB      0.00  
+    0:07:43 2513609.2      1.11    4958.5    1625.6 D_cachemem/data_reg[21][30]/CLRB      0.00  
+    0:07:43 2513733.6      1.11    4954.4    1625.6 D_cachemem/data_reg[21][30]/CLRB      0.00  
+    0:07:44 2513783.4      1.11    4939.4    1625.6 D_cachemem/data_reg[21][30]/CLRB      0.00  
+    0:07:45 2513874.6      1.11    4928.3    1625.6 D_cachemem/data_reg[0][15]/CLRB      0.00  
+    0:07:46 2513874.6      1.11    4927.9    1625.6 D_cachemem/data_reg[23][43]/CLRB      0.00  
+    0:07:46 2514289.3      1.10    4919.3    1625.6 D_cachemem/data_reg[0][15]/CLRB      0.00  
+    0:07:47 2514223.0      1.10    4915.6    1625.6 D_cachemem/data_reg[0][15]/CLRB      0.00  
+    0:07:47 2514405.4      1.10    4912.9    1625.6 D_cachemem/data_reg[0][15]/CLRB      0.00  
+    0:07:49 2514753.8      1.10    4904.9    1620.6 D_cachemem/data_reg[0][15]/CLRB      0.00  
+    0:07:50 2514521.6      1.10    4901.7    1620.6 D_cachemem/data_reg[0][15]/CLRB      0.00  
+    0:07:50 2514380.6      1.10    4900.6    1620.6 D_cachemem/data_reg[0][15]/CLRB      0.00  
+    0:07:51 2514380.6      1.10    4897.5    1620.6 Dcache_rd_data[2][30]          0.00  
+    0:07:51 2514745.5      1.10    4895.9    1620.5 Dcache_rd_data[1][0]           0.00  
+    0:07:52 2514919.7      1.10    4895.3    1620.5 Dcache_rd_data[1][0]           0.00  
+    0:07:52 2515608.1      1.10    4893.0    1620.8 Dcache_rd_data[2][47]          0.00  
+    0:07:53 2516553.7      1.10    4893.9    1620.8 D_cachemem/data_reg[0][15]/CLRB      0.00  
+    0:07:53 2516777.6      1.10    4887.9    1620.8 D_cachemem/data_reg[8][56]/CLRB      0.00  
+    0:07:53 2517242.1      1.09    4883.6    1620.8 D_cachemem/data_reg[20][8]/CLRB      0.00  
+    0:07:54 2517491.0      1.09    4885.2    1620.8 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:07:54 2518220.9      1.09    4881.9    1620.8 D_cachemem/data_reg[14][11]/CLRB      0.00  
+    0:07:55 2519523.1      1.09    4870.8    1620.8 D_cachemem/data_reg[10][8]/CLRB      0.00  
+    0:07:55 2519614.3      1.09    4857.5    1620.8 D_cachemem/data_reg[25][44]/CLRB      0.00  
+    0:07:56 2520427.2      1.09    4855.0    1620.8 D_cachemem/data_reg[25][37]/CLRB      0.00  
+    0:07:56 2520908.3      1.09    4831.5    1620.6 D_cachemem/data_reg[3][28]/CLRB      0.00  
+    0:07:57 2520833.6      1.09    4818.6    1620.6 D_cachemem/data_reg[26][33]/CLRB      0.00  
+    0:07:57 2521654.8      1.09    4813.3    1620.6 D_cachemem/data_reg[15][38]/CLRB      0.00  
+    0:07:58 2521779.2      1.08    4809.2    1620.6 D_cachemem/data_reg[15][55]/CLRB      0.00  
+    0:07:59 2521140.5      1.08    4805.4    1648.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:07:59 2521165.4      1.08    4804.2    1648.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:07:59 2521198.6      1.08    4802.7    1648.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:00 2521182.0      1.08    4801.9    1648.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:01 2521190.3      1.08    4795.3    1648.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:02 2521182.0      1.08    4792.2    1648.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:03 2521157.1      1.08    4790.3    1648.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:04 2520900.0      1.08    4787.4    1648.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:05 2520982.9      1.08    4786.3    1648.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:06 2521281.5      1.08    4785.1    1648.6 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:07 2521571.8      1.07    4781.9    1648.3 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:08 2521828.9      1.07    4782.1    1644.3 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:08 2521430.8      1.07    4779.9    1644.3 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:09 2521422.5      1.07    4777.5    1644.3 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:10 2521182.0      1.07    4775.8    1646.3 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:11 2521082.4      1.07    4769.3    1646.3 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:12 2521065.9      1.07    4767.6    1646.3 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:13 2521090.7      1.07    4762.4    1646.3 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:14 2520982.9      1.07    4758.7    1647.3 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:14 2521016.1      1.07    4757.6    1647.3 Dcache_rd_data[1][0]           0.00  
+    0:08:15 2520974.6      1.07    4754.3    1647.3 Dcache_rd_data[1][15]          0.00  
+    0:08:15 2521024.4      1.07    4759.0    1647.3 Dcache_rd_data[2][36]          0.00  
+    0:08:16 2521173.7      1.07    4712.5    1647.3 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:16 2521530.3      1.06    4707.6    1647.4 D_cachemem/data_reg[31][20]/CLRB      0.00  
+    0:08:17 2521580.1      1.06    4704.9    1647.4 D_cachemem/data_reg[19][10]/CLRB      0.00  
+    0:08:17 2521613.3      1.06    4703.0    1647.4 D_cachemem/data_reg[19][10]/CLRB      0.00  
+    0:08:18 2521779.2      1.06    4694.1    1647.4 D_cachemem/data_reg[19][10]/CLRB      0.00  
+    0:08:19 2521862.1      1.06    4688.6    1647.4 D_cachemem/data_reg[19][10]/CLRB      0.00  
+    0:08:19 2521945.1      1.06    4681.0    1647.4 D_cachemem/data_reg[19][10]/CLRB      0.00  
+    0:08:21 2522034.1      1.06    4670.3    1647.4 D_cachemem/data_reg[19][10]/CLRB      0.00  
+    0:08:21 2523281.1      1.06    4660.1    1647.4 D_cachemem/data_reg[10][8]/CLRB      0.00  
+    0:08:22 2523894.9      1.06    4653.0    1647.4 D_cachemem/data_reg[22][32]/CLRB      0.00  
+    0:08:22 2523986.1      1.06    4651.3    1647.4 dcache_MSHR/mshr_reg[3][tag][13]/CLRB      0.00  
+    0:08:23 2524608.2      1.06    4647.2    1647.4 D_cachemem/data_reg[20][8]/CLRB      0.00  
+    0:08:23 2525354.7      1.06    4632.2    1647.6 D_cachemem/data_reg[9][37]/CLRB      0.00  
+    0:08:23 2525346.4      1.06    4625.0    1647.5 D_cachemem/data_reg[7][52]/CLRB      0.00  
+    0:08:24 2525371.3      1.05    4615.1    1647.5 dcache_MSHR/mshr_reg[2][tag][23]/CLRB      0.00  
+    0:08:24 2525504.0      1.05    4609.8    1647.5 D_cachemem/data_reg[15][11]/CLRB      0.00  
+    0:08:24 2525669.9      1.05    4608.8    1647.5 D_cachemem/data_reg[19][32]/CLRB      0.00  
+    0:08:25 2526656.9      1.05    4603.8    1647.5 dcache_MSHR/mshr_reg[7][tag][2]/CLRB      0.00  
+    0:08:25 2527652.3      1.05    4597.7    1647.5 D_cachemem/data_reg[27][40]/CLRB      0.00  
+    0:08:26 2527834.7      1.05    4594.0    1647.5 D_cachemem/data_reg[0][24]/CLRB      0.00  
+    0:08:26 2527876.2      1.05    4593.8    1647.5 D_cachemem/data_reg[29][28]/CLRB      0.00  
+    0:08:27 2528390.5      1.05    4582.8    1647.6 dcache_MSHR/mshr_reg[2][tag][23]/CLRB      0.00  
+    0:08:27 2528490.0      1.05    4581.9    1647.6 D_cachemem/data_reg[30][46]/CLRB      0.00  
+    0:08:27 2528838.4      1.05    4580.5    1647.6 Dcache_rd_data[2][36]          0.00  
+    0:08:28 2529244.8      1.05    4579.1    1647.4 dcache_MSHR/mshr_reg[2][tag][23]/CLRB      0.00  
+    0:08:29 2529203.3      1.05    4578.4    1647.4 Dcache_rd_data[1][38]          0.00  
+    0:08:32 2529568.3      1.05    4575.4    1647.4 D_cachemem/data_reg[0][24]/CLRB      0.00  
+    0:08:32 2529701.0      1.04    4523.5    1647.4 dcache_MSHR/mshr_reg[4][tag][23]/CLRB      0.00  
+    0:08:33 2529734.2      1.04    4521.4    1647.4 D_cachemem/data_reg[18][2]/CLRB      0.00  
+    0:08:34 2530074.2      1.04    4511.6    1647.4 dcache_MSHR/mshr_reg[9][tag][23]/CLRB      0.00  
+    0:08:34 2530364.5      1.04    4460.8    1647.4 dcache_MSHR/mshr_reg[13][tag][5]/CLRB      0.00  
+    0:08:35 2530364.5      1.03    4431.0    1647.4 dcache_MSHR/mshr_reg[6][tag][19]/CLRB      0.00  
+    0:08:35 2530571.9      1.03    4425.8    1647.4 D_cachemem/data_reg[1][24]/CLRB      0.00  
+    0:08:36 2530704.6      1.03    4425.0    1647.4 D_cachemem/data_reg[16][47]/CLRB      0.00  
+    0:08:36 2530621.7      1.03    4423.5    1647.4 D_cachemem/data_reg[30][8]/CLRB      0.00  
+    0:08:38 2531194.0      1.03    4420.5    1647.4 D_cachemem/data_reg[3][44]/CLRB      0.00  
+    0:08:39 2531243.7      1.03    4420.0    1647.4 D_cachemem/data_reg[22][59]/CLRB      0.00  
+    0:08:40 2531210.6      1.03    4419.7    1647.4 Dcache_rd_data[2][30]          0.00  
+    0:08:40 2533375.4      1.03    4418.6    1647.4 Dcache_rd_data[1][59]          0.00  
+    0:08:40 2539272.7      1.03    4417.4    1647.4 Dcache_rd_data[0][50]          0.00  
+    0:08:40 2540326.1      1.03    4416.9    1647.4 Dcache_rd_data[2][30]          0.00  
+    0:08:41 2540392.5      1.03    4414.8    1647.3 Dcache_rd_data[1][59]          0.00  
+    0:08:41 2540724.3      1.03    4412.6    1647.3 Dcache_rd_data[2][36]          0.00  
+    0:08:42 2540674.5      1.03    4410.5    1647.4 Dcache_rd_data[0][33]          0.00  
+    0:08:42 2540691.1      1.03    4410.1    1647.4 Dcache_rd_data[2][53]          0.00  
+    0:08:42 2540633.0      1.03    4409.9    1647.4 Dcache_rd_data[2][55]          0.00  
+    0:08:43 2540566.7      1.03    4409.5    1647.3 Dcache_rd_data[1][59]          0.00  
+    0:08:43 2540550.1      1.03    4406.4    1647.3 Dcache_rd_data[0][25]          0.00  
+    0:08:45 2540558.4      1.02    4381.3    1647.3 dcache_MSHR/mshr_reg[6][tag][19]/CLRB      0.00  
+    0:08:45 2540541.8      1.02    4338.3    1647.3 D_cachemem/data_reg[3][44]/CLRB      0.00  
+    0:08:46 2540525.2      1.01    4333.1    1647.3 D_cachemem/data_reg[3][44]/CLRB      0.00  
+    0:08:47 2540525.2      1.01    4334.4    1647.3 D_cachemem/data_reg[3][44]/CLRB      0.00  
+    0:08:48 2540807.2      1.01    4325.6    1647.3 D_cachemem/data_reg[3][44]/CLRB      0.00  
+    0:08:49 2540815.5      1.01    4324.6    1647.3 dcache_MSHR/mshr_reg[6][tag][19]/CLRB      0.00  
+    0:08:50 2540790.6      1.01    4323.8    1647.3 D_cachemem/data_reg[0][15]/CLRB      0.00  
+    0:08:58 2540832.1      1.01    4320.1    1647.3 dcache_MSHR/mshr_reg[6][tag][19]/CLRB      0.00  
+    0:09:00 2540881.8      1.01    4274.7    1647.3 D_cachemem/data_reg[3][44]/CLRB      0.00  
+    0:09:02 2542648.6      1.01    4258.8    1647.3 Dcache_rd_data[0][25]          0.00  
+    0:09:06 2548147.8      1.00    4223.9    1647.4                                0.00  
+    0:09:09 2547169.0      1.00    4235.1    1681.6                                0.00  
+
+
+  Beginning Design Rule Fixing  (min_path)  (max_transition)  (max_fanout)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:09:11 2547169.0      1.00    4235.2    1681.6                               -0.02  
+    0:09:11 2549129.2      1.00    4203.0    1573.1 D_cachemem/net277441          -0.02  
+    0:09:12 2551501.2      1.00    4194.0    1564.6 proc2Dcache_rd_addrs[0][tag][12]     -0.02  
+    0:09:12 2554528.7      1.00    4194.5    1556.3 proc2Dcache_rd_addrs[0][index][1]     -0.02  
+    0:09:18 2555739.7      1.00    4197.9    1491.5 D_cachemem/net214744          -0.02  
+    0:09:18 2558850.1      1.00    4197.9     119.5 D_cachemem/U1042/net269198     -0.02  
+    0:09:19 2559397.5      1.00    4197.9      46.5 D_cachemem/net319779          -0.02  
+    0:09:22 2559472.2      1.00    4196.0      45.5 D_cachemem/data_reg[27][4]/CLRB     -0.02  
+    0:09:24 2559405.8      0.99    4146.1      45.5 D_cachemem/data_reg[0][37]/CLRB     -0.02  
+    0:09:25 2559555.1      0.99    4140.6      45.5 D_cachemem/data_reg[0][37]/CLRB     -0.02  
+    0:09:25 2560202.1      0.99    4136.2      45.5 D_cachemem/data_reg[21][44]/CLRB     -0.02  
+    0:09:27 2560517.3      0.99    4130.4      45.5 D_cachemem/data_reg[22][8]/CLRB     -0.02  
+    0:09:27 2560815.9      0.98    4125.4      45.8 D_cachemem/data_reg[6][41]/CLRB     -0.02  
+    0:09:28 2561081.3      0.98    4117.3      45.8 D_cachemem/data_reg[4][33]/CLRB     -0.02  
+    0:09:28 2561413.1      0.98    4112.9      45.8 Dcache_rd_data[2][37]         -0.02  
+    0:09:29 2561545.8      0.98    4111.1      45.8 Dcache_rd_data[2][37]         -0.02  
+    0:09:29 2563146.6      0.98    4107.8      45.8 Dcache_rd_data[1][59]         -0.02  
+    0:09:29 2563146.6      0.98    4107.7      45.8 Dcache_rd_data[1][59]         -0.02  
+    0:09:29 2562997.3      0.98    4107.7      45.8 Dcache_rd_data[1][54]         -0.02  
+    0:09:30 2564009.2      0.98    4102.3      45.8 dcache_MSHR/mshr_reg[9][tag][10]/CLRB     -0.02  
+    0:09:31 2564067.3      0.98    4100.1      45.8 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:31 2564117.0      0.98    4098.5      45.8 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:32 2564374.2      0.98    4091.7      45.8 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:34 2564482.0      0.98    4083.5      45.8 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:36 2564664.5      0.98    4078.2      45.8 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:38 2565054.3      0.98    4069.6      45.8 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:39 2565145.5      0.98    4067.5      45.8 dcache_MSHR/mshr_reg[6][tag][2]/CLRB     -0.02  
+    0:09:40 2565278.3      0.98    4062.5      45.8 dcache_MSHR/mshr_reg[6][tag][2]/CLRB     -0.02  
+    0:09:42 2565377.8      0.98    4056.8      45.8 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:43 2565726.2      0.98    4053.3      46.8 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:44 2565634.9      0.98    4052.7      46.8 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:45 2565469.0      0.98    4050.9      44.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:45 2565469.0      0.98    4049.5      44.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:46 2565676.4      0.98    4048.5      44.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:48 2565676.4      0.98    4045.0      44.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:49 2565684.7      0.98    4040.7      44.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:50 2565659.8      0.98    4039.3      44.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:50 2565676.4      0.98    4037.6      54.9 Dcache_rd_data[1][47]         -0.02  
+    0:09:51 2565643.2      0.98    4038.2      54.9 Dcache_rd_data[0][23]         -0.02  
+    0:09:51 2565817.4      0.98    4034.7      54.9 Dcache_rd_data[1][41]         -0.02  
+    0:09:53 2566439.5      0.98    4034.2      54.9 Dcache_rd_data[1][27]         -0.02  
+    0:09:53 2566572.2      0.98    4039.9      54.9 Dcache_rd_data[1][41]         -0.02  
+    0:09:53 2567202.6      0.98    4039.4      54.9 Dcache_rd_data[1][44]         -0.02  
+    0:09:54 2567219.1      0.98    4046.0      54.9 Dcache_rd_data[2][25]         -0.02  
+    0:09:54 2567268.9      0.98    4045.1      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:55 2567443.1      0.98    4042.2      54.9 dcache_MSHR/mshr_reg[7][tag][9]/CLRB     -0.02  
+    0:09:56 2567592.4      0.98    4037.3      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:57 2567343.6      0.98    4033.9      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:57 2567318.7      0.98    4033.1      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:58 2567318.7      0.97    4032.7      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:09:59 2567343.6      0.97    4032.0      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:01 2567244.0      0.97    4030.2      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:02 2567335.3      0.97    4024.0      54.9 Dcache_rd_data[2][25]         -0.02  
+    0:10:02 2567683.6      0.97    4023.2      54.9 Dcache_rd_data[2][25]         -0.02  
+    0:10:02 2567625.6      0.97    4021.5      54.9 Dcache_rd_data[2][25]         -0.02  
+    0:10:02 2567700.2      0.97    4021.4      54.9 Dcache_rd_data[1][44]         -0.02  
+    0:10:03 2567766.6      0.97    4019.9      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:04 2567799.7      0.97    4017.0      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:04 2567907.6      0.97    4015.9      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:06 2568046.4      0.97    4012.9      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:06 2568096.2      0.97    4018.5      54.9 dcache_MSHR/mshr_reg[2][tag][20]/CLRB     -0.02  
+    0:10:07 2568085.7      0.97    4016.4      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:08 2568218.4      0.97    4009.9      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:09 2568334.6      0.97    4008.7      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:11 2568467.3      0.97    4004.9      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:12 2568459.0      0.97    4004.1      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:13 2568434.1      0.97    4001.3      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:14 2568434.1      0.97    3999.1      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:16 2568259.9      0.97    3997.7      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:17 2568259.9      0.97    3996.8      54.9 D_cachemem/data_reg[0][33]/CLRB     -0.02  
+    0:10:17 2568243.3      0.97    3996.9      54.9 Dcache_rd_data[2][25]         -0.02  
+    0:10:18 2568450.7      0.97    3996.7      54.9 Dcache_rd_data[1][44]         -0.02  
+    0:10:18 2568376.0      0.97    3991.8      54.9 Dcache_rd_data[1][44]         -0.02  
+    0:10:18 2568782.5      0.97    3991.6      54.9 Dcache_rd_data[1][33]         -0.02  
+    0:10:19 2568691.2      0.97    3991.5      54.9 Dcache_rd_data[2][31]         -0.02  
+    0:10:20 2568765.9      0.97    3988.9      54.9 Dcache_rd_data[2][31]         -0.02  
+    0:10:20 2569072.8      0.97    3987.3      54.9 Dcache_rd_data[2][31]         -0.02  
+    0:10:21 2568931.8      0.97    3985.2      54.9 Dcache_rd_data[2][34]         -0.02  
+    0:10:21 2569161.9      0.97    3977.4      54.9 D_cachemem/data_reg[28][2]/CLRB     -0.02  
+    0:10:22 2569825.4      0.97    3966.4      54.9 D_cachemem/data_reg[29][27]/CLRB     -0.02  
+    0:10:23 2570082.5      0.97    3949.0      54.9 D_cachemem/data_reg[0][15]/CLRB     -0.02  
+    0:10:23 2570596.8      0.97    3947.9      54.9 D_cachemem/data_reg[13][20]/CLRB     -0.02  
+    0:10:24 2571127.6      0.96    3931.6      54.9 D_cachemem/data_reg[18][33]/CLRB     -0.02  
+    0:10:25 2571227.2      0.96    3929.0      54.9 D_cachemem/data_reg[0][5]/CLRB     -0.02  
+    0:10:25 2571940.5      0.96    3924.8      54.9 D_cachemem/data_reg[14][2]/CLRB     -0.02  
+    0:10:26 2571940.5      0.96    3924.7      54.9 D_cachemem/data_reg[29][27]/CLRB     -0.02  
+    0:10:27 2571973.7      0.96    3922.6      54.9 D_cachemem/data_reg[29][27]/CLRB     -0.02  
+    0:10:27 2572056.6      0.96    3918.4      54.9 D_cachemem/data_reg[29][27]/CLRB     -0.02  
+    0:10:28 2572064.9      0.96    3915.3      54.9 D_cachemem/data_reg[0][54]/CLRB     -0.02  
+    0:10:29 2572081.5      0.96    3914.3      54.9 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:30 2572081.5      0.96    3914.1      54.9 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:31 2572081.5      0.96    3913.8      54.9 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:33 2572330.3      0.96    3912.7      53.9 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:33 2571982.0      0.96    3912.0      54.1 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:34 2572006.8      0.96    3911.7      54.1 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:35 2572081.5      0.96    3910.1      53.1 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:37 2571915.6      0.96    3909.0      53.1 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:38 2571782.9      0.96    3908.0      52.1 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:39 2571824.4      0.96    3906.9      52.1 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:40 2571832.7      0.96    3906.0      52.0 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:41 2572006.8      0.96    3905.9      52.0 Dcache_rd_data[1][36]         -0.02  
+    0:10:42 2571948.8      0.96    3904.1      52.0 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:43 2572040.0      0.96    3903.6      52.0 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:44 2572098.1      0.96    3901.7      52.0 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:45 2572181.0      0.96    3899.9      52.0 D_cachemem/data_reg[18][31]/CLRB     -0.02  
+    0:10:45 2572620.6      0.96    3891.6      52.0 D_cachemem/data_reg[3][45]/CLRB     -0.02  
+    0:10:47 2572637.2      0.96    3891.6      52.0 D_cachemem/data_reg[1][22]/CLRB     -0.02  
+    0:10:48 2572778.2      0.95    3867.7      52.0 dcache_MSHR/mshr_reg[2][tag][20]/CLRB     -0.02  
+    0:10:49 2573035.3      0.95    3858.1      52.0 dcache_MSHR/mshr_reg[2][tag][20]/CLRB     -0.02  
+    0:10:49 2573707.2      0.95    3856.3      52.0 D_cachemem/data_reg[24][7]/CLRB     -0.02  
+    0:10:50 2573873.1      0.95    3851.4      52.0 D_cachemem/data_reg[24][32]/CLRB     -0.02  
+    0:10:50 2573873.1      0.95    3851.3      52.0 Dcache_rd_data[2][31]         -0.02  
+    0:10:51 2574072.1      0.95    3851.0      52.0 Dcache_rd_data[0][3]          -0.02  
+    0:10:51 2574254.6      0.95    3851.2      52.0 Dcache_rd_data[1][54]         -0.02  
+    0:10:51 2574354.2      0.95    3849.1      52.0 Dcache_rd_data[2][35]         -0.02  
+    0:10:52 2574345.9      0.95    3847.6      52.0 D_cachemem/data_reg[16][47]/CLRB     -0.02  
+    0:10:53 2574345.9      0.95    3847.6      52.0 D_cachemem/data_reg[16][47]/CLRB     -0.02  
+    0:10:53 2574561.5      0.95    3847.1      51.0 D_cachemem/data_reg[16][47]/CLRB     -0.02  
+    0:10:55 2574553.2      0.95    3845.3      51.0 D_cachemem/data_reg[16][47]/CLRB     -0.02  
+    0:10:56 2574594.7      0.95    3844.0      50.0 D_cachemem/data_reg[16][47]/CLRB     -0.02  
+    0:10:56 2574802.0      0.95    3843.9      50.0 Dcache_rd_data[0][3]          -0.02  
+    0:10:57 2574793.8      0.95    3843.5      50.0 Dcache_rd_data[2][23]         -0.02  
+    0:10:57 2574893.3      0.95    3843.4      50.0 Dcache_rd_data[2][40]         -0.02  
+    0:10:57 2574934.8      0.95    3840.2      50.0 D_cachemem/data_reg[16][47]/CLRB     -0.02  
+    0:10:58 2574934.8      0.95    3839.4      50.0 dcache_MSHR/mshr_reg[2][tag][20]/CLRB     -0.02  
+    0:10:58 2574934.8      0.95    3837.7      50.0 D_cachemem/data_reg[22][8]/CLRB     -0.02  
+    0:10:59 2575415.8      0.95    3835.3      50.0 Dcache_rd_data[0][2]          -0.02  
+    0:10:59 2575755.9      0.95    3834.7      50.1 Dcache_rd_data[1][50]         -0.02  
+    0:10:59 2576154.0      0.95    3834.5      50.1 Dcache_rd_data[1][50]         -0.02  
+    0:11:00 2576154.0      0.95    3834.2      50.1 dcache_MSHR/mshr_reg[2][tag][20]/CLRB     -0.02  
+    0:11:01 2576112.6      0.95    3834.0      50.1 Dcache_rd_data[0][33]         -0.02  
+    0:11:02 2576112.6      0.95    3833.2      50.1 Dcache_rd_data[2][55]         -0.02  
+    0:11:02 2576311.6      0.95    3832.5      50.1 Dcache_rd_data[0][33]         -0.02  
+    0:11:02 2576552.2      0.95    3831.6      50.1 Dcache_rd_data[2][55]         -0.02  
+    0:11:03 2576784.4      0.95    3830.1      50.1 Dcache_rd_data[2][55]         -0.02  
+    0:11:03 2576908.8      0.95    3828.8      50.1 Dcache_rd_data[1][39]         -0.02  
+    0:11:03 2576875.7      0.95    3817.4      50.1 D_cachemem/data_reg[24][38]/CLRB     -0.02  
+    0:11:04 2576801.0      0.95    3816.4      50.1 D_cachemem/data_reg[9][31]/CLRB     -0.02  
+    0:11:04 2577190.8      0.94    3810.8      50.1 D_cachemem/data_reg[13][32]/CLRB     -0.02  
+    0:11:05 2577680.2      0.94    3800.5      50.1 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:07 2577754.9      0.94    3798.3      50.1 D_cachemem/data_reg[29][27]/CLRB     -0.02  
+    0:11:08 2578103.2      0.94    3792.2      50.0 Dcache_rd_data[2][55]         -0.02  
+    0:11:08 2578119.8      0.94    3791.3      50.0 Dcache_rd_data[1][39]         -0.02  
+    0:11:09 2578235.9      0.94    3781.4      50.0 D_cachemem/data_reg[29][27]/CLRB     -0.02  
+    0:11:09 2578335.5      0.94    3781.6      50.0 dcache_MSHR/mshr_reg[0][tag][22]/CLRB     -0.02  
+    0:11:09 2578360.4      0.94    3780.0      50.0 D_cachemem/data_reg[29][27]/CLRB     -0.02  
+    0:11:10 2578457.7      0.94    3779.5      50.0 D_cachemem/data_reg[29][27]/CLRB     -0.02  
+    0:11:10 2578615.3      0.94    3776.8      50.0 D_cachemem/data_reg[29][27]/CLRB     -0.02  
+    0:11:11 2578631.9      0.94    3771.4      50.0 D_cachemem/data_reg[29][27]/CLRB     -0.02  
+    0:11:11 2578466.0      0.94    3771.1      50.0 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:12 2578482.6      0.94    3769.4      50.0 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:13 2578316.7      0.94    3768.3      50.0 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:14 2578316.7      0.94    3766.7      50.0 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:15 2578341.6      0.94    3765.0      50.0 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:16 2578557.3      0.94    3764.4      50.0 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:17 2578557.3      0.94    3763.0      50.0 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:17 2578690.0      0.94    3761.4      51.8 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:19 2578681.7      0.94    3760.6      51.8 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:20 2578911.8      0.94    3755.7      51.8 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:21 2579003.0      0.94    3752.2      51.8 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:22 2579152.3      0.94    3754.3      51.8 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:23 2579268.4      0.94    3754.0      51.8 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:24 2579243.5      0.94    3753.5      51.8 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+    0:11:26 2579301.6      0.94    3753.3      51.5 dcache_MSHR/cache_access_addrs[1][tag][8]     -0.02  
+    0:11:28 2579619.5      0.94    3754.1      43.0 D_cachemem/net332386          -0.02  
+    0:11:30 2579843.4      0.94    3754.1      24.0 D_cachemem/U1042/net269198     -0.02  
+    0:11:31 2580117.1      0.94    3753.8       0.0 D_cachemem/data_reg[11][10]/CLRB     -0.02  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:11:34 2580117.1      0.94    3753.8       0.0                               -0.02  
+    0:11:34 2580191.8      0.94    3752.8       0.0                               -0.02  
+    0:11:36 2580357.7      0.93    3745.9       0.0                               -0.02  
+    0:11:36 2580249.8      0.93    3745.5       0.0                               -0.02  
+    0:11:37 2580274.7      0.93    3741.6       0.0                               -0.02  
+    0:11:38 2580507.0      0.93    3730.6       0.0                               -0.02  
+    0:11:38 2580830.4      0.93    3728.5       0.0                               -0.02  
+    0:11:39 2581294.9      0.93    3718.0       0.0                               -0.02  
+    0:11:40 2581502.3      0.93    3712.9       0.0                               -0.02  
+    0:11:41 2581668.2      0.93    3706.8       0.0                               -0.02  
+    0:11:42 2581883.8      0.93    3703.6       0.0                               -0.02  
+    0:11:42 2582364.9      0.93    3699.1       0.0                               -0.02  
+    0:11:43 2582663.5      0.93    3697.0       0.0                               -0.02  
+    0:11:43 2583036.8      0.93    3694.8       0.0                               -0.02  
+    0:11:44 2583252.4      0.93    3688.5       0.0                               -0.02  
+    0:11:44 2583368.5      0.93    3687.9       0.0                               -0.02  
+    0:11:44 2583542.7      0.93    3687.6       0.0                               -0.02  
+    0:11:45 2583700.3      0.93    3687.1       0.0                               -0.02  
+    0:11:45 2583907.7      0.93    3676.6       0.0                               -0.02  
+    0:11:46 2584106.7      0.93    3667.6       0.0                               -0.02  
+    0:11:47 2584173.1      0.93    3660.4       0.0                               -0.02  
+    0:11:47 2584173.1      0.93    3659.7       0.0                               -0.02  
+    0:11:47 2584305.8      0.93    3658.4       0.0                               -0.02  
+    0:11:48 2584977.6      0.93    3657.0       0.0                               -0.02  
+    0:11:49 2585475.3      0.93    3655.1       0.0                               -0.02  
+    0:11:49 2585508.5      0.93    3649.6       0.0                               -0.02  
+    0:11:49 2585508.5      0.93    3648.6       0.0                               -0.02  
+    0:11:50 2585624.6      0.93    3647.3       0.0                               -0.02  
+    0:11:50 2586097.4      0.93    3646.0       0.0                               -0.02  
+    0:11:51 2586105.7      0.93    3645.2       0.0                               -0.02  
+    0:11:51 2586503.8      0.93    3643.6       0.0                               -0.02  
+    0:11:52 2586843.9      0.93    3636.6       0.0                               -0.02  
+    0:11:52 2587250.3      0.93    3625.8       0.0                               -0.02  
+    0:11:52 2587383.0      0.93    3622.8       0.0                               -0.02  
+    0:11:53 2587681.6      0.93    3611.0       0.0                               -0.02  
+    0:11:54 2587789.5      0.93    3609.6       0.0                               -0.02  
+    0:11:54 2588038.3      0.93    3607.9       0.0                               -0.02  
+    0:11:55 2588187.6      0.93    3607.4       0.0                               -0.02  
+    0:11:55 2588353.5      0.93    3599.2       0.0                               -0.02  
+    0:11:56 2588444.7      0.93    3593.7       0.0                               -0.02  
+    0:11:56 2588444.7      0.93    3592.6       0.0                               -0.02  
+    0:11:57 2588784.8      0.93    3590.5       0.0                               -0.02  
+    0:11:57 2588942.4      0.92    3567.7       0.0                               -0.02  
+    0:11:58 2588801.4      0.92    3566.8       0.0                               -0.02  
+    0:11:58 2588660.4      0.92    3564.5       0.0                               -0.02  
+    0:11:58 2588876.0      0.92    3554.6       0.0                               -0.02  
+    0:11:58 2589224.4      0.92    3547.3       0.0                               -0.02  
+    0:11:59 2589506.4      0.92    3544.6       0.0                               -0.02  
+    0:12:00 2589697.2      0.92    3543.5       0.0                               -0.02  
+    0:12:00 2589896.2      0.92    3540.4       0.0                               -0.02  
+    0:12:00 2590103.6      0.92    3537.1       0.0                               -0.02  
+    0:12:01 2590418.8      0.92    3533.3       0.0                               -0.02  
+    0:12:02 2590949.6      0.92    3530.6       0.0                               -0.02  
+    0:12:04 2591057.5      0.92    3523.1       0.0                               -0.02  
+    0:12:05 2591165.3      0.92    3507.8       0.0                               -0.02  
+    0:12:06 2591347.8      0.92    3504.8       0.0                               -0.02  
+    0:12:06 2591555.1      0.92    3495.9       0.0                               -0.02  
+    0:12:07 2591513.6      0.92    3494.7       0.0                               -0.02  
+    0:12:07 2591546.8      0.92    3494.4       0.0                               -0.02  
+    0:12:07 2591613.2      0.92    3488.8       0.0                               -0.02  
+    0:12:08 2591646.4      0.92    3488.0       0.0                               -0.02  
+    0:12:08 2591779.1      0.92    3485.0       0.0                               -0.02  
+    0:12:09 2592484.1      0.92    3482.6       0.0                               -0.02  
+    0:12:09 2592857.3      0.92    3480.3       0.0                               -0.02  
+    0:12:10 2593487.7      0.92    3475.5       0.0                               -0.02  
+    0:12:11 2594002.0      0.92    3471.8       0.0                               -0.02  
+    0:12:11 2593985.4      0.92    3478.4       0.0                               -0.02  
+    0:12:12 2594765.1      0.92    3468.7       0.0                               -0.02  
+    0:12:12 2595005.6      0.92    3466.9       0.0                               -0.02  
+    0:12:13 2595660.8      0.92    3461.7       0.0                               -0.02  
+    0:12:13 2595644.3      0.92    3460.7       0.0                               -0.02  
+    0:12:14 2595934.6      0.92    3459.2       0.0                               -0.02  
+    0:12:14 2595918.0      0.92    3458.9       0.0                               -0.02  
+    0:12:15 2595901.4      0.92    3457.6       0.0                               -0.02  
+    0:12:15 2595768.7      0.92    3456.2       0.0                               -0.02  
+    0:12:16 2595859.9      0.92    3449.2       0.0                               -0.02  
+    0:12:17 2595826.7      0.92    3448.2       0.0                               -0.02  
+    0:12:17 2596382.5      0.92    3446.9       0.0                               -0.02  
+    0:12:18 2596689.4      0.92    3445.4       0.0                               -0.02  
+    0:12:18 2596788.9      0.92    3444.6       0.0                               -0.02  
+    0:12:19 2598389.7      0.92    3440.2       0.0                               -0.02  
+    0:12:19 2598953.7      0.92    3434.9       0.0                               -0.02  
+    0:12:20 2599559.2      0.92    3432.1       0.0                               -0.02  
+    0:12:21 2599758.3      0.92    3430.7       0.0                               -0.02  
+    0:12:21 2600338.9      0.92    3428.5       0.0                               -0.02  
+    0:12:21 2600372.1      0.92    3427.4       0.0                               -0.02  
+    0:12:22 2600372.1      0.92    3427.2       0.0                               -0.02  
+    0:12:22 2600886.3      0.92    3425.0       0.0                               -0.02  
+    0:12:23 2601400.6      0.92    3422.0       0.0                               -0.02  
+    0:12:24 2601599.6      0.92    3421.8       0.0                               -0.02  
+    0:12:24 2601790.4      0.92    3419.9       0.0                               -0.02  
+    0:12:24 2602545.2      0.92    3417.1       0.0                               -0.02  
+    0:12:25 2602968.2      0.92    3415.9       0.0                               -0.02  
+    0:12:25 2602959.9      0.92    3416.0       0.0                               -0.02  
+    0:12:26 2603407.8      0.92    3413.2       0.0                               -0.02  
+    0:12:26 2603424.4      0.92    3413.1       0.0                               -0.02  
+    0:12:27 2603374.7      0.92    3411.1       0.0                               -0.02  
+    0:12:27 2603548.8      0.92    3409.8       0.0                               -0.02  
+    0:12:28 2603689.8      0.92    3407.3       0.0                               -0.02  
+    0:12:28 2604054.8      0.92    3401.0       0.0                               -0.02  
+    0:12:28 2604029.9      0.92    3400.9       0.0                               -0.02  
+    0:12:29 2604220.7      0.92    3400.5       0.0                               -0.02  
+    0:12:29 2604063.1      0.92    3400.3       0.0                               -0.02  
+    0:12:29 2604054.8      0.92    3400.0       0.0                               -0.02  
+    0:12:30 2604112.9      0.92    3399.5       0.0                               -0.02  
+    0:12:30 2604162.6      0.92    3398.6       0.0                               -0.02  
+    0:12:31 2603930.4      0.92    3398.0       0.0                               -0.02  
+    0:12:31 2604162.6      0.92    3396.3       0.0                               -0.02  
+    0:12:32 2604295.3      0.92    3395.0       0.0                               -0.02  
+    0:12:32 2604477.8      0.92    3393.6       0.0                               -0.02  
+    0:12:32 2604726.6      0.92    3391.5       0.0                               -0.02  
+    0:12:33 2605025.2      0.92    3389.4       0.0                               -0.02  
+    0:12:33 2605075.0      0.92    3389.1       0.0                               -0.02  
+    0:12:33 2605199.4      0.92    3388.0       0.0                               -0.02  
+    0:12:34 2605547.8      0.92    3386.9       0.0                               -0.02  
+    0:12:34 2605564.4      0.92    3386.7       0.0                               -0.02  
+    0:12:35 2606277.7      0.92    3380.3       0.0                               -0.02  
+    0:12:36 2606551.4      0.92    3378.7       0.0                               -0.02  
+    0:12:36 2607273.0      0.92    3372.7       0.0                               -0.02  
+    0:12:37 2607472.1      0.92    3369.4       0.0                               -0.02  
+    0:12:37 2607638.0      0.92    3368.7       0.0                               -0.02  
+    0:12:38 2607712.6      0.92    3368.0       0.0                               -0.02  
+    0:12:39 2608434.2      0.92    3365.8       0.0                               -0.02  
+    0:12:39 2608691.4      0.92    3365.1       0.0                               -0.02  
+    0:12:40 2608832.4      0.92    3364.6       0.0                               -0.02  
+    0:12:41 2608965.1      0.92    3364.1       0.0                               -0.02  
+    0:12:42 2608956.8      0.92    3363.4       0.0                               -0.02  
+    0:12:42 2609338.3      0.92    3357.8       0.0                               -0.02  
+    0:12:43 2609321.7      0.92    3357.6       0.0                               -0.02  
+    0:12:43 2609462.8      0.92    3356.3       0.0                               -0.02  
+    0:12:44 2609968.7      0.92    3352.1       0.0                               -0.02  
+    0:12:44 2610026.8      0.92    3351.5       0.0                               -0.02  
+    0:12:44 2610001.9      0.92    3350.9       0.0                               -0.02  
+    0:12:44 2609968.7      0.92    3350.5       0.0                               -0.02  
+    0:12:45 2610167.8      0.92    3348.1       0.0                               -0.02  
+    0:12:45 2610076.5      0.92    3347.5       0.0                               -0.02  
+    0:12:47 2610416.6      0.92    3346.5       0.0                               -0.02  
+    0:12:47 2610706.9      0.92    3344.8       0.0                               -0.02  
+    0:12:48 2611312.4      0.92    3341.8       0.0                               -0.02  
+    0:12:49 2611951.1      0.92    3333.1       0.0                               -0.02  
+    0:12:49 2612457.0      0.92    3328.9       0.0                               -0.02  
+    0:12:50 2612573.2      0.92    3325.4       0.0                               -0.02  
+    0:12:51 2612573.2      0.92    3324.9       0.0                               -0.02  
+    0:12:51 2612946.4      0.92    3323.3       0.0                               -0.02  
+    0:12:51 2612946.4      0.92    3322.3       0.0                               -0.02  
+    0:12:52 2612896.6      0.92    3321.2       0.0                               -0.02  
+    0:12:52 2612938.1      0.92    3321.2       0.0                               -0.02  
+    0:12:53 2613286.5      0.92    3314.6       0.0                               -0.02  
+    0:12:53 2613294.8      0.92    3314.6       0.0                               -0.02  
+    0:12:53 2613079.1      0.92    3313.5       0.0                               -0.02  
+    0:12:54 2613269.9      0.92    3311.3       0.0                               -0.02  
+    0:12:55 2614066.2      0.92    3306.8       0.0                               -0.02  
+    0:12:55 2614306.7      0.92    3306.5       0.0                               -0.02  
+    0:12:56 2614198.9      0.92    3306.1       0.0                               -0.02  
+    0:12:56 2614273.5      0.92    3306.0       0.0                               -0.02  
+    0:12:57 2614538.9      0.92    3303.2       0.0                               -0.02  
+    0:12:57 2614630.2      0.92    3308.8       0.0                               -0.02  
+    0:12:58 2614613.6      0.92    3314.3       0.0                               -0.02  
+    0:12:58 2615028.3      0.92    3313.5       0.0                               -0.02  
+    0:12:58 2615175.4      0.92    3311.0       0.0                               -0.02  
+    0:12:59 2615275.0      0.92    3310.6       0.0                               -0.02  
+    0:12:59 2615241.8      0.92    3310.3       0.0                               -0.02  
+    0:13:00 2615532.1      0.92    3305.8       0.0                               -0.02  
+    0:13:00 2615888.8      0.92    3304.8       0.0                               -0.02  
+    0:13:00 2615980.0      0.92    3304.3       0.0                               -0.02  
+    0:13:01 2616048.5      0.92    3303.5       0.0                               -0.02  
+    0:13:01 2616131.5      0.92    3303.2       0.0                               -0.02  
+    0:13:01 2616338.8      0.92    3301.1       0.0                               -0.02  
+    0:13:02 2616355.4      0.92    3306.7       0.0                               -0.02  
+    0:13:02 2616902.8      0.92    3301.1       0.0                               -0.02  
+    0:13:03 2617083.2      0.92    3298.1       0.0                               -0.02  
+    0:13:03 2617141.2      0.92    3297.4       0.0                               -0.02  
+    0:13:04 2617099.7      0.92    3295.3       0.0                               -0.02  
+    0:13:04 2617232.5      0.92    3289.5       0.0                               -0.02  
+    0:13:05 2617381.8      0.92    3288.4       0.0                               -0.02  
+    0:13:05 2617680.4      0.92    3285.6       0.0                               -0.02  
+    0:13:06 2617862.8      0.92    3282.5       0.0                               -0.02  
+    0:13:06 2618252.7      0.92    3280.3       0.0                               -0.02  
+    0:13:06 2618509.8      0.92    3276.0       0.0                               -0.02  
+    0:13:07 2618891.3      0.92    3270.5       0.0                               -0.02  
+    0:13:07 2618891.3      0.92    3270.4       0.0                               -0.02  
+    0:13:08 2619239.7      0.92    3267.1       0.0                               -0.02  
+    0:13:08 2619397.3      0.92    3261.8       0.0                               -0.02  
+    0:13:09 2619571.5      0.92    3257.7       0.0                               -0.02  
+    0:13:09 2619596.4      0.92    3255.0       0.0                               -0.02  
+    0:13:10 2619778.8      0.92    3254.7       0.0                               -0.02  
+    0:13:10 2620036.0      0.92    3253.3       0.0                               -0.02  
+    0:13:10 2619911.5      0.92    3252.4       0.0                               -0.02  
+    0:13:11 2619977.9      0.92    3251.8       0.0                               -0.02  
+    0:13:11 2620483.9      0.92    3239.2       0.0                               -0.02  
+    0:13:12 2620832.2      0.92    3234.3       0.0                               -0.02  
+    0:13:13 2621014.7      0.92    3232.9       0.0                               -0.02  
+    0:13:13 2621072.8      0.92    3232.6       0.0                               -0.02  
+    0:13:13 2621081.1      0.92    3232.0       0.0                               -0.02  
+    0:13:14 2621172.3      0.92    3229.7       0.0                               -0.02  
+    0:13:15 2621495.8      0.92    3226.9       0.0                               -0.02  
+    0:13:16 2621487.5      0.92    3225.2       0.0                               -0.02  
+    0:13:17 2622068.1      0.92    3219.6       0.0                               -0.02  
+    0:13:18 2622242.3      0.92    3216.7       0.0                               -0.02  
+    0:13:18 2622184.2      0.92    3215.5       0.0                               -0.02  
+    0:13:19 2622126.2      0.92    3214.9       0.0                               -0.02  
+    0:13:19 2622563.6      0.92    3208.3       0.0                               -0.02  
+    0:13:20 2622679.7      0.92    3201.6       0.0                               -0.02  
+    0:13:20 2623728.8      0.92    3195.9       0.0                               -0.02  
+    0:13:21 2624149.6      0.92    3190.2       0.0                               -0.02  
+    0:13:21 2624224.3      0.92    3187.9       0.0                               -0.02  
+    0:13:22 2624991.4      0.92    3183.5       0.0                               -0.02  
+    0:13:22 2625271.2      0.92    3180.3       0.0                               -0.02  
+    0:13:23 2625401.8      0.92    3176.7       0.0                               -0.02  
+    0:13:24 2625810.3      0.92    3174.7       0.0                               -0.03  
+    0:13:24 2626117.2      0.92    3172.9       0.0                               -0.03  
+    0:13:25 2626324.6      0.92    3169.0       0.0                               -0.03  
+    0:13:25 2626297.6      0.92    3167.8       0.0                               -0.03  
+    0:13:26 2626784.8      0.92    3157.7       0.0                               -0.03  
+    0:13:27 2626876.0      0.92    3157.5       0.0                               -0.03  
+    0:13:27 2627008.7      0.92    3156.1       0.0                               -0.03  
+    0:13:28 2627375.8      0.92    3148.9       0.0                               -0.03  
+    0:13:28 2627550.0      0.92    3142.8       0.0                               -0.03  
+    0:13:29 2627763.5      0.92    3136.1       0.0                               -0.03  
+    0:13:29 2627755.2      0.92    3133.8       0.0                               -0.03  
+    0:13:30 2627960.4      0.92    3132.6       0.0                               -0.03  
+    0:13:31 2628113.7      0.92    3131.0       0.0                               -0.03  
+    0:13:31 2628393.5      0.92    3125.1       0.0                               -0.03  
+    0:13:32 2629268.4      0.92    3119.8       0.0                               -0.03  
+    0:13:32 2629625.1      0.92    3116.7       0.0                               -0.03  
+    0:13:33 2629965.2      0.92    3115.2       0.0                               -0.03  
+    0:13:34 2630421.4      0.92    3113.5       0.0                               -0.03  
+    0:13:35 2631022.5      0.92    3102.0       0.0                               -0.03  
+    0:13:35 2631178.0      0.92    3098.2       0.0                               -0.03  
+    0:13:36 2631316.8      0.92    3091.0       0.0                               -0.03  
+    0:13:37 2631186.3      0.92    3087.7       0.0                               -0.03  
+    0:13:38 2631277.5      0.92    3086.8       0.0                               -0.03  
+    0:13:38 2631957.6      0.92    3084.7       0.0                               -0.03  
+    0:13:38 2632024.0      0.92    3084.4       0.0                               -0.03  
+    0:13:39 2631949.3      0.92    3083.3       0.0                               -0.03  
+    0:13:39 2632024.0      0.92    3082.2       0.0                               -0.03  
+    0:13:39 2632214.8      0.92    3080.4       0.0                               -0.03  
+    0:13:39 2632753.9      0.92    3077.6       0.0                               -0.03  
+    0:13:40 2632953.0      0.92    3076.3       0.0                               -0.03  
+    0:13:41 2632936.4      0.92    3076.1       0.0                               -0.03  
+    0:13:41 2632994.4      0.92    3075.7       0.0                               -0.03  
+    0:13:41 2633367.7      0.92    3073.7       0.0                               -0.03  
+    0:13:41 2633456.8      0.92    3068.3       0.0                               -0.03  
+    0:13:42 2633888.1      0.92    3066.6       0.0                               -0.03  
+    0:13:42 2634029.1      0.92    3064.6       0.0                               -0.03  
+    0:13:42 2634186.7      0.92    3064.3       0.0                               -0.03  
+    0:13:42 2634186.7      0.92    3064.0       0.0                               -0.03  
+    0:13:43 2634651.2      0.92    3060.9       0.0                               -0.03  
+    0:13:43 2634982.9      0.92    3058.3       0.0                               -0.03  
+    0:13:43 2635157.1      0.92    3057.5       0.0                               -0.03  
+    0:13:44 2635356.2      0.92    3056.6       0.0                               -0.03  
+    0:13:45 2635593.9      0.92    3055.9       0.0                               -0.03  
+    0:13:45 2635544.2      0.92    3055.8       0.0                               -0.03  
+    0:13:46 2635544.2      0.92    3055.6       0.0                               -0.03  
+    0:13:46 2635519.3      0.92    3055.4       0.0                               -0.03  
+    0:13:47 2635521.4      0.92    3053.8       0.0                               -0.03  
+    0:13:47 2635521.4      0.92    3053.7       0.0                               -0.03  
+    0:13:47 2635562.9      0.92    3053.0       0.0                               -0.03  
+    0:13:47 2635562.9      0.92    3052.0       0.0                               -0.03  
+    0:13:47 2635562.9      0.92    3051.1       0.0                               -0.03  
+    0:13:48 2635513.1      0.92    3049.5       0.0                               -0.03  
+    0:13:48 2635438.5      0.92    3049.0       0.0                               -0.03  
+    0:13:48 2635604.4      0.92    3047.4       0.0                               -0.03  
+    0:13:48 2635679.0      0.92    3044.1       0.0                               -0.03  
+    0:13:49 2635712.2      0.92    3043.3       0.0                               -0.03  
+    0:13:49 2635670.7      0.92    3041.2       0.0                               -0.03  
+    0:13:50 2635583.8      0.92    3040.4       0.0                               -0.03  
+    0:13:50 2635602.6      0.92    3036.8       0.0                               -0.03  
+    0:13:51 2635737.4      0.92    3035.8       0.0                               -0.03  
+    0:13:52 2636083.6      0.92    3035.6       0.0                               -0.03  
+    0:13:53 2636448.6      0.92    3011.5       0.0                               -0.07  
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:13:53 2636448.6      0.92    3011.5       0.0                               -0.07  
+    0:13:53 2636448.6      0.92    3011.5       0.0                               -0.07  
+    0:13:58 2598601.2      1.14    3145.1       0.0                               -0.07  
+    0:14:01 2584293.4      1.23    3208.6       0.0                               -0.07  
+    0:14:03 2576654.3      1.23    3254.7       0.0                               -0.07  
+    0:14:05 2570690.6      1.23    3273.7       0.0                               -0.07  
+    0:14:06 2566219.9      1.23    3262.8       0.0                               -0.07  
+    0:14:08 2562918.7      1.23    3259.1       0.0                               -0.07  
+    0:14:09 2560106.9      1.23    3262.7       0.0                               -0.07  
+    0:14:09 2557668.4      1.23    3262.0       0.0                               -0.07  
+    0:14:10 2555088.8      1.23    3261.1       0.0                               -0.07  
+    0:14:11 2552874.2      1.23    3260.9       0.0                               -0.07  
+    0:14:12 2550925.0      1.23    3260.9       0.0                               -0.07  
+    0:14:13 2549291.0      1.23    3261.0       0.0                               -0.07  
+    0:14:14 2547764.9      1.23    3262.9       0.0                               -0.07  
+    0:14:15 2547632.1      1.23    3263.0       0.0                               -0.07  
+    0:14:15 2547482.8      1.23    3262.7       0.0                               -0.07  
+    0:14:16 2547341.8      1.23    3262.7       0.0                               -0.07  
+    0:14:16 2547341.8      1.23    3262.7       0.0                               -0.07  
+    0:14:18 2548743.6      0.94    3080.1       0.0 D_cachemem/data_reg[21][33]/CLRB     -0.07  
+    0:14:20 2548892.9      0.93    3054.1       0.0 D_cachemem/data_reg[21][33]/CLRB     -0.07  
+    0:14:21 2548909.5      0.93    3037.3       0.0 D_cachemem/data_reg[29][55]/CLRB     -0.07  
+    0:14:22 2548909.5      0.93    3036.7       0.0                               -0.07  
+    0:14:24 2519698.7      1.15    3774.8       0.0                               -0.07  
+    0:14:25 2515717.4      1.14    3771.3       0.0                               -0.07  
+    0:14:25 2515352.4      1.14    3771.4       0.0                               -0.07  
+    0:14:25 2515352.4      1.14    3771.4       0.0                               -0.07  
+    0:14:25 2515352.4      1.14    3771.4       0.0                               -0.07  
+    0:14:25 2515352.4      1.14    3771.4       0.0                               -0.07  
+    0:14:25 2515352.4      1.14    3771.4       0.0                               -0.07  
+    0:14:25 2515352.4      1.14    3771.4       0.0                               -0.07  
+    0:14:26 2517882.2      1.14    3769.0       0.0 D_cachemem/data_reg[29][24]/CLRB     -0.07  
+    0:14:28 2518413.0      1.05    3468.8       0.0 D_cachemem/data_reg[22][56]/CLRB     -0.07  
+    0:14:31 2518653.6      0.96    3234.8       0.0 D_cachemem/data_reg[29][27]/CLRB     -0.07  
+    0:14:32 2518653.6      0.96    3219.1       0.0 D_cachemem/data_reg[29][27]/CLRB     -0.07  
+    0:14:34 2518852.6      0.96    3197.1       0.0 D_cachemem/data_reg[29][27]/CLRB     -0.07  
+    0:14:35 2518761.4      0.94    3159.5       0.0 Dcache_rd_data[2][62]         -0.07  
+    0:14:36 2518935.6      0.94    3171.3       0.0 D_cachemem/data_reg[29][27]/CLRB     -0.07  
+    0:14:37 2519142.9      0.94    3171.2       0.0 dcache_MSHR/mshr_reg[2][tag][1]/CLRB     -0.07  
+    0:14:38 2520013.9      0.93    3157.1       0.0 dcache_MSHR/mshr_reg[8][tag][19]/CLRB     -0.07  
+    0:14:38 2519955.8      0.93    3153.1       0.0 D_cachemem/data_reg[6][30]/CLRB     -0.07  
+    0:14:39 2520271.0      0.93    3155.0       0.0 dcache_MSHR/mshr_reg[13][tag][19]/CLRB     -0.07  
+    0:14:40 2520577.9      0.92    3159.8       0.0 dcache_MSHR/mshr_reg[2][tag][3]/CLRB     -0.07  
+    0:14:41 2520793.5      0.92    3162.2       0.0 D_cachemem/data_reg[28][41]/CLRB     -0.07  
+    0:14:41 2520859.9      0.92    3161.8       0.0 dcache_MSHR/mshr_reg[2][tag][3]/CLRB     -0.07  
+    0:14:42 2520843.3      0.92    3161.3       0.0 D_cachemem/data_reg[9][41]/CLRB     -0.07  
+    0:14:42 2520727.2      0.92    3158.9       0.0 D_cachemem/data_reg[31][28]/CLRB     -0.07  
+    0:14:43 2520785.2      0.92    3154.6       0.0 D_cachemem/data_reg[21][55]/CLRB     -0.07  
+    0:14:43 2521108.7      0.92    3153.2       0.0 D_cachemem/data_reg[6][58]/CLRB     -0.07  
+    0:14:44 2521299.5      0.92    3156.3       0.0 D_cachemem/data_reg[18][3]/CLRB     -0.07  
+    0:14:45 2521266.3      0.91    3157.3       0.0 D_cachemem/data_reg[20][28]/CLRB     -0.07  
+    0:14:45 2521390.7      0.91    3156.2       0.0 D_cachemem/data_reg[4][29]/CLRB     -0.07  
+    0:14:46 2521664.4      0.91    3156.0       0.0 Dcache_rd_data[2][61]         -0.07  
+    0:14:46 2521888.4      0.91    3154.7       0.0 Dcache_rd_data[2][12]         -0.07  
+    0:14:46 2521871.8      0.91    3153.5       0.0 dcache_MSHR/mshr_reg[10][tag][3]/CLRB     -0.07  
+    0:14:47 2521921.6      0.91    3152.4       0.0 dcache_MSHR/mshr_reg[10][tag][2]/CLRB     -0.07  
+    0:14:47 2521921.6      0.91    3151.1       0.0 dcache_MSHR/mshr_reg[10][tag][2]/CLRB     -0.07  
+    0:14:48 2522278.2      0.91    3149.9       0.0 D_cachemem/data_reg[9][41]/CLRB     -0.07  
+    0:14:49 2522477.3      0.91    3135.7       0.0 D_cachemem/data_reg[13][18]/CLRB     -0.07  
+    0:14:49 2522834.0      0.91    3137.2       0.0 D_cachemem/data_reg[2][41]/CLRB     -0.07  
+    0:14:50 2522892.0      0.90    3134.2       0.0 D_cachemem/data_reg[21][5]/CLRB     -0.07  
+    0:14:51 2523174.0      0.90    3133.8       0.0 D_cachemem/data_reg[29][52]/CLRB     -0.07  
+    0:14:51 2523315.0      0.90    3132.2       0.0 D_cachemem/data_reg[17][32]/CLRB     -0.07  
+    0:14:52 2523597.0      0.90    3131.2       0.0 Dcache_rd_data[1][35]         -0.07  
+    0:14:52 2524459.7      0.90    3131.1       0.0 dcache_MSHR/mshr_reg[10][tag][2]/CLRB     -0.07  
+    0:14:53 2524476.2      0.90    3130.3       0.0 dcache_MSHR/mshr_reg[2][tag][8]/CLRB     -0.07  
+    0:14:53 2525073.4      0.90    3127.8       0.0 D_cachemem/data_reg[5][20]/CLRB     -0.07  
+    0:14:54 2524998.8      0.90    3127.1       0.0 dcache_MSHR/mshr_reg[6][tag][19]/CLRB     -0.07  
+    0:14:56 2524998.8      0.90    3125.6       0.0 D_cachemem/data_reg[13][18]/CLRB     -0.07  
+    0:14:57 2525430.1      0.90    3122.8       0.0 D_cachemem/data_reg[29][32]/CLRB     -0.07  
+    0:14:58 2525446.7      0.90    3104.6       0.0 dcache_MSHR/mshr_reg[14][tag][19]/CLRB     -0.07  
+    0:14:58 2525745.3      0.90    3099.5       0.0 dcache_MSHR/mshr_reg[14][tag][19]/CLRB     -0.07  
+    0:15:00 2525745.3      0.90    3095.5       0.0 D_cachemem/data_reg[29][32]/CLRB     -0.07  
+    0:15:01 2525811.6      0.90    3089.9       0.0 dcache_MSHR/mshr_reg[14][tag][19]/CLRB     -0.07  
+    0:15:06 2525902.9      0.90    3083.3       0.0 D_cachemem/data_reg[29][35]/CLRB     -0.07  
+    0:15:06 2526060.5      0.90    3072.0       0.0 D_cachemem/data_reg[29][34]/CLRB     -0.07  
+    0:15:07 2526151.7      0.90    3070.7       0.0                               -0.07  
+    0:15:08 2526193.2      0.90    3067.0       0.0                               -0.07  
+    0:15:09 2525999.6      0.90    3066.6       0.0                               -0.07  
+    0:15:10 2525933.3      0.90    3065.9       0.0                               -0.07  
+    0:15:10 2525839.2      0.90    3064.3       0.0                               -0.07  
+    0:15:11 2525678.8      0.90    3063.2       0.0                               -0.07  
+    0:15:11 2525471.4      0.90    3059.0       0.0                               -0.07  
+    0:15:12 2525529.5      0.90    3056.6       0.0                               -0.07  
+    0:15:12 2525313.9      0.90    3055.9       0.0                               -0.07  
+    0:15:13 2525040.1      0.90    3055.2       0.0                               -0.07  
+    0:15:13 2525131.4      0.90    3052.7       0.0                               -0.07  
+    0:15:14 2524929.5      0.90    3048.4       0.0                               -0.07  
+    0:15:15 2524813.4      0.90    3056.1       0.0                               -0.07  
+    0:15:16 2524713.9      0.90    3051.1       0.0                               -0.07  
+    0:15:16 2524805.1      0.90    3050.3       0.0                               -0.07  
+    0:15:17 2524747.0      0.90    3050.1       0.0                               -0.07  
+    0:15:17 2524465.0      0.90    3049.3       0.0                               -0.07  
+    0:15:18 2524407.0      0.90    3048.8       0.0                               -0.07  
+    0:15:18 2524216.2      0.90    3047.7       0.0                               -0.07  
+    0:15:19 2523701.9      0.90    3045.3       0.0                               -0.07  
+    0:15:20 2523743.4      0.90    3043.7       0.0                               -0.07  
+    0:15:20 2523262.3      0.90    3043.6       0.0                               -0.07  
+    0:15:20 2522922.3      0.90    3043.5       0.0                               -0.07  
+    0:15:20 2522930.6      0.90    3043.4       0.0                               -0.07  
+    0:15:21 2524307.4      0.90    3041.7       0.0                               -0.07  
+    0:15:21 2524606.0      0.90    3040.5       0.0                               -0.07  
+    0:15:21 2524357.2      0.90    3040.5       0.0                               -0.07  
+    0:15:23 2524456.7      0.90    3040.3       0.0                               -0.07  
+    0:15:23 2525510.1      0.90    3039.6       0.0                               -0.07  
+    0:15:24 2525833.6      0.90    3039.2       0.0                               -0.07  
+    0:15:31 2526140.5      0.90    3037.3       0.0                               -0.07  
+    0:15:35 2526182.0      0.90    3030.3       0.0                               -0.07  
+    0:15:35 2525833.6      0.90    3030.3       0.0                               -0.07  
+    0:15:36 2525642.8      0.90    3030.3       0.0                               -0.07  
+    0:15:36 2526969.9      0.90    3033.7       0.0                                0.00  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:15:36 2526969.9      0.90    3033.7       0.0                                0.00  
+    0:15:37 2527061.2      0.89    3031.7       0.0                                0.00  
+    0:15:38 2527177.3      0.89    3023.6       0.0                                0.00  
+    0:15:39 2527193.9      0.89    3018.2       0.0                                0.00  
+    0:15:40 2527202.2      0.89    3014.5       0.0                                0.00  
+    0:15:40 2527633.5      0.89    3011.8       0.0                                0.00  
+    0:15:40 2527641.8      0.89    3011.4       0.0                                0.00  
+    0:15:41 2527890.6      0.89    3003.5       0.0                                0.00  
+    0:15:42 2528429.7      0.89    2998.8       0.0                                0.00  
+    0:15:42 2528570.8      0.89    2997.5       0.0                                0.00  
+    0:15:43 2528637.1      0.89    2996.2       0.0                                0.00  
+    0:15:43 2528844.5      0.89    2994.5       0.0                                0.00  
+    0:15:43 2529010.4      0.89    2993.8       0.0                                0.00  
+    0:15:44 2529184.5      0.89    2991.5       0.0                                0.00  
+    0:15:44 2529126.5      0.89    2990.9       0.0                                0.00  
+    0:15:44 2529250.9      0.89    2990.0       0.0                                0.00  
+    0:15:44 2529275.8      0.89    2987.6       0.0                                0.00  
+    0:15:45 2529441.7      0.89    2980.2       0.0                                0.00  
+    0:15:45 2529483.1      0.89    2977.5       0.0                                0.00  
+    0:15:45 2529814.9      0.89    2975.3       0.0                                0.00  
+    0:15:46 2530130.1      0.89    2974.3       0.0                                0.00  
+    0:15:46 2530146.7      0.89    2964.3       0.0                                0.00  
+    0:15:46 2530420.4      0.89    2962.8       0.0                                0.00  
+    0:15:47 2530453.6      0.89    2961.0       0.0                                0.00  
+    0:15:47 2530636.1      0.89    2960.5       0.0                                0.00  
+    0:15:48 2530644.4      0.89    2960.4       0.0                                0.00  
+    0:15:48 2530801.9      0.89    2960.1       0.0                                0.00  
+    0:15:48 2530860.0      0.89    2959.5       0.0                                0.00  
+    0:15:49 2531142.0      0.89    2939.1       0.0                                0.00  
+    0:15:49 2531150.3      0.89    2937.8       0.0                                0.00  
+    0:15:49 2531225.0      0.89    2937.2       0.0                                0.00  
+    0:15:51 2531133.7      0.89    2937.1       0.0                                0.00  
+    0:15:51 2531341.1      0.89    2936.7       0.0                                0.00  
+    0:15:52 2531390.9      0.89    2934.5       0.0                                0.00  
+    0:15:52 2531648.0      0.89    2930.2       0.0                                0.00  
+    0:15:52 2531797.3      0.89    2929.2       0.0                                0.00  
+    0:15:53 2531855.3      0.89    2927.4       0.0                                0.00  
+    0:15:53 2531755.8      0.89    2926.8       0.0                                0.00  
+    0:15:54 2531639.7      0.89    2925.7       0.0                                0.00  
+    0:15:54 2531730.9      0.89    2922.3       0.0                                0.00  
+    0:15:54 2532054.4      0.89    2921.7       0.0                                0.00  
+    0:15:55 2532095.9      0.89    2918.8       0.0                                0.00  
+    0:15:55 2532095.9      0.89    2918.2       0.0                                0.00  
+    0:15:56 2532261.8      0.89    2917.8       0.0                                0.00  
+    0:15:56 2532353.0      0.89    2915.0       0.0                                0.00  
+    0:15:56 2532369.6      0.89    2913.9       0.0                                0.00  
+    0:15:57 2532535.5      0.89    2913.8       0.0                                0.00  
+    0:15:57 2532535.5      0.89    2913.7       0.0                                0.00  
+    0:15:57 2532535.5      0.89    2913.6       0.0                                0.00  
+    0:15:58 2532568.7      0.89    2910.9       0.0                                0.00  
+    0:15:58 2532701.4      0.89    2910.1       0.0                                0.00  
+    0:15:58 2532701.4      0.89    2910.0       0.0                                0.00  
+    0:15:59 2532635.0      0.89    2909.9       0.0                                0.00  
+    0:15:59 2532784.3      0.89    2909.0       0.0                                0.00  
+    0:15:59 2532983.4      0.89    2907.5       0.0                                0.00  
+    0:16:00 2533124.4      0.89    2906.8       0.0                                0.00  
+    0:16:00 2533257.1      0.89    2905.9       0.0                                0.00  
+    0:16:00 2533406.4      0.89    2905.1       0.0                                0.00  
+    0:16:01 2533481.0      0.89    2903.4       0.0                                0.00  
+    0:16:02 2533431.3      0.89    2902.8       0.0                                0.00  
+    0:16:02 2533572.3      0.89    2902.4       0.0                                0.00  
+    0:16:02 2533738.2      0.89    2902.3       0.0                                0.00  
+    0:16:03 2533713.3      0.89    2901.3       0.0                                0.00  
+    0:16:03 2533987.0      0.89    2900.7       0.0                                0.00  
+    0:16:04 2534202.7      0.89    2899.4       0.0                                0.00  
+    0:16:04 2534368.5      0.89    2898.3       0.0                                0.00  
+    0:16:04 2534385.1      0.89    2897.1       0.0                                0.00  
+    0:16:05 2534335.4      0.89    2896.9       0.0                                0.00  
+    0:16:05 2534526.1      0.89    2896.7       0.0                                0.00  
+    0:16:05 2534692.0      0.89    2896.1       0.0                                0.00  
+    0:16:06 2534692.0      0.89    2896.1       0.0                                0.00  
+    0:16:06 2534891.1      0.89    2895.9       0.0                                0.00  
+    0:16:06 2534891.1      0.89    2895.5       0.0                                0.00  
+    0:16:06 2534849.6      0.89    2894.7       0.0                                0.00  
+    0:16:07 2534835.8      0.89    2890.8       0.0                                0.00  
+    0:16:07 2535234.0      0.89    2888.6       0.0                                0.00  
+    0:16:08 2535565.7      0.89    2887.5       0.0                                0.00  
+    0:16:08 2535615.5      0.89    2886.7       0.0                                0.00  
+    0:16:08 2535781.4      0.89    2886.2       0.0                                0.00  
+    0:16:09 2535789.7      0.89    2885.5       0.0                                0.00  
+    0:16:09 2536138.1      0.89    2885.0       0.0                                0.00  
+    0:16:09 2536171.2      0.89    2884.8       0.0                                0.00  
+    0:16:10 2536154.7      0.89    2884.7       0.0                                0.00  
+    0:16:10 2536171.2      0.89    2882.0       0.0                                0.00  
+    0:16:10 2536162.9      0.89    2881.8       0.0                                0.00  
+    0:16:11 2536146.4      0.89    2881.7       0.0                                0.00  
+    0:16:11 2536129.8      0.89    2879.1       0.0                                0.00  
+    0:16:12 2536445.0      0.89    2878.5       0.0                                0.00  
+    0:16:12 2536610.8      0.89    2878.4       0.0                                0.00  
+    0:16:12 2536610.8      0.89    2877.7       0.0                                0.00  
+    0:16:14 2536760.1      0.89    2877.6       0.0                                0.00  
+    0:16:14 2536809.9      0.89    2877.2       0.0                                0.00  
+    0:16:14 2536868.0      0.89    2876.6       0.0                                0.00  
+    0:16:15 2536843.1      0.89    2876.6       0.0                                0.00  
+    0:16:15 2536826.5      0.89    2876.5       0.0                                0.00  
+    0:16:16 2536826.5      0.89    2876.3       0.0                                0.00  
+    0:16:16 2536793.3      0.89    2875.9       0.0                                0.00  
+    0:16:16 2536776.7      0.89    2875.8       0.0                                0.00  
+    0:16:17 2536801.6      0.89    2874.9       0.0                                0.00  
+    0:16:17 2537050.4      0.89    2874.1       0.0                                0.00  
+    0:16:18 2537100.2      0.89    2868.2       0.0                                0.00  
+    0:16:19 2537257.8      0.89    2868.0       0.0                                0.00  
+    0:16:20 2537332.5      0.89    2867.1       0.0                                0.00  
+    0:16:20 2537498.3      0.89    2867.1       0.0                                0.00  
+    0:16:21 2537747.2      0.89    2866.2       0.0                                0.00  
+    0:16:21 2537738.9      0.89    2866.0       0.0                                0.00  
+    0:16:22 2537904.8      0.89    2864.9       0.0                                0.00  
+    0:16:22 2538070.7      0.89    2864.6       0.0                                0.00  
+    0:16:22 2538145.3      0.89    2864.0       0.0                                0.00  
+    0:16:23 2538244.8      0.89    2863.7       0.0                                0.00  
+    0:16:23 2538178.5      0.89    2863.0       0.0                                0.00  
+    0:16:23 2538178.5      0.89    2863.0       0.0                                0.00  
+    0:16:23 2538161.9      0.89    2862.6       0.0                                0.00  
+    0:16:24 2538236.6      0.89    2862.1       0.0                                0.00  
+    0:16:24 2538435.6      0.89    2858.5       0.0                                0.00  
+    0:16:25 2538402.4      0.89    2858.4       0.0                                0.00  
+    0:16:25 2538576.6      0.89    2857.9       0.0                                0.00  
+    0:16:26 2538866.9      0.89    2857.2       0.0                                0.00  
+    0:16:26 2538908.4      0.89    2856.9       0.0                                0.00  
+    0:16:26 2539057.7      0.89    2856.3       0.0                                0.00  
+    0:16:27 2539066.0      0.89    2856.0       0.0                                0.00  
+    0:16:27 2538983.1      0.89    2855.5       0.0                                0.00  
+    0:16:28 2538974.8      0.89    2855.3       0.0                                0.00  
+    0:16:28 2539140.6      0.89    2854.3       0.0                                0.00  
+    0:16:28 2539231.9      0.89    2854.1       0.0                                0.00  
+    0:16:28 2539215.3      0.89    2854.0       0.0                                0.00  
+    0:16:29 2539422.7      0.89    2853.2       0.0                                0.00  
+    0:16:29 2539430.9      0.89    2853.2       0.0                                0.00  
+    0:16:29 2539414.4      0.89    2853.0       0.0                                0.00  
+    0:16:30 2539522.2      0.89    2852.8       0.0                                0.00  
+    0:16:30 2539538.8      0.89    2852.7       0.0                                0.00  
+    0:16:30 2539505.6      0.89    2852.6       0.0                                0.00  
+    0:16:31 2539439.2      0.89    2852.1       0.0                                0.00  
+    0:16:31 2539472.4      0.89    2852.1       0.0                                0.00  
+    0:16:31 2539414.4      0.89    2851.9       0.0                                0.00  
+    0:16:32 2539505.6      0.89    2851.7       0.0                                0.00  
+    0:16:32 2539505.6      0.89    2851.6       0.0                                0.00  
+    0:16:33 2539505.6      0.89    2851.0       0.0                                0.00  
+    0:16:33 2539621.7      0.89    2850.1       0.0                                0.00  
+    0:16:34 2539713.0      0.89    2849.9       0.0                                0.00  
+    0:16:34 2539986.7      0.89    2847.5       0.0                                0.00  
+    0:16:35 2539995.0      0.89    2847.1       0.0                                0.00  
+    0:16:35 2539936.9      0.89    2847.1       0.0                                0.00  
+    0:16:36 2540036.4      0.89    2846.4       0.0                                0.00  
+    0:16:37 2540069.6      0.89    2846.1       0.0                                0.00  
+    0:16:38 2539820.8      0.89    2844.9       0.0                                0.00  
+    0:16:39 2539920.3      0.89    2844.6       0.0                                0.00  
+    0:16:41 2539928.6      0.89    2844.3       0.0                                0.00  
+    0:16:41 2539961.8      0.89    2843.9       0.0                                0.00  
+    0:16:41 2539961.8      0.89    2843.7       0.0                                0.00  
+    0:16:41 2540003.3      0.89    2843.6       0.0                                0.00  
+    0:16:41 2539953.5      0.89    2843.3       0.0                                0.00  
+    0:16:42 2540086.2      0.89    2839.5       0.0                                0.00  
+    0:16:42 2540235.5      0.89    2839.1       0.0                                0.00  
+    0:16:42 2540401.4      0.89    2838.7       0.0                                0.00  
+    0:16:42 2540384.8      0.89    2838.4       0.0                                0.00  
+    0:16:43 2540362.1      0.89    2838.0       0.0                                0.00  
+    0:16:43 2540445.0      0.89    2833.3       0.0                                0.00  
+    0:16:43 2540552.8      0.89    2824.9       0.0                                0.00  
+    0:16:44 2540461.6      0.89    2822.3       0.0                                0.00  
+    0:16:44 2540528.0      0.89    2822.2       0.0                                0.00  
+    0:16:45 2540718.7      0.89    2816.7       0.0                                0.00  
+    0:16:45 2540727.0      0.89    2816.1       0.0                                0.00  
+    0:16:45 2540810.0      0.89    2809.6       0.0                                0.00  
+    0:16:46 2540892.9      0.89    2805.5       0.0                                0.00  
+    0:16:46 2540917.8      0.89    2800.9       0.0                                0.00  
+    0:16:47 2540926.1      0.89    2800.7       0.0                                0.00  
+    0:16:47 2540926.1      0.89    2800.3       0.0                                0.00  
+    0:16:47 2540926.1      0.89    2800.0       0.0                                0.00  
+    0:16:48 2540934.4      0.89    2799.7       0.0                                0.00  
+    0:16:49 2541199.8      0.89    2796.1       0.0                                0.00  
+    0:16:49 2541191.5      0.89    2794.5       0.0                                0.00  
+    0:16:49 2541415.5      0.89    2791.0       0.0                                0.00  
+    0:16:50 2541301.5      0.89    2790.6       0.0                                0.00  
+    0:16:50 2541301.5      0.89    2790.5       0.0                                0.00  
+    0:16:50 2541301.5      0.89    2790.3       0.0                                0.00  
+    0:16:51 2541367.9      0.89    2790.1       0.0                                0.00  
+    0:16:52 2541467.4      0.89    2789.0       0.0                                0.00  
+    0:16:52 2541467.4      0.89    2788.9       0.0                                0.00  
+    0:16:52 2541450.8      0.89    2788.9       0.0                                0.00  
+    0:16:53 2541625.0      0.89    2787.9       0.0                                0.00  
+    0:16:53 2541799.2      0.89    2787.3       0.0                                0.00  
+    0:16:53 2542114.4      0.89    2786.7       0.0                                0.00  
+    0:16:54 2542039.7      0.89    2786.3       0.0                                0.00  
+    0:16:54 2542006.5      0.89    2786.0       0.0                                0.00  
+    0:16:55 2542006.5      0.89    2785.7       0.0                                0.00  
+    0:16:55 2541998.2      0.89    2785.3       0.0                                0.00  
+    0:16:55 2541981.6      0.89    2785.2       0.0                                0.00  
+    0:16:56 2541931.9      0.89    2784.8       0.0                                0.00  
+    0:16:56 2542114.4      0.89    2784.7       0.0                                0.00  
+    0:16:56 2542114.4      0.89    2784.4       0.0                                0.00  
+    0:16:57 2542164.1      0.89    2784.3       0.0                                0.00  
+    0:16:57 2541965.1      0.89    2784.1       0.0                                0.00  
+    0:16:58 2541857.2      0.89    2782.5       0.0                                0.00  
+    0:16:58 2541907.0      0.89    2782.0       0.0                                0.00  
+    0:16:58 2541907.0      0.89    2781.6       0.0                                0.00  
+    0:16:59 2542106.1      0.89    2781.1       0.0                                0.00  
+    0:16:59 2542097.8      0.89    2779.9       0.0                                0.00  
+    0:17:00 2542147.5      0.89    2779.7       0.0                                0.00  
+    0:17:00 2542155.8      0.89    2779.5       0.0                                0.00  
+    0:17:01 2542197.3      0.89    2779.3       0.0                                0.00  
+    0:17:01 2542354.9      0.89    2778.9       0.0                                0.00  
+    0:17:02 2542462.7      0.89    2778.8       0.0                                0.00  
+    0:17:02 2542529.1      0.89    2778.3       0.0                                0.00  
+    0:17:03 2542537.4      0.89    2778.0       0.0                                0.00  
+    0:17:03 2542777.9      0.89    2775.9       0.0                                0.00  
+    0:17:04 2542686.7      0.89    2774.6       0.0                               -0.04  
+    0:17:05 2542620.3      0.89    2773.7       0.0 D_cachemem/data_reg[29][32]/CLRB     -0.04  
+    0:17:06 2542670.1      0.88    2772.9       0.0 D_cachemem/data_reg[21][30]/CLRB     -0.04  
+    0:17:07 2543350.2      0.88    2776.5       0.0 dcache_MSHR/mshr_reg[0][index][1]/CLRB     -0.04  
+    0:17:08 2543391.7      0.88    2770.4       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:09 2543308.7      0.88    2770.2       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:10 2543366.8      0.87    2761.3       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:11 2543317.0      0.87    2758.9       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:12 2543267.3      0.87    2751.5       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:13 2543217.5      0.87    2743.4       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:15 2543167.7      0.87    2741.8       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:16 2543167.7      0.87    2738.9       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:17 2543184.3      0.86    2734.0       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:19 2543234.1      0.86    2730.3       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:20 2543217.5      0.86    2729.2       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:21 2543275.6      0.86    2726.4       0.0 D_cachemem/data_reg[20][47]/CLRB     -0.04  
+    0:17:22 2543283.9      0.86    2724.6       0.0 D_cachemem/data_reg[27][13]/CLRB     -0.04  
+    0:17:23 2543267.3      0.86    2722.7       0.0 D_cachemem/data_reg[21][30]/CLRB     -0.04  
+    0:17:23 2543308.7      0.86    2721.9       0.0 dcache_MSHR/mshr_reg[0][tag][3]/CLRB     -0.04  
+    0:17:24 2543375.1      0.86    2721.8       0.0 D_cachemem/data_reg[31][53]/CLRB     -0.04  
+    0:17:24 2543433.2      0.86    2726.4       0.0 D_cachemem/data_reg[4][29]/CLRB     -0.04  
+    0:17:26 2543474.6      0.86    2723.8       0.0 dcache_MSHR/mshr_reg[0][tag][3]/CLRB     -0.04  
+    0:17:26 2543474.6      0.86    2723.6       0.0 D_cachemem/data_reg[4][49]/CLRB     -0.04  
+    0:17:27 2543532.7      0.85    2721.4       0.0 dcache_MSHR/mshr_reg[0][tag][3]/CLRB     -0.04  
+    0:17:28 2543623.9      0.85    2721.0       0.0 D_cachemem/data_reg[29][51]/CLRB     -0.04  
+    0:17:29 2543615.6      0.85    2720.9       0.0 D_cachemem/data_reg[4][49]/CLRB     -0.04  
+    0:17:32 2543856.2      0.85    2720.7       0.0 D_cachemem/data_reg[29][55]/CLRB     -0.04  
+    0:17:39 2543930.8      0.85    2720.6       0.0                               -0.04  
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'dcache' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'D_cachemem/clock': 3373 load(s), 1 driver(s)
+Writing verilog file '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/synth/dcache.vg'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 7 nets to module dcache using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Writing ddc file './dcache.ddc'.
+Removing design 'cachemem_rw'
+Removing design 'MSHR'
+Removing design 'dcache'
+Removing design 'wand_sel_WIDTH15_0'
+Removing design 'wand_sel_WIDTH15_1'
+Removing design 'wand_sel_WIDTH15_2'
+Removing design 'wand_sel_WIDTH15_3'
+Removing design 'priority_selector_REQS4_WIDTH15'
+Removing library 'lec25dscc25_TT'
+Removing library 'gtech'
+Removing library 'standard.sldb'
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2018.06/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2018.06/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading verilog file '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/synth/dcache.vg'
+Detecting input file type automatically (-rtl or -netlist).
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/synth/dcache.vg
+Reading with netlist reader (equivalent to -netlist option).
+Verilog netlist reader completed successfully.
+Current design is now '/afs/umich.edu/user/r/e/reberm/Desktop/470/group9w20/synth/wand_sel_WIDTH15_3.db:wand_sel_WIDTH15_3'
+Loaded 8 designs.
+Current design is 'wand_sel_WIDTH15_3'.
+Current design is 'dcache'.
+
+Thank you...

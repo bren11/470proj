@@ -1,0 +1,110 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   TOGGLE BRANCH           
+ 75.29  99.48  26.39 100.00 testbench 
+  
+  ----------------
+  SCORE  LINE   TOGGLE BRANCH    
+   74.91  97.87  26.87 100.00 rs 
+    
+    ----------------
+    SCORE  LINE   TOGGLE BRANCH           
+     66.67 --      66.67 --     ps_fu_add 
+      
+      ----------------
+      SCORE  LINE   TOGGLE BRANCH             
+       87.50 --      87.50 --     foo[0].psel 
+       87.50 --      87.50 --     foo[1].psel 
+       75.00 --      75.00 --     foo[2].psel 
+       62.50 --      62.50 --     foo[3].psel 
+    
+    ----------------
+    SCORE  LINE   TOGGLE BRANCH              
+     66.67 --      66.67 --     ps_fu_branch 
+      
+      ----------------
+      SCORE  LINE   TOGGLE BRANCH             
+       87.50 --      87.50 --     foo[0].psel 
+       87.50 --      87.50 --     foo[1].psel 
+       75.00 --      75.00 --     foo[2].psel 
+       62.50 --      62.50 --     foo[3].psel 
+    
+    ----------------
+    SCORE  LINE   TOGGLE BRANCH            
+     66.67 --      66.67 --     ps_fu_load 
+      
+      ----------------
+      SCORE  LINE   TOGGLE BRANCH             
+       87.50 --      87.50 --     foo[0].psel 
+       87.50 --      87.50 --     foo[1].psel 
+       75.00 --      75.00 --     foo[2].psel 
+       62.50 --      62.50 --     foo[3].psel 
+    
+    ----------------
+    SCORE  LINE   TOGGLE BRANCH            
+     66.67 --      66.67 --     ps_fu_mult 
+      
+      ----------------
+      SCORE  LINE   TOGGLE BRANCH             
+       87.50 --      87.50 --     foo[0].psel 
+       87.50 --      87.50 --     foo[1].psel 
+       75.00 --      75.00 --     foo[2].psel 
+       62.50 --      62.50 --     foo[3].psel 
+    
+    ----------------
+    SCORE  LINE   TOGGLE BRANCH           
+     16.93 --      16.93 --     ps_rs_add 
+      
+      ----------------
+      SCORE  LINE   TOGGLE BRANCH             
+       23.44 --      23.44 --     foo[0].psel 
+       25.00 --      25.00 --     foo[1].psel 
+       17.19 --      17.19 --     foo[2].psel 
+       15.62 --      15.62 --     foo[3].psel 
+    
+    ----------------
+    SCORE  LINE   TOGGLE BRANCH              
+     17.01 --      17.01 --     ps_rs_branch 
+      
+      ----------------
+      SCORE  LINE   TOGGLE BRANCH             
+       25.00 --      25.00 --     foo[0].psel 
+       25.00 --      25.00 --     foo[1].psel 
+       15.62 --      15.62 --     foo[2].psel 
+       15.62 --      15.62 --     foo[3].psel 
+    
+    ----------------
+    SCORE  LINE   TOGGLE BRANCH            
+     17.17 --      17.17 --     ps_rs_load 
+      
+      ----------------
+      SCORE  LINE   TOGGLE BRANCH             
+       25.00 --      25.00 --     foo[0].psel 
+       21.88 --      21.88 --     foo[1].psel 
+       17.19 --      17.19 --     foo[2].psel 
+       17.19 --      17.19 --     foo[3].psel 
+    
+    ----------------
+    SCORE  LINE   TOGGLE BRANCH            
+     16.84 --      16.84 --     ps_rs_mult 
+      
+      ----------------
+      SCORE  LINE   TOGGLE BRANCH             
+       25.00 --      25.00 --     foo[0].psel 
+       21.88 --      21.88 --     foo[1].psel 
+       15.62 --      15.62 --     foo[2].psel 
+       17.19 --      17.19 --     foo[3].psel 
+    
+    ----------------
+    SCORE  LINE   TOGGLE BRANCH      
+     49.22 --      49.22 --     rsps 
+      
+      ----------------
+      SCORE  LINE   TOGGLE BRANCH             
+       60.94 --      60.94 --     foo[0].psel 
+       59.38 --      59.38 --     foo[1].psel 
+       60.94 --      60.94 --     foo[2].psel 
+       59.38 --      59.38 --     foo[3].psel 
+
