@@ -42,7 +42,7 @@ STD_OUT_MEM_Path="std_out/mem/${STD_OUT_FN}"
 
 # Make test case program
 echo -n   "${reset}Assembling Standard...${reset}"	
-output=`( cd ${TRUTH} && make assembly SOURCE=test_progs/rv32_parallel/rv32_parallel-1-0.s )` || echo $output
+output=`( cd ${TRUTH} && make assembly SOURCE=../../test_progs/rv32_parallel/rv32_parallel-1-0.s )` || echo $output
 #elif [ "$extension" == "c" ]
 #then
 	#echo -n   "${reset}Compiling Standard...${reset}"	
