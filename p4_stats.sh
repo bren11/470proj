@@ -37,7 +37,7 @@ stats_fn=p4_results.csv
 > ${stats_fn}
 echo "TestName, N, ROB, RS, CPI" > ${stats_fn}
 # Test all ASSEMBLY test cases
-for file in ${WORKING}test_progs/insertionsort.c; do #TODO: Change back to *
+for file in ${WORKING}test_progs/rv32_parallel; do #TODO: Change back to *
 
 	# Get relative path
 	file=${file#${WORKING}}
@@ -63,19 +63,19 @@ for file in ${WORKING}test_progs/insertionsort.c; do #TODO: Change back to *
 		if [ "$extension" == "s" ]
 		then
 			echo -n   "${reset}Assembling Standard...${reset}"	
-			output=`( cd ${TRUTH} && make assembly SOURCE=$file ) 2>&1` || echo $output
+			#output=`( cd ${TRUTH} && make assembly SOURCE=$file ) 2>&1` || echo $output
 		elif [ "$extension" == "c" ]
 		then
 			echo -n   "${reset}Compiling Standard...${reset}"	
-			output=`( cd ${TRUTH} && make program SOURCE=$file ) 2>&1` || echo $output
+			#output=`( cd ${TRUTH} && make program SOURCE=$file ) 2>&1` || echo $output
 		fi
 
 		# Run test Case
 		if [[ "$extension" == "s" || "$extension" == "c" ]]
 		then
 			echo -e   "${reset}\nRunning Standard...${reset}\n"
-			( cd ${TRUTH} && make ) | grep @@@ > ${STD_OUT_MEM_Path} 
-			( cd ${TRUTH} &&  echo "$(cat writeback.out)") > ${STD_OUT_WB_PATH}
+			#( cd ${TRUTH} && make ) | grep @@@ > ${STD_OUT_MEM_Path} 
+			#( cd ${TRUTH} &&  echo "$(cat writeback.out)") > ${STD_OUT_WB_PATH}
 		fi
 	#fi
 	

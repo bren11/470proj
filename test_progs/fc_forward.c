@@ -1,14 +1,8 @@
-/////////////////////////////////////////////
-// one forward layer of a fully connected NN
-// basically just x @ W + b
-//  - Jielun Tan, 03/2019
-////////////////////////////////////////////
-#ifndef DEBUG
-extern void exit();
-#endif
-#define N 4
+#define N 12
 
 int n = N;
+int seed = 0x720f8a4;
+int out;
 
 void kernel(int  vec_a[n],int  vec_b[n], int result[n], int b, int *out) { 
 	int i = 0, j = 0, k = 0;  
@@ -21,22 +15,26 @@ void kernel(int  vec_a[n],int  vec_b[n], int result[n], int b, int *out) {
 	*out = dot + b;
 }
 
-
+int myRand() {
+    int a = 16807;
+    int m = 2147483647;
+    seed = (a * seed) % m;
+}
 
 int main() {
 	int x[n], W[n], inner[n];
 	int b;
-	int out;
 	//initializing weights
 	for (int i = 0; i < n; ++i) {
-		x[i] = 0xe8a420b8 & ((1 << 16) - 1);
-		W[i] = 0x95f20b1a & ((1 << 16) - 1);
+		x[i] = myRand() & ((1 << 16) - 1);
+		W[i] = myRand() & ((1 << 16) - 1);
 		inner[i] = 0;
 	}
-	b = 0x29f0ac3e;
+	b = myRand();
 	//the actual layer
 	kernel(x,W,inner,b, &out);
-	
+    if (out == 0) {
+        return 1;
+    }
 	return 0;
-
 }

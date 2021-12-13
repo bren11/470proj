@@ -43,7 +43,8 @@
 `define VERILOG_CLOCK_PERIOD   10.0
 `define SYNTH_CLOCK_PERIOD     11.5 // Clock period for synth and memory latency
 
-`define MEM_LATENCY_IN_CYCLES (100.0/`SYNTH_CLOCK_PERIOD+0.49999)
+`define MEM_LATENCY_IN_MS 23
+`define MEM_LATENCY_IN_CYCLES (`MEM_LATENCY_IN_MS/`SYNTH_CLOCK_PERIOD+0.49999)
 // the 0.49999 is to force ceiling(100/period).  The default behavior for
 // float to integer conversion is rounding to nearest
 
@@ -57,7 +58,7 @@
 `define BTB_TAG_BITS `XLEN-`BTB_IDX_BITS-2
 
 // degree of superscalar
-`define N 8
+`define N 4
 `define HALF_N `N/2
 `define NLOG $clog2(`N)
 
