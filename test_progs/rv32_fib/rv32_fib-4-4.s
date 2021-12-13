@@ -29,23 +29,39 @@ loop:
 	lw	x2, 0(x4)
 	lw	x3, 0(x5)
 	add	x3,	x3,	x2 #
+	addi	x4,	x4,	0x8 #
+	addi	x5,	x5,	0x8 #
+	addi	x10,	x10,	0x1 #
 	sw	x3, 0(x6)
+	addi	x6,	x6,	0x8 #
 
-	lw	x2, 0x8(x4)
-	lw	x3, 0x8(x5)
+	lw	x2, 0(x4)
+	lw	x3, 0(x5)
 	add	x3,	x3,	x2 #
-	sw	x3, 0x8(x6)
+	addi	x4,	x4,	0x8 #
+	addi	x5,	x5,	0x8 #
+	addi	x10,	x10,	0x1 #
+	sw	x3, 0(x6)
+	addi	x6,	x6,	0x8 #
 
-	lw	x2, 0x10(x4)
-	lw	x3, 0x10(x5)
+	lw	x2, 0(x4)
+	lw	x3, 0(x5)
 	add	x3,	x3,	x2 #
-	sw	x3, 0x10(x6)
+	addi	x4,	x4,	0x8 #
+	addi	x5,	x5,	0x8 #
+	addi	x10,	x10,	0x1 #
+	sw	x3, 0(x6)
+	addi	x6,	x6,	0x8 #
 
-	addi	x6,	x6,	0x18
-	addi	x4,	x4,	0x18 #
-	addi	x5,	x5,	0x18 #
-	slti	x11,	x10,	11 #
-	addi	x10,	x10,	0x3 #
+	lw	x2, 0(x4)
+	lw	x3, 0(x5)
+	add	x3,	x3,	x2 #
+	addi	x4,	x4,	0x8 #
+	addi	x5,	x5,	0x8 #
+	slti	x11,	x10,	13 #
+	addi	x10,	x10,	0x1 #
+	sw	x3, 0(x6)
+	addi	x6,	x6,	0x8 #
 
 	bne	x11,	x0,	loop #
 
