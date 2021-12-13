@@ -49,7 +49,9 @@ module rat (
 
 
     // choose what the destreg of each instruction will be renamed to
-    priority_selector #(`N, `PRF_NUM_ENTRIES) prf_free_ps(.req(free_list), .gnt_bus(gnt_bus)); //what stations will get instructions
+    my_priority_selector #(`N, `PRF_NUM_ENTRIES) prf_free_ps(
+        .reset,
+        .clock,.req(free_list), .gnt_bus(gnt_bus)); //what stations will get instructions
 
     assign no_free_prf = !free_list;
 

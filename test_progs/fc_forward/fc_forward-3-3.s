@@ -92,17 +92,106 @@ kernel:
 	sw	a3,0(a4)
 	ret
 	.size	kernel, .-kernel
-	.section	.text.startup,"ax",@progbits
+	.align	2
+	.globl	myRand
+	.type	myRand, @function
+myRand:
+	lui	a3,%hi(seed)
+	lw	a5,%lo(seed)(a3)
+	li	a4,16384
+	addi	a4,a4,423
+	mul	a5,a5,a4
+	li	a4,-2147483648
+	xori	a4,a4,-1
+	rem	a5,a5,a4
+	sw	a5,%lo(seed)(a3)
+	ret
+	.size	myRand, .-myRand
 	.align	2
 	.globl	main
 	.type	main, @function
 main:
-	li	a0,0
-	ret
+	addi	sp,sp,-48
+	sw	ra,44(sp)
+	sw	s0,40(sp)
+	sw	s1,36(sp)
+	sw	s2,32(sp)
+	sw	s3,28(sp)
+	sw	s4,24(sp)
+	sw	s5,20(sp)
+	sw	s6,16(sp)
+	sw	s7,12(sp)
+	sw	s8,8(sp)
+	sw	s9,4(sp)
+	addi	s0,sp,48
+	lui	a5,%hi(n)
+	lw	a4,%lo(n)(a5)
+	slli	a5,a4,2
+	addi	a5,a5,15
+	andi	a5,a5,-16
+	sub	sp,sp,a5
+	mv	s7,sp
+	sub	sp,sp,a5
+	mv	s8,sp
+	sub	sp,sp,a5
+	mv	s9,sp
+	ble	a4,zero,.L8
+	mv	s4,s7
+	mv	s3,s8
+	mv	s2,s9
+	li	s1,0
+	li	s5,65536
+	addi	s5,s5,-1
+	lui	s6,%hi(n)
+.L9:
+	call	myRand
+	and	a0,a0,s5
+	sw	a0,0(s4)
+	call	myRand
+	and	a0,a0,s5
+	sw	a0,0(s3)
+	sw	zero,0(s2)
+	addi	s1,s1,1
+	addi	s4,s4,4
+	addi	s3,s3,4
+	addi	s2,s2,4
+	lw	a5,%lo(n)(s6)
+	bgt	a5,s1,.L9
+.L8:
+	call	myRand
+	mv	a3,a0
+	lui	s1,%hi(out)
+	addi	a4,s1,%lo(out)
+	mv	a2,s9
+	mv	a1,s8
+	mv	a0,s7
+	call	kernel
+	lw	a0,%lo(out)(s1)
+	seqz	a0,a0
+	addi	sp,s0,-48
+	lw	ra,44(sp)
+	lw	s0,40(sp)
+	lw	s1,36(sp)
+	lw	s2,32(sp)
+	lw	s3,28(sp)
+	lw	s4,24(sp)
+	lw	s5,20(sp)
+	lw	s6,16(sp)
+	lw	s7,12(sp)
+	lw	s8,8(sp)
+	lw	s9,4(sp)
+	addi	sp,sp,48
+	jr	ra
 	.size	main, .-main
+	.comm	out,4,4
+	.globl	seed
 	.globl	n
 	.section	.sdata,"aw"
 	.align	2
+	.type	seed, @object
+	.size	seed, 4
+seed:
+	.word	119601316
 	.type	n, @object
 	.size	n, 4
 n:

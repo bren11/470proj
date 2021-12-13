@@ -10,11 +10,6 @@ yellow=`tput setaf 3`
 purple=`tput setaf 5`
 reset=`tput sgr0`
 
-# Use original "single cycle" pipeline as
-# ground truth.
-TRUTH=standard/verisimplev/
-TRUTH_OUT=golden_standard.txt
-
 # Use pipeline with forwarding and harzard
 # detection to check against
 WORKING=./
@@ -28,21 +23,19 @@ ASSBLY_OUT=compile_out.txt
 LIST={}
 
 # Generate outputs
-> ${TRUTH_OUT}
 > ${WORKING_OUT}
 > ${DIFF_OUT}
 
 ###############################
 #       Create Standard       #
 ###############################
-STD_OUT_FN="std_out.out";
-STD_OUT_PIPE_PATH="std_out/pip/${STD_OUT_FN}"
-STD_OUT_WB_PATH="std_out/wb/${STD_OUT_FN}"
-STD_OUT_MEM_Path="std_out/mem/${STD_OUT_FN}"
+STD_OUT_MEM_Path="std_out.out"
+
+cd ${WORKING}
 
 # Make test case program
 echo -n   "${reset}Assembling Standard...${reset}"	
-output=`( cd ${TRUTH} && make assembly SOURCE=../../test_progs/rv32_parallel/rv32_parallel-1-0.s )` || echo $output
+output=`( make assembly SOURCE=test_progs/fc_forward/fc_forward-1-1.s )` || echo $output
 #elif [ "$extension" == "c" ]
 #then
 	#echo -n   "${reset}Compiling Standard...${reset}"	
@@ -50,11 +43,10 @@ output=`( cd ${TRUTH} && make assembly SOURCE=../../test_progs/rv32_parallel/rv3
 
 # Run test Case
 echo -e   "${reset}\nRunning Standard...${reset}\n"
-( cd ${TRUTH} && make ) | tee  >(grep @@@ > ${STD_OUT_MEM_Path}) | grep CPI
-( cd ${TRUTH} &&  echo "$(cat writeback.out)") > ${STD_OUT_WB_PATH}
+( make ) | tee  >(grep @@@ > ${STD_OUT_MEM_Path}) | grep CPI
 
 # Test all ASSEMBLY test cases
-for file in ${WORKING}test_progs/rv32_parallel/*; do #TODO: Change back to *
+for file in ${WORKING}test_progs/fc_forward/*; do #TODO: Change back to *
 
 	# Get relative path
 	file=${file#${WORKING}}

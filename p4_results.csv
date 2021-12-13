@@ -1,9 +1,1 @@
-TestName, N, CPI
-add_independent_chains, 1, 1.020976
-add_independent_chains, 2, 0.516644
-add_independent_chains, 3, 0.352485
-add_independent_chains, 4, 0.272230
-add_independent_chains, 5, 0.223894
-add_independent_chains, 6, 0.188782
-add_independent_chains, 7, 0.168719
-add_independent_chains, 8, 0.150935
+N, ROB size, RS size, Cache Size, Unrolls, Optimization Lvl, Cycles, Instructions, Icache hit, Dcache hit, ROB hzrds, RS hzrds, LSQ hzrds

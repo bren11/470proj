@@ -43,12 +43,18 @@ else
 	ELF2HEX = elf2hex
 endif
 
-N_NUM = 3
+N_NUM = 4
 ROB_NUM = 32
 RS_NUM = 16
+CACHE_NUM = 16
+MEM_NUM = 100
 
-VCS = vcs -V -sverilog +vc -Mupdate -line -full64 +vcs+vcdpluson -debug_pp -cm line+tgl+branch 
-VCS += +define+N=$(N_NUM)+RS_NUM_ENTRIES=$(RS_NUM)+ROB_NUM_ENTRIES=$(ROB_NUM)
+ifeq (64, $(CACHE_NUM))
+	MEM_NUM = 23
+endif
+
+VCS = vcs -V -sverilog +vc -Mupdate -line -full64 +vcs+vcdpluson -cm line+tgl+branch 
+VCS += +define+N=$(N_NUM)+RS_NUM_ENTRIES=$(RS_NUM)+ROB_NUM_ENTRIES=$(ROB_NUM)+ICACHE_NUM_LINES=$(CACHE_NUM)+DCACHE_NUM_LINES=$(CACHE_NUM)+MEM_LATENCY_IN_MS=$(MEM_NUM)
 LIB = /afs/umich.edu/class/eecs470/lib/verilog/lec25dscc25.v
 
 # For visual debugger

@@ -6,10 +6,10 @@ module cachemem #(
   /* Parameterized Direct Mapped Cache */
   parameter NUM_RD_PORTS      = `N,
   parameter NUM_WR_PORTS      =  1,
-  parameter NUM_LINES         = 16,
+  parameter NUM_LINES         = 64,
   parameter BLOCK_SIZE        =  8,
   parameter DATA_BITS         = 64,
-  parameter TAG_BITS          = 25
+  parameter TAG_BITS          = 23
 )(
   /* Inputs */
   input clock, reset,

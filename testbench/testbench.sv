@@ -48,6 +48,18 @@ module testbench;
 	logic 				[`ROB_NUM_INDEX_BITS-1:0]  	head_index;
 	PRF_ENTRY 			[`PRF_NUM_ENTRIES-1:0] 		prf_entries;
 
+    logic 				[31:0] 						rob_hzrd_count;
+    logic 				[31:0] 						rs_hzrd_count;
+    logic 				[31:0] 						lsq_hzrd_count;
+    logic 				[31:0] 						icache_acc_count;
+    logic 				[31:0] 						icache_hits_count;
+    logic 				[31:0] 						dcache_acc_count;
+    logic 				[31:0] 						dcache_miss_count;
+    logic 				[31:0] 						n_icache_acc_count;
+    logic 				[31:0] 						n_icache_hits_count;
+    logic 				[31:0] 						n_dcache_acc_count;
+    logic 				[31:0] 						n_dcache_miss_count;
+
     //counter used for when pipeline infinite loops, forces termination
     logic [63:0] debug_counter;
 	// Instantiate the Pipeline
@@ -102,11 +114,15 @@ module testbench;
 	// Task to display # of elapsed clock edges
 	task show_clk_count;
 		real cpi;
+        real icache;
+        real dcache;
 
 		begin
 			cpi = (clock_count + 1.0) / (instr_count - 1); /// -1 because halt instruction doesn't count
-			$display("@@  %0d cycles / %0d instrs = %f CPI\n@@",
-			          clock_count+1, (instr_count - 1), cpi); /// -1 because halt instruction doesn't count
+            icache = (icache_hits_count * 1.0) / icache_acc_count;
+            dcache = (dcache_acc_count - dcache_miss_count * 1.0) / dcache_acc_count;
+			$display("@@  %0d cycles / %0d instrs = %f CPI %f %f %0d %0d %0d\n@@",
+			          clock_count+1, (instr_count - 1), cpi, icache, dcache, rob_hzrd_count, rs_hzrd_count, lsq_hzrd_count); /// -1 because halt instruction doesn't count
 			$display("@@  %4.2f ns total time to execute\n@@\n",
 			          clock_count*`VERILOG_CLOCK_PERIOD);
 		end
@@ -155,13 +171,48 @@ module testbench;
 		wb_fileno = $fopen("writeback.out");
 	end
 
+    logic [`DCACHE_RD_PORTS-1:0] prevValid;
+
+    always_comb begin
+        n_icache_acc_count = icache_acc_count;
+        n_icache_hits_count = icache_hits_count;
+        n_dcache_acc_count = dcache_acc_count;
+        n_dcache_miss_count = dcache_miss_count;
+
+        if (!core.if_1.ib_1.ib_structural_hazard && core.if_1.ib_1.enable) begin
+            for(int i =0; i <`N; i++) begin
+                if (core.if_1.ib_1.icache_hits[i]) begin
+                    n_icache_hits_count = (n_icache_hits_count + 1);
+                end
+                n_icache_acc_count = (n_icache_acc_count + 1);
+            end
+        end
+
+        for (int i = 0; i < `DCACHE_RD_PORTS; ++i) begin
+            if (core.fu.mems.data_cache_1.dcache_MSHR.cache_access_v[i] && core.fu.mems.data_cache_1.dcache_MSHR.cache_access_misses[i] && ~core.fu.mems.data_cache_1.dcache_MSHR.cache_access_repeat[i]) begin
+                n_dcache_miss_count = (n_dcache_miss_count + 1);
+            end
+            if (core.fu.mems.data_cache_1.dcache_MSHR.cache_access_v[i] && !prevValid[i]) begin
+                n_dcache_acc_count = (n_dcache_acc_count + 1);
+            end
+        end
+    end
 
 	// Count the number of posedges and number of instructions completed
 	// till simulation ends
 	always @(posedge clock) begin
+        
 		if(reset) begin
 			clock_count <= `SD 0;
 			instr_count <= `SD 0;
+            rob_hzrd_count <= `SD 0;
+			rs_hzrd_count <= `SD 0;
+            lsq_hzrd_count <= `SD 0;
+            icache_acc_count <= `SD 0;
+			icache_hits_count <= `SD 0;
+            dcache_acc_count <= `SD 0;
+			dcache_miss_count <= `SD 0;
+            prevValid <= `SD 0;
 		end else begin
 			pipeline_completed_insts = 0;
 	  	  	for(int i =0; i <`N; i++)
@@ -173,6 +224,23 @@ module testbench;
 	  	  	end
 	        clock_count <= `SD (clock_count + 1);
 			instr_count <= `SD (instr_count + pipeline_completed_insts);
+
+            icache_acc_count <= `SD n_icache_acc_count;
+            icache_hits_count <= `SD n_icache_hits_count;
+            dcache_acc_count <= `SD n_dcache_acc_count;
+            dcache_miss_count <= `SD n_dcache_miss_count;
+
+            if (core.rob_structural_hazard) begin
+                rob_hzrd_count <= `SD (rob_hzrd_count + 1);
+            end
+            if (core.rs_structural_hazard) begin
+                rs_hzrd_count <= `SD (rs_hzrd_count + 1);
+            end
+            if (core.lsq_structural_hazard) begin
+                lsq_hzrd_count <= `SD (lsq_hzrd_count + 1);
+            end
+
+            prevValid <= `SD core.fu.mems.data_cache_1.dcache_MSHR.cache_access_v;
 		end
 	end
 
