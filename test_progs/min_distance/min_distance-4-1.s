@@ -1,10 +1,53 @@
-	.file	"min_distance.c"
+.file	"min_distance.c"
 	.option nopic
 	.option norelax
 	.attribute arch, "rv32i2p0_m2p0"
 	.attribute unaligned_access, 0
 	.attribute stack_align, 16
 	.text
+crt:
+	nop
+	la ra, exit
+	la sp, _sp
+	mv s0, sp
+	la gp, __global_pointer$
+	li tp, 0
+	li t0, 0
+	li t1, 0
+	li t2, 0
+	li s1, 0
+	li a0, 0
+	li a1, 0
+	li a2, 0
+	li a3, 0
+	li a4, 0
+	li a5, 0
+	li a6, 0
+	li a7, 0
+	li s2, 0
+	li s3, 0
+	li s4, 0
+	li s5, 0
+	li s6, 0
+	li s7, 0
+	li s8, 0
+	li s9, 0
+	li s10, 0
+	li s11, 0
+	li t3, 0
+	li t4, 0
+	li t5, 0
+	li t6, 0
+	j main
+
+.global exit
+.section .text
+.align 4
+exit:
+	la sp, _sp
+	sw a0, -8(sp)
+	nop
+	wfi
 	.align	2
 	.globl	min
 	.type	min, @function
@@ -100,12 +143,18 @@ minDistance:
 	add	a6,a1,t4
 	addi	s1,t2,4
 .L19:
-	lbu	a7,0(t3)
+	lbu	a7,0(t3)    #outer body start
 	mv	a4,a1
 	add	a2,s1,t5
 	mv	a3,t5
 	j	.L24
-.L41:
+.L24:
+	lbu	a5,0(a4)    #inner body start
+	lw	a0,0(a3)
+	bne	a5,a7,.L41  #if cond
+    sw	a0,0(a2)
+    j   .L43
+.L41:               
 	lw	a5,4(a3)
 	ble	a5,a0,.L21
 	mv	a5,a0
@@ -116,23 +165,75 @@ minDistance:
 .L22:
 	addi	a5,a5,1
 	sw	a5,0(a2)
+.L43:
 	addi	a4,a4,1
 	addi	a3,a3,4
 	addi	a2,a2,4
-	beq	a6,a4,.L40
-.L24:
-	lbu	a5,0(a4)
+	lbu	a5,0(a4)    #inner body start
 	lw	a0,0(a3)
-	bne	a5,a7,.L41
-	sw	a0,0(a2)
+	bne	a5,a7,.L45  #if cond
+    sw	a0,0(a2)
+    j   .L48
+.L45:               
+	lw	a5,4(a3)
+	ble	a5,a0,.L46
+	mv	a5,a0
+.L46:
+	lw	a0,-4(a2)
+	ble	a5,a0,.L47
+	mv	a5,a0
+.L47:
+	addi	a5,a5,1
+	sw	a5,0(a2)
+.L48:
 	addi	a4,a4,1
 	addi	a3,a3,4
 	addi	a2,a2,4
-	bne	a6,a4,.L24
+    lbu	a5,0(a4)    #inner body start
+	lw	a0,0(a3)
+	bne	a5,a7,.L49  #if cond
+    sw	a0,0(a2)
+    j   .L52
+.L49:               
+	lw	a5,4(a3)
+	ble	a5,a0,.L50
+	mv	a5,a0
+.L50:
+	lw	a0,-4(a2)
+	ble	a5,a0,.L51
+	mv	a5,a0
+.L51:
+	addi	a5,a5,1
+	sw	a5,0(a2)
+.L52:
+	addi	a4,a4,1
+	addi	a3,a3,4
+	addi	a2,a2,4
+    lbu	a5,0(a4)    #inner body start
+	lw	a0,0(a3)
+	bne	a5,a7,.L53  #if cond
+    sw	a0,0(a2)
+    j   .L56
+.L53:               
+	lw	a5,4(a3)
+	ble	a5,a0,.L54
+	mv	a5,a0
+.L54:
+	lw	a0,-4(a2)
+	ble	a5,a0,.L55
+	mv	a5,a0
+.L55:
+	addi	a5,a5,1
+	sw	a5,0(a2)
+.L56:
+	addi	a4,a4,1
+	addi	a3,a3,4
+	addi	a2,a2,4
+    bne	a6,a4,.L24  #inner body end
 .L40:
 	addi	t3,t3,1
 	add	t5,t5,t2
-	bne	t3,s2,.L19
+	bne	t3,s2,.L19  #outer loop end
 .L17:
 	mul	a5,t1,t0
 	add	a5,a5,t4
@@ -156,12 +257,28 @@ minDistance:
 	li	t4,0
 	j	.L13
 	.size	minDistance, .-minDistance
-	.section	.text.startup,"ax",@progbits
+	.section	.rodata.str1.4,"aMS",@progbits,1
+	.align	2
+.LC0:
+	.string	"electroencephalographies"
+	.align	2
+.LC1:
+	.string	"racketeering"
+	.text
 	.align	2
 	.globl	main
 	.type	main, @function
 main:
-	li	a0,0
-	ret
+	addi	sp,sp,-16
+	sw	ra,12(sp)
+	lui	a1,%hi(.LC0)
+	addi	a1,a1,%lo(.LC0)
+	lui	a0,%hi(.LC1)
+	addi	a0,a0,%lo(.LC1)
+	call	minDistance
+	seqz	a0,a0
+	lw	ra,12(sp)
+	addi	sp,sp,16
+	jr	ra
 	.size	main, .-main
 	.ident	"GCC: (GNU) 9.2.0"

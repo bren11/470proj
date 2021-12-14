@@ -6,7 +6,7 @@ program.out
 simv
 std_out.out
 writeback.out
-
+progs/
 syn_simv.vdb/
 synth/cache.chk
 synth/cache.ddc

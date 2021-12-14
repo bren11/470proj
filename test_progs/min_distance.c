@@ -33,6 +33,9 @@ int minDistance(char* word1, char* word2) {
 }
 
 int main() {
-    minDistance("racketeering", "electroencephalographies");
+    int val = minDistance("racketeering", "electroencephalographies");
+    if (val == 0) {
+        return 1;
+    }
     return 0;
 }

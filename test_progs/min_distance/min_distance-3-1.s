@@ -189,6 +189,26 @@ minDistance:
 	addi	a4,a4,1
 	addi	a3,a3,4
 	addi	a2,a2,4
+    lbu	a5,0(a4)    #inner body start
+	lw	a0,0(a3)
+	bne	a5,a7,.L49  #if cond
+    sw	a0,0(a2)
+    j   .L52
+.L49:               
+	lw	a5,4(a3)
+	ble	a5,a0,.L50
+	mv	a5,a0
+.L50:
+	lw	a0,-4(a2)
+	ble	a5,a0,.L51
+	mv	a5,a0
+.L51:
+	addi	a5,a5,1
+	sw	a5,0(a2)
+.L52:
+	addi	a4,a4,1
+	addi	a3,a3,4
+	addi	a2,a2,4
     bne	a6,a4,.L24  #inner body end
 .L40:
 	addi	t3,t3,1

@@ -1,10 +1,53 @@
-	.file	"min_distance.c"
+.file	"min_distance.c"
 	.option nopic
 	.option norelax
 	.attribute arch, "rv32i2p0_m2p0"
 	.attribute unaligned_access, 0
 	.attribute stack_align, 16
 	.text
+crt:
+	nop
+	la ra, exit
+	la sp, _sp
+	mv s0, sp
+	la gp, __global_pointer$
+	li tp, 0
+	li t0, 0
+	li t1, 0
+	li t2, 0
+	li s1, 0
+	li a0, 0
+	li a1, 0
+	li a2, 0
+	li a3, 0
+	li a4, 0
+	li a5, 0
+	li a6, 0
+	li a7, 0
+	li s2, 0
+	li s3, 0
+	li s4, 0
+	li s5, 0
+	li s6, 0
+	li s7, 0
+	li s8, 0
+	li s9, 0
+	li s10, 0
+	li s11, 0
+	li t3, 0
+	li t4, 0
+	li t5, 0
+	li t6, 0
+	j main
+
+.global exit
+.section .text
+.align 4
+exit:
+	la sp, _sp
+	sw a0, -8(sp)
+	nop
+	wfi
 	.align	2
 	.globl	min
 	.type	min, @function
@@ -154,12 +197,29 @@ minDistance:
 	li	t4,0
 	j	.L13
 	.size	minDistance, .-minDistance
-	.section	.text.startup,"ax",@progbits
+	.section	.rodata.str1.4,"aMS",@progbits,1
+	.align	2
+.LC0:
+	.string	"electroencephalographies"
+	.align	2
+.LC1:
+	.string	"racketeering"
+	.text
 	.align	2
 	.globl	main
 	.type	main, @function
 main:
-	li	a0,0
-	ret
+	addi	sp,sp,-16
+	sw	ra,12(sp)
+	lui	a1,%hi(.LC0)
+	addi	a1,a1,%lo(.LC0)
+	lui	a0,%hi(.LC1)
+	addi	a0,a0,%lo(.LC1)
+	call	minDistance
+	seqz	a0,a0
+	lw	ra,12(sp)
+	addi	sp,sp,16
+	jr	ra
 	.size	main, .-main
 	.ident	"GCC: (GNU) 9.2.0"
+    

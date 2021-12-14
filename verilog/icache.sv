@@ -81,10 +81,10 @@ module icache(
     cachemem #(
         .NUM_RD_PORTS   (`N),
         .NUM_WR_PORTS   ( 1),
-        .NUM_LINES      (16),
-        .BLOCK_SIZE     ( 8),
+        .NUM_LINES      (`ICACHE_NUM_LINES),
+        .BLOCK_SIZE     (`ICACHE_BLOCK_SIZE),
         .DATA_BITS      (64),
-        .TAG_BITS       (25)
+        .TAG_BITS       (TAG_BITS)
     )_cachemem (
         /* Inputs */
         .clock(clock), 
