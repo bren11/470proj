@@ -35,7 +35,7 @@ cd ${WORKING}
 
 # Make test case program
 echo -n   "${reset}Assembling Standard...${reset}"	
-output=`( make assembly SOURCE=test_progs/fc_forward/fc_forward-1-1.s )` || echo $output
+output=`( make assembly SOURCE=test_progs/rv32_mult/rv32_mult-1-1.s )` || echo $output
 #elif [ "$extension" == "c" ]
 #then
 	#echo -n   "${reset}Compiling Standard...${reset}"	
@@ -46,7 +46,7 @@ echo -e   "${reset}\nRunning Standard...${reset}\n"
 ( make ) | tee  >(grep @@@ > ${STD_OUT_MEM_Path}) | grep CPI
 
 # Test all ASSEMBLY test cases
-for file in ${WORKING}test_progs/fc_forward/*; do #TODO: Change back to *
+for file in ${WORKING}test_progs/rv32_mult/*; do #TODO: Change back to *
 
 	# Get relative path
 	file=${file#${WORKING}}
