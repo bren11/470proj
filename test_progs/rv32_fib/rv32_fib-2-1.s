@@ -32,7 +32,6 @@ loop:
 	addi	x4,	x4,	0x8 #
 	addi	x5,	x5,	0x8 #
 	addi	x10,	x10,	0x1 #
-	slti	x11,	x10,	16 #
 	sw	x3, 0(x6)
 	addi	x6,	x6,	0x8 #
 
