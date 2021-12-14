@@ -66,11 +66,11 @@ done
 
 for N in 1 2 3 4
 do
-    for ROB in 16 32
+    for ROB in 16 24 32
     do
-        for RS in 8 16
+        for RS in 12
         do
-            for CACHE in 16 64
+            for CACHE in 8 16 64
             do
                 for LATENCY in 100 1000
                 do
