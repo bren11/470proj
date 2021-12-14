@@ -67,9 +67,6 @@ loop:
 	lw	x2, 0(x4)
 	lw	x3, 0(x5)
 	add	x3,	x3,	x2 #
-	addi	x4,	x4,	0x8 #
-	addi	x5,	x5,	0x8 #
 	sw	x3, 0(x6)
-	addi	x6,	x6,	0x8 #
 
 	wfi
