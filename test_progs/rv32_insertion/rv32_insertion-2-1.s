@@ -41,7 +41,6 @@ iloop:
 	addi	x19,	x20,	-8 #index j-1
 
 jloop:
-#unroll-1
 	lw	x15,  0(x19) 
 	lw	x16,  0(x20) 
 
@@ -55,7 +54,6 @@ jloop:
   
 	addi	x7,	x7,	-1 #j--
 
-#unroll-2
 	lw	x15,  0(x19) 
 	lw	x16,  0(x20) 
 
