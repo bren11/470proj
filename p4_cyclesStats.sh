@@ -52,7 +52,19 @@ echo -n   "${reset}Assembling Standard...${reset}"
 output=`( make assembly SOURCE=test_progs/${TEST_NAME}/${TEST_NAME}-1-1.s ) 2>&1` || echo $output
 ( make ) | grep @@@ > ${STD_OUT_MEM_Path} 
 
-for N in $(seq 1 4)
+rm -r progs
+mkdir progs
+
+for file in ${WORKING}test_progs/$TEST_NAME/*; do
+    file=${file#${WORKING}}
+    filename=$(basename -- "$file");
+    test_name="${filename%.*}"
+
+    output=`( make assembly SOURCE=$file) 2>&1` || echo $output
+    cp program.mem progs/$filename
+done
+
+for N in 1 2 3 4
 do
     for ROB in 16 32
     do
@@ -65,6 +77,7 @@ do
                 echo -e   "${yellow}# RUNNING AT N:${N}, ROB:${ROB}, RS:${RS}, CACHE:${CACHE}"
                 echo -e   "${yellow}######################################################${reset}"
 
+                rm simv
                 make simv N_NUM=${N} ROB_NUM=${ROB} RS_NUM=${RS} CACHE_NUM=${CACHE} &> /dev/null
 
                 for unrolls in $(seq 1 4) 
@@ -78,9 +91,9 @@ do
                     lsqHzrd="0"
                     for opt in $(seq 1 8) 
                     do
-                        if test -f "test_progs/${TEST_NAME}/${TEST_NAME}-${unrolls}-${opt}.s"; then
+                        if test -f "progs/${TEST_NAME}-${unrolls}-${opt}.s"; then
                             # Get relative path
-                            file="test_progs/${TEST_NAME}/${TEST_NAME}-${unrolls}-${opt}.s"
+                            file="progs/${TEST_NAME}-${unrolls}-${opt}.s"
 
                             echo -e "\n${yellow}######################################################${reset}"
                             echo -e   "${yellow}# RUNNING TEST CASE:${file}${reset}"
@@ -91,12 +104,11 @@ do
                             ################################
                             WRK_OUT_MEM_Path="wrk_out.out"
 
-                            # Make test case program again
-                            echo -e   "${reset}Assembling Working...${reset}"	
-                            output=`( make assembly SOURCE=$file) 2>&1` || echo $output
+                            cp progs/${TEST_NAME}-${unrolls}-${opt}.s program.mem
 
                             echo -e   "${reset}Running Working...${reset}"
                             text=$( ./simv | tee  >(grep @@@ > ${WRK_OUT_MEM_Path}) | grep "CPI" )
+                            echo -e   "${text}"
                             cycles=$(echo "$text" | cut -d' ' -f3)
                             instr=$(echo "$text" | cut -d' ' -f6)
                             icache=$(echo "$text" | cut -d' ' -f11)
