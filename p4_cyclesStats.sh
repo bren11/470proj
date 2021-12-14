@@ -38,7 +38,7 @@ LIST={}
 #Statistics
 stats_fn="${TEST_NAME}_results.csv"
 > ${stats_fn}
-echo "N, ROB size, RS size, Cache Size, Unrolls, Optimization Lvl, Cycles, Instructions, Icache hit, Dcache hit, ROB hzrds, RS hzrds, LSQ hzrds" > ${stats_fn}
+echo "N, ROB size, RS size, Cache Size, Memory Latency, Unrolls, Optimization Step, Cycles, Instructions, Icache hit, Dcache hit, ROB hzrds, RS hzrds, LSQ hzrds" > ${stats_fn}
 
 ###############################
 #       Create Standard       #
@@ -72,57 +72,59 @@ do
         do
             for CACHE in 16 64
             do
-
-                echo -e "\n${yellow}######################################################${reset}"
-                echo -e   "${yellow}# RUNNING AT N:${N}, ROB:${ROB}, RS:${RS}, CACHE:${CACHE}"
-                echo -e   "${yellow}######################################################${reset}"
-
-                rm simv
-                make simv N_NUM=${N} ROB_NUM=${ROB} RS_NUM=${RS} CACHE_NUM=${CACHE} &> /dev/null
-
-                for unrolls in $(seq 1 4) 
+                for LATENCY in 100 1000
                 do
-                    cycles="0"
-                    instr="0"
-                    icache="0.0"
-                    dcache="0.0"
-                    robHzrd="0"
-                    rsHzrd="0"
-                    lsqHzrd="0"
-                    for opt in $(seq 1 8) 
+                    echo -e "\n${yellow}######################################################${reset}"
+                    echo -e   "${yellow}# RUNNING AT N:${N}, ROB:${ROB}, RS:${RS}, CACHE:${CACHE}"
+                    echo -e   "${yellow}######################################################${reset}"
+
+                    rm simv
+                    make simv N_NUM=${N} ROB_NUM=${ROB} RS_NUM=${RS} CACHE_NUM=${CACHE} MEM_NUM=${LATENCY} &> /dev/null
+
+                    for unrolls in $(seq 1 4) 
                     do
-                        if test -f "progs/${TEST_NAME}-${unrolls}-${opt}.s"; then
-                            # Get relative path
-                            file="progs/${TEST_NAME}-${unrolls}-${opt}.s"
+                        cycles="0"
+                        instr="0"
+                        icache="0.0"
+                        dcache="0.0"
+                        robHzrd="0"
+                        rsHzrd="0"
+                        lsqHzrd="0"
+                        for opt in $(seq 1 8) 
+                        do
+                            if test -f "progs/${TEST_NAME}-${unrolls}-${opt}.s"; then
+                                # Get relative path
+                                file="progs/${TEST_NAME}-${unrolls}-${opt}.s"
 
-                            echo -e "\n${yellow}######################################################${reset}"
-                            echo -e   "${yellow}# RUNNING TEST CASE:${file}${reset}"
-                            echo -e   "${yellow}######################################################${reset}"
+                                echo -e "\n${yellow}######################################################${reset}"
+                                echo -e   "${yellow}# RUNNING TEST CASE:${file}${reset}"
+                                echo -e   "${yellow}######################################################${reset}"
 
-                            ################################
-                            #     Compile For Working      #
-                            ################################
-                            WRK_OUT_MEM_Path="wrk_out.out"
+                                ################################
+                                #     Compile For Working      #
+                                ################################
+                                WRK_OUT_MEM_Path="wrk_out.out"
 
-                            cp progs/${TEST_NAME}-${unrolls}-${opt}.s program.mem
+                                cp progs/${TEST_NAME}-${unrolls}-${opt}.s program.mem
 
-                            echo -e   "${reset}Running Working...${reset}"
-                            text=$( ./simv | tee  >(grep @@@ > ${WRK_OUT_MEM_Path}) | grep "CPI" )
-                            echo -e   "${text}"
-                            cycles=$(echo "$text" | cut -d' ' -f3)
-                            instr=$(echo "$text" | cut -d' ' -f6)
-                            icache=$(echo "$text" | cut -d' ' -f11)
-                            dcache=$(echo "$text" | cut -d' ' -f12)
-                            robHzrd=$(echo "$text" | cut -d' ' -f13)
-                            rsHzrd=$(echo "$text" | cut -d' ' -f14)
-                            lsqHzrd=$(echo "$text" | cut -d' ' -f15)
+                                echo -e   "${reset}Running Working...${reset}"
+                                text=$( ./simv | tee  >(grep @@@ > ${WRK_OUT_MEM_Path}) | grep "CPI" )
+                                echo -e   "${text}"
+                                cycles=$(echo "$text" | cut -d' ' -f3)
+                                instr=$(echo "$text" | cut -d' ' -f6)
+                                icache=$(echo "$text" | cut -d' ' -f11)
+                                dcache=$(echo "$text" | cut -d' ' -f12)
+                                robHzrd=$(echo "$text" | cut -d' ' -f13)
+                                rsHzrd=$(echo "$text" | cut -d' ' -f14)
+                                lsqHzrd=$(echo "$text" | cut -d' ' -f15)
 
-                            echo -n "${reset}Checking Memory Ouput...${reset}"
-                            echo $(diff -y "${STD_OUT_MEM_Path}" "${WRK_OUT_MEM_Path}")
+                                echo -n "${reset}Checking Memory Ouput...${reset}"
+                                echo $(diff -y "${STD_OUT_MEM_Path}" "${WRK_OUT_MEM_Path}")
 
-                            echo -e
-                        fi
-                        echo "$N, ${ROB}, ${RS}, ${CACHE}, $unrolls, $opt, $cycles, $instr, $icache, $dcache, $robHzrd, $rsHzrd, $lsqHzrd" >> ${stats_fn}
+                                echo -e
+                            fi
+                            echo "$N, ${ROB}, ${RS}, ${CACHE}, ${LATENCY}, $unrolls, $opt, $cycles, $instr, $icache, $dcache, $robHzrd, $rsHzrd, $lsqHzrd" >> ${stats_fn}
+                        done
                     done
                 done
             done
