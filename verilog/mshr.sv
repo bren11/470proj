@@ -59,12 +59,10 @@ module MSHR (
     for (genvar i = 0; i < `MSHR_NUM_ENTRIES; i++) begin : mshr_free_gen
         assign mshr_free[i] = !mshr[i].valid;
     end
-    my_priority_selector #(
+    priority_selector #(
         .REQS  ( `DCACHE_RD_PORTS  ), 
         .WIDTH ( `MSHR_NUM_ENTRIES )
     ) free_sel (
-        .reset,
-        .clock,
         .req(mshr_free),
         .gnt_bus(mshr_free_gnt)
     );

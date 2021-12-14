@@ -77,9 +77,7 @@ module lsq (
     for (genvar valid_i = 0; valid_i < `LOAD_QUEUE_SIZE; valid_i++) begin
         assign open_load_spaces[valid_i] = ~load_queue[valid_i].valid;
     end
-    my_priority_selector #(`N, `LOAD_QUEUE_SIZE) open_sel (
-        .reset,
-        .clock,
+    priority_selector #(`N, `LOAD_QUEUE_SIZE) open_sel (
         .req(open_load_spaces),
         .gnt_bus(open_load_gnt)
     );
@@ -90,9 +88,7 @@ module lsq (
     for (genvar ready_i = 0; ready_i < `LOAD_QUEUE_SIZE; ready_i++) begin
         assign load_out_rdy[ready_i] = load_queue[ready_i].out_ready && load_queue[ready_i].valid;
     end
-    my_priority_selector #(`NUM_MEMS, `LOAD_QUEUE_SIZE) ready_sel (
-        .reset,
-        .clock,
+    priority_selector #(`NUM_MEMS, `LOAD_QUEUE_SIZE) ready_sel (
         .req(load_out_rdy),
         .gnt_bus(load_out_gnt)
     );
@@ -103,9 +99,7 @@ module lsq (
     for (genvar ready_i = 0; ready_i < `LOAD_QUEUE_SIZE; ready_i++) begin
         assign load_mem_rdy[ready_i] = load_queue[ready_i].ready_for_mem && ~load_queue[ready_i].out_ready && load_queue[ready_i].valid;
     end
-    my_priority_selector #(`LSQ_NUM_LOADS, `LOAD_QUEUE_SIZE) mem_sel (
-        .reset,
-        .clock,
+    priority_selector #(`LSQ_NUM_LOADS, `LOAD_QUEUE_SIZE) mem_sel (
         .req(load_mem_rdy),
         .gnt_bus(load_mem_gnt)
     );

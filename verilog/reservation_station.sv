@@ -74,62 +74,44 @@ output STATION [`RS_NUM_ENTRIES-1:0] 	stations                                  
     //                                                                          //
     //////////////////////////////////////////////////////////////////////////////
 
-    my_priority_selector #(`N, `RS_NUM_ENTRIES) rsps(
-        .reset,
-        .clock,.req(free_list), .gnt_bus(gnt_bus)); //what stations will get instructions
+    priority_selector #(`N, `RS_NUM_ENTRIES) rsps(.req(free_list), .gnt_bus(gnt_bus)); //what stations will get instructions
 
     /* ADD */
-    my_priority_selector #(`NUM_ADDERS, `RS_NUM_ENTRIES) ps_rs_add (
-        .reset,
-        .clock,
+    priority_selector #(`NUM_ADDERS, `RS_NUM_ENTRIES) ps_rs_add (
         .req(rs_ready[ADD]),                  // Which instructions are ready for this type
         .gnt_bus(rs_gnt_bus.add_inst_gnts)          // Pick up n instr up to the number of fu's that exist
     );
-    my_priority_selector #(`NUM_ADDERS, `NUM_ADDERS) ps_fu_add (
-        .reset,
-        .clock,
+    priority_selector #(`NUM_ADDERS, `NUM_ADDERS) ps_fu_add (
         .req(avail_func_units.types.adders_free),
         .gnt_bus(fu_avail_gnt_bus.add_fu_gnts)
     );
 
     /* MULT */
-    my_priority_selector #(`NUM_MULTS, `RS_NUM_ENTRIES) ps_rs_mult (
-        .reset,
-        .clock,
+    priority_selector #(`NUM_MULTS, `RS_NUM_ENTRIES) ps_rs_mult (
         .req(rs_ready[MULT]),                  // Which instructions are ready for this type
         .gnt_bus(rs_gnt_bus.mult_inst_gnts)         // Pick up n instr up to the number of fu's that exist
     );
-    my_priority_selector #(`NUM_MULTS, `NUM_MULTS) ps_fu_mult (
-        .reset,
-        .clock,
+    priority_selector #(`NUM_MULTS, `NUM_MULTS) ps_fu_mult (
         .req(avail_func_units.types.mults_free),
         .gnt_bus(fu_avail_gnt_bus.mult_fu_gnts)
     );
 
     /* BRANCH */
-    my_priority_selector #(`NUM_BRANCHES, `RS_NUM_ENTRIES) ps_rs_branch (
-        .reset,
-        .clock,
+    priority_selector #(`NUM_BRANCHES, `RS_NUM_ENTRIES) ps_rs_branch (
         .req(rs_ready[BRANCH]),                  // Which instructions are ready for this type
         .gnt_bus(rs_gnt_bus.branch_inst_gnts)       // Pick up n instr up to the number of fu's that exist
     );
-    my_priority_selector #(`NUM_BRANCHES, `NUM_BRANCHES) ps_fu_branch (
-        .reset,
-        .clock,
+    priority_selector #(`NUM_BRANCHES, `NUM_BRANCHES) ps_fu_branch (
         .req(avail_func_units.types.branches_free),
         .gnt_bus(fu_avail_gnt_bus.branch_fu_gnts)
     );
 
     /* MEM */
-    my_priority_selector #(`NUM_MEMS, `RS_NUM_ENTRIES) ps_rs_mem (
-        .reset,
-        .clock,
+    priority_selector #(`NUM_MEMS, `RS_NUM_ENTRIES) ps_rs_mem (
         .req(rs_ready[MEM]),                  // Which instructions are ready for this type
         .gnt_bus(rs_gnt_bus.mem_inst_gnts)         // Pick up n instr up to the number of fu's that exist
     );
-    my_priority_selector #(`NUM_MEMS, `NUM_MEMS) ps_fu_mem (
-        .reset,
-        .clock,
+    priority_selector #(`NUM_MEMS, `NUM_MEMS) ps_fu_mem (
         .req(avail_func_units.types.mems_free),
         .gnt_bus(fu_avail_gnt_bus.mem_fu_gnts)
     );

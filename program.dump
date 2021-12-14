@@ -5,7 +5,7 @@ program.debug.elf:     file format elf32-littleriscv
 Disassembly of section .text:
 
 00000000 <loop-0x10>:
-   0:	00000893          	addi	a7,zero,0
+   0:	03000893          	addi	a7,zero,48
    4:	000181b7          	lui	gp,0x18
    8:	6a018193          	addi	gp,gp,1696 # 186a0 <_sp+0x86a0>
    c:	00001237          	lui	tp,0x1
@@ -20,11 +20,30 @@ Disassembly of section .text:
   28:	02a3b5b3          	mulhu	a1,t2,a0
   2c:	00b22023          	sw	a1,0(tp) # 1000 <data>
   30:	00820213          	addi	tp,tp,8 # 8 <loop-0x8>
-  34:	00188893          	addi	a7,a7,1
-  38:	3e818193          	addi	gp,gp,1000
-  3c:	0308a113          	slti	sp,a7,48
-  40:	fc0118e3          	bne	sp,zero,10 <loop>
-  44:	10500073          	wfi
+  34:	3e818193          	addi	gp,gp,1000
+  38:	00318333          	add	t1,gp,gp
+  3c:	003184b3          	add	s1,gp,gp
+  40:	00318433          	add	s0,gp,gp
+  44:	0231a2b3          	mulhsu	t0,gp,gp
+  48:	026283b3          	mul	t2,t0,t1
+  4c:	02941533          	mulh	a0,s0,s1
+  50:	02a3b5b3          	mulhu	a1,t2,a0
+  54:	00b22023          	sw	a1,0(tp) # 0 <loop-0x10>
+  58:	00820213          	addi	tp,tp,8 # 8 <loop-0x8>
+  5c:	3e818193          	addi	gp,gp,1000
+  60:	00318333          	add	t1,gp,gp
+  64:	003184b3          	add	s1,gp,gp
+  68:	00318433          	add	s0,gp,gp
+  6c:	0231a2b3          	mulhsu	t0,gp,gp
+  70:	026283b3          	mul	t2,t0,t1
+  74:	02941533          	mulh	a0,s0,s1
+  78:	02a3b5b3          	mulhu	a1,t2,a0
+  7c:	00b22023          	sw	a1,0(tp) # 0 <loop-0x10>
+  80:	00820213          	addi	tp,tp,8 # 8 <loop-0x8>
+  84:	ffd88893          	addi	a7,a7,-3
+  88:	3e818193          	addi	gp,gp,1000
+  8c:	f80892e3          	bne	a7,zero,10 <loop>
+  90:	10500073          	wfi
 	...
 
 Disassembly of section .riscv.attributes:

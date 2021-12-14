@@ -1,6 +1,6 @@
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version R-2020.12-SP2-1_Full64; Runtime version R-2020.12-SP2-1_Full64;  Dec 13 21:01 2021
+Compiler version R-2020.12-SP2-1_Full64; Runtime version R-2020.12-SP2-1_Full64;  Dec 13 22:58 2021
 VCD+ Writer R-2020.12-SP2-1_Full64 Copyright (c) 1991-2020 by Synopsys Inc.
 @@
 @@
@@ -33,19 +33,19 @@ VCD+ Writer R-2020.12-SP2-1_Full64 Copyright (c) 1991-2020 by Synopsys Inc.
 @@@ mem[   64] = 10500073fc0118e3 : 1175440000892868835
 @@@
 @@@
-@@                118520 : System halted
+@@                 66820 : System halted
 @@
 @@@ System halted on WFI instruction
 @@@
 @@
-@@  1182 cycles / 628 instrs = 1.882166 CPI 0.847297 0.000000 839 155 0
+@@  665 cycles / 628 instrs = 1.058917 CPI 0.835492 0.000000 442 5 0
 @@
-@@  11810.00 ns total time to execute
+@@  6640.00 ns total time to execute
 @@
 
 $finish called from file "testbench/testbench.sv", line 294.
-$finish at simulation time               119520
+$finish at simulation time                67820
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 11952000 ps
-CPU Time:      1.240 seconds;       Data structure size:   0.3Mb
-Mon Dec 13 21:01:32 2021
+Time: 6782000 ps
+CPU Time:      0.810 seconds;       Data structure size:   0.4Mb
+Mon Dec 13 22:58:32 2021

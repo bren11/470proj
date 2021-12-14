@@ -86,9 +86,7 @@ module functional_unit (
         assign output_ready[valid_i] = fu_out.outputs[valid_i].valid;
     end
 
-    my_priority_selector #(`N, `FUNC_UNIT_NUM) ps_cdb_sel (
-        .reset,
-        .clock,
+    priority_selector #(`N, `FUNC_UNIT_NUM) ps_cdb_sel (
         .req(output_ready),
         .gnt_bus(ready_gnt_bus)
     );
