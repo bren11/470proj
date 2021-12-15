@@ -68,7 +68,7 @@ skip3:
 	mv	x3,	x7
 max1:
 
-	bg3	x3,	x8,	max2
+	bge	x3,	x8,	max2
 	mv	x3,	x8
 max2:
 
