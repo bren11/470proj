@@ -30,19 +30,19 @@ for TEST_NAME in min_distance fc_forward rv32_copy cv32_evens rv32_fib rv32_max 
 
     echo -n   "${reset}Assembling Standard...${reset}"
 
-    #output=`( make assembly SOURCE=test_progs/${TEST_NAME}/${TEST_NAME}-1-1.s ) 2>&1` || echo $output
-    #( make ) | grep @@@ > ${STD_OUT_MEM_Path} 
+    output=`( make assembly SOURCE=test_progs/${TEST_NAME}/${TEST_NAME}-1-1.s ) 2>&1` || echo $output
+    ( make ) | grep @@@ > ${STD_OUT_MEM_Path} 
 
-    #rm -r progs
-    #mkdir progs
+    rm -r progs
+    mkdir progs
 
     for unrolls in $(seq 1 4) 
     do
         for opt in 8 7 6 5 4 3 2 1
         do
             if test -f "test_progs/${TEST_NAME}/${TEST_NAME}-${unrolls}-${opt}.s"; then
-                #output=`( make assembly SOURCE=test_progs/${TEST_NAME}/${TEST_NAME}-${unrolls}-${opt}.s) 2>&1` || echo $output
-                #cp program.mem progs/${TEST_NAME}-${unrolls}.s
+                output=`( make assembly SOURCE=test_progs/${TEST_NAME}/${TEST_NAME}-${unrolls}-${opt}.s) 2>&1` || echo $output
+                cp program.mem progs/${TEST_NAME}-${unrolls}.s
                 break
             fi
         done
@@ -50,57 +50,54 @@ for TEST_NAME in min_distance fc_forward rv32_copy cv32_evens rv32_fib rv32_max 
 
     for N in 1 2 3 4
     do
-        for ROB in 32
+        for ROB in 12 24 32
         do
-            for RS in 16
+            for CACHE in 8 16 64
             do
-                for CACHE in 8 16 64
+                for LATENCY in 100 1000
                 do
-                    for LATENCY in 100 500
+                    for BRANCH in 1 2 3
                     do
-                        for BRANCH in 1 2 3
+                        echo -e "\n${yellow}######################################################${reset}"
+                        echo -e   "${yellow}# RUNNING AT N:${N}, CACHE:${CACHE}, LATENCY:$LATENCY, BRANCH:$BRANCH"
+                        echo -e   "${yellow}######################################################${reset}"
+                        RS=$(($ROB/2))
+                        rm simv
+                        make simv N_NUM=${N} ROB_NUM=${ROB} RS_NUM=${RS} CACHE_NUM=${CACHE} MEM_NUM=${LATENCY} BRANCH_NUM=${BRANCH}
+
+                        for unrolls in $(seq 1 4) 
                         do
+                            # Get relative path
+                            file="progs/${TEST_NAME}-${unrolls}.s"
+
                             echo -e "\n${yellow}######################################################${reset}"
-                            echo -e   "${yellow}# RUNNING AT N:${N}, CACHE:${CACHE}, LATENCY:$LATENCY, BRANCH:$BRANCH"
+                            echo -e   "${yellow}# RUNNING TEST CASE:${file}${reset}"
                             echo -e   "${yellow}######################################################${reset}"
 
-                            rm simv
-                            make simv N_NUM=${N} ROB_NUM=${ROB} RS_NUM=${RS} CACHE_NUM=${CACHE} MEM_NUM=${LATENCY} BRANCH_NUM=${BRANCH}
+                            ################################
+                            #     Compile For Working      #
+                            ################################
+                            WRK_OUT_MEM_Path="wrk_out.out"
 
-                            for unrolls in $(seq 1 4) 
-                            do
-                                # Get relative path
-                                file="progs/${TEST_NAME}-${unrolls}.s"
+                            cp ${file} program.mem
 
-                                echo -e "\n${yellow}######################################################${reset}"
-                                echo -e   "${yellow}# RUNNING TEST CASE:${file}${reset}"
-                                echo -e   "${yellow}######################################################${reset}"
+                            echo -e   "${reset}Running Working...${reset}"
+                            text=$( ./simv | tee  >(grep @@@ > ${WRK_OUT_MEM_Path}) | grep "CPI" )
+                            echo -e   "${text}"
+                            cycles=$(echo "$text" | cut -d' ' -f3)
+                            instr=$(echo "$text" | cut -d' ' -f6)
+                            branchDat=$(echo "$text" | cut -d' ' -f11)
+                            icache=$(echo "$text" | cut -d' ' -f12)
+                            dcache=$(echo "$text" | cut -d' ' -f13)
+                            robHzrd=$(echo "$text" | cut -d' ' -f14)
+                            rsHzrd=$(echo "$text" | cut -d' ' -f15)
+                            lsqHzrd=$(echo "$text" | cut -d' ' -f16)
 
-                                ################################
-                                #     Compile For Working      #
-                                ################################
-                                WRK_OUT_MEM_Path="wrk_out.out"
+                            echo -n "${reset}Checking Memory Ouput...${reset}"
+                            echo $(diff -y "${STD_OUT_MEM_Path}" "${WRK_OUT_MEM_Path}")
 
-                                cp ${file} program.mem
-
-                                echo -e   "${reset}Running Working...${reset}"
-                                text=$( ./simv | tee  >(grep @@@ > ${WRK_OUT_MEM_Path}) | grep "CPI" )
-                                echo -e   "${text}"
-                                cycles=$(echo "$text" | cut -d' ' -f3)
-                                instr=$(echo "$text" | cut -d' ' -f6)
-                                branchDat=$(echo "$text" | cut -d' ' -f11)
-                                icache=$(echo "$text" | cut -d' ' -f12)
-                                dcache=$(echo "$text" | cut -d' ' -f13)
-                                robHzrd=$(echo "$text" | cut -d' ' -f14)
-                                rsHzrd=$(echo "$text" | cut -d' ' -f15)
-                                lsqHzrd=$(echo "$text" | cut -d' ' -f16)
-
-                                echo -n "${reset}Checking Memory Ouput...${reset}"
-                                echo $(diff -y "${STD_OUT_MEM_Path}" "${WRK_OUT_MEM_Path}")
-
-                                echo -e
-                                echo "$N, ${CACHE}, ${LATENCY}, ${BRANCH}, $unrolls, $cycles, $instr, $branchDat, $icache, $dcache, $robHzrd, $rsHzrd, $lsqHzrd" >> ${stats_fn}
-                            done
+                            echo -e
+                            echo "$N, ${CACHE}, ${LATENCY}, ${BRANCH}, $unrolls, $cycles, $instr, $branchDat, $icache, $dcache, $robHzrd, $rsHzrd, $lsqHzrd" >> ${stats_fn}
                         done
                     done
                 done
