@@ -49,7 +49,7 @@ loop4:
 	sw	x7, 0(x4)
 	addi	x4,	x4,	0x8 #
 loop5:
-	slti	x2,	x3,	15 #
+	slti	x2,	x7,	15 #
 	addi	x7,	x7,	0x4 #
 
 	bne	x2,	x0,	loop1 #

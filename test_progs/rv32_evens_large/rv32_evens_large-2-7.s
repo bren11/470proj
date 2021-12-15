@@ -18,15 +18,24 @@
 */
 	data = 0x1000
 	li	x3, 0
+	li  x5, 1
 	li	x4, data
 loop1:
 	andi x31, x3, 1	
-    bne	x31,	x0,	loop2 #
+	bne	x31,	x0,	loop2 #
 	sw	x3, 0(x4)
 	addi	x4,	x4,	0x8 #
 loop2:
-	addi	x3,	x3,	0x1 #
-	slti	x2,	x3,	16 #
+	addi	x3,	x3,	0x2 #
+
+	andi x31, x5, 1	
+	bne	x31,	x0,	loop3 #
+	sw	x5, 0(x4)
+	addi	x4,	x4,	0x8 #
+loop3:
+	slti	x2,	x5,	255 #
+	addi	x5,	x5,	0x2 #
+
 	bne	x2,	x0,	loop1 #
 	wfi
 

@@ -19,7 +19,8 @@
 	data = 0x1000
 	li	x3, 0
 	li	x4, data
-loop1: andi x31, x3, 1	
+loop1:
+	andi x31, x3, 1	
     bne	x31,	x0,	loop2 #
 	sw	x3, 0(x4)
 	addi	x4,	x4,	0x8 #
