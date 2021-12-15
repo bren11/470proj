@@ -19,7 +19,7 @@ for TEST_NAME in min_distance fc_forward rv32_copy cv32_evens rv32_fib rv32_max 
     do
     stats_fn="${TEST_NAME}_results.csv"
     > ${stats_fn}
-    echo "N, Cache Size, Memory Latency, Branch Type, Unrolls, Cycles, Instructions, Branch hit, Icache hit, Dcache hit, ROB hzrds, RS hzrds, LSQ hzrds" > ${stats_fn}
+    echo "N, ROB size, RS size, Cache Size, Memory Latency, Branch Type, Unrolls, Cycles, Instructions, Branch hit, Icache hit, Dcache hit, ROB hzrds, RS hzrds, LSQ hzrds" > ${stats_fn}
 
     ###############################
     #       Create Standard       #
@@ -59,11 +59,11 @@ for TEST_NAME in min_distance fc_forward rv32_copy cv32_evens rv32_fib rv32_max 
                     for BRANCH in 1 2 3
                     do
                         echo -e "\n${yellow}######################################################${reset}"
-                        echo -e   "${yellow}# RUNNING AT N:${N}, CACHE:${CACHE}, LATENCY:$LATENCY, BRANCH:$BRANCH"
+                        echo -e   "${yellow}# RUNNING AT N:${N}, ROB:$ROB, CACHE:${CACHE}, LATENCY:$LATENCY, BRANCH:$BRANCH"
                         echo -e   "${yellow}######################################################${reset}"
                         RS=$(($ROB/2))
                         rm simv
-                        make simv N_NUM=${N} ROB_NUM=${ROB} RS_NUM=${RS} CACHE_NUM=${CACHE} MEM_NUM=${LATENCY} BRANCH_NUM=${BRANCH}
+                        make simv N_NUM=${N} ROB_NUM=${ROB} RS_NUM=${RS} CACHE_NUM=${CACHE} MEM_NUM=${LATENCY} BRANCH_NUM=${BRANCH} &> /dev/null
 
                         for unrolls in $(seq 1 4) 
                         do
@@ -97,7 +97,7 @@ for TEST_NAME in min_distance fc_forward rv32_copy cv32_evens rv32_fib rv32_max 
                             echo $(diff -y "${STD_OUT_MEM_Path}" "${WRK_OUT_MEM_Path}")
 
                             echo -e
-                            echo "$N, ${CACHE}, ${LATENCY}, ${BRANCH}, $unrolls, $cycles, $instr, $branchDat, $icache, $dcache, $robHzrd, $rsHzrd, $lsqHzrd" >> ${stats_fn}
+                            echo "$N, ${ROB}, ${RS}, ${CACHE}, ${LATENCY}, ${BRANCH}, $unrolls, $cycles, $instr, $branchDat, $icache, $dcache, $robHzrd, $rsHzrd, $lsqHzrd" >> ${stats_fn}
                         done
                     done
                 done
