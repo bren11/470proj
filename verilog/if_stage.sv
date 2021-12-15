@@ -76,8 +76,15 @@ module if_stage(
 		.cachemen(cachemen)
 	);
 
-	/* GShare Branch Predictor */
-	branch_predictor bp(
+	
+    `ifdef LOCAL_HIST_BRANCH_TYPE
+        /* GShare Branch Predictor */
+        localHist_branch_predictor bp(
+    `elsif LOCAL_BRANCH_TYPE
+        local_branch_predictor bp(
+    `else
+	    branch_predictor bp(
+    `endif
 		.clock,
 		.reset,
 		.branch_mispredict,

@@ -44,6 +44,7 @@ module testbench;
 	logic  				[3:0] 						pipeline_completed_insts;
 	EXCEPTION_CODE 									pipeline_error_status;
 	ROB_COMMIT_PACKET	[`N-1:0] 					rob_committed_instructions;
+    BRANCH_PREDICTION_PACKET    [`N-1:0]    		rob_committed_branches;
 	ROB_ENTRY 			[`ROB_NUM_ENTRIES-1:0] 		rob_entries;
 	logic 				[`ROB_NUM_INDEX_BITS-1:0]  	head_index;
 	PRF_ENTRY 			[`PRF_NUM_ENTRIES-1:0] 		prf_entries;
@@ -55,10 +56,14 @@ module testbench;
     logic 				[31:0] 						icache_hits_count;
     logic 				[31:0] 						dcache_acc_count;
     logic 				[31:0] 						dcache_miss_count;
+    logic 				[31:0] 						bp_acc_count;
+    logic 				[31:0] 						bp_hits_count;
     logic 				[31:0] 						n_icache_acc_count;
     logic 				[31:0] 						n_icache_hits_count;
     logic 				[31:0] 						n_dcache_acc_count;
     logic 				[31:0] 						n_dcache_miss_count;
+    logic 				[31:0] 						n_bp_acc_count;
+    logic 				[31:0] 						n_bp_hits_count;
 
     //counter used for when pipeline infinite loops, forces termination
     logic [63:0] debug_counter;
@@ -78,6 +83,7 @@ module testbench;
 		.proc2mem_data     			(proc2mem_data),
 		.error			   			(pipeline_error_status),
 		.rob_committed_instructions	(rob_committed_instructions),
+        .rob_committed_branches     (rob_committed_branches),
 		.rob_entries				(rob_entries),
 		.head_index					(head_index),
 		.prf_entries				(prf_entries)
@@ -116,13 +122,15 @@ module testbench;
 		real cpi;
         real icache;
         real dcache;
+        real branches;
 
 		begin
 			cpi = (clock_count + 1.0) / (instr_count - 1); /// -1 because halt instruction doesn't count
             icache = (icache_hits_count * 1.0) / icache_acc_count;
             dcache = (dcache_acc_count - dcache_miss_count * 1.0) / dcache_acc_count;
-			$display("@@  %0d cycles / %0d instrs = %f CPI %f %f %0d %0d %0d\n@@",
-			          clock_count+1, (instr_count - 1), cpi, icache, dcache, rob_hzrd_count, rs_hzrd_count, lsq_hzrd_count); /// -1 because halt instruction doesn't count
+            branches = (bp_acc_count - bp_hits_count * 1.0) / bp_acc_count;
+			$display("@@  %0d cycles / %0d instrs = %f CPI %f %f %f %0d %0d %0d\n@@",
+			          clock_count+1, (instr_count - 1), cpi, branches, icache, dcache, rob_hzrd_count, rs_hzrd_count, lsq_hzrd_count); /// -1 because halt instruction doesn't count
 			$display("@@  %4.2f ns total time to execute\n@@\n",
 			          clock_count*`VERILOG_CLOCK_PERIOD);
 		end
@@ -178,6 +186,8 @@ module testbench;
         n_icache_hits_count = icache_hits_count;
         n_dcache_acc_count = dcache_acc_count;
         n_dcache_miss_count = dcache_miss_count;
+        n_bp_acc_count = bp_acc_count;
+        n_bp_hits_count = bp_hits_count;
 
         if (!core.if_1.ib_1.ib_structural_hazard && core.if_1.ib_1.enable) begin
             for(int i =0; i <`N; i++) begin
@@ -196,8 +206,16 @@ module testbench;
                 n_dcache_acc_count = (n_dcache_acc_count + 1);
             end
         end
-    end
 
+        for (int i = 0; i < `N; i++) begin
+            if (rob_committed_branches[i].valid) begin
+                if (rob_committed_branches[i].correct) begin
+                    n_bp_hits_count = n_bp_hits_count + 1;
+                end
+                n_bp_acc_count = n_bp_acc_count + 1;
+            end
+        end
+    end
 	// Count the number of posedges and number of instructions completed
 	// till simulation ends
 	always @(posedge clock) begin
@@ -212,6 +230,8 @@ module testbench;
 			icache_hits_count <= `SD 0;
             dcache_acc_count <= `SD 0;
 			dcache_miss_count <= `SD 0;
+            bp_acc_count <= `SD 0;
+            bp_hits_count <= `SD 0;
             prevValid <= `SD 0;
 		end else begin
 			pipeline_completed_insts = 0;
@@ -229,6 +249,8 @@ module testbench;
             icache_hits_count <= `SD n_icache_hits_count;
             dcache_acc_count <= `SD n_dcache_acc_count;
             dcache_miss_count <= `SD n_dcache_miss_count;
+            bp_acc_count <= `SD n_bp_acc_count;
+            bp_hits_count <= `SD n_bp_hits_count;
 
             if (core.rob_structural_hazard) begin
                 rob_hzrd_count <= `SD (rob_hzrd_count + 1);
