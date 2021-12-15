@@ -47,8 +47,7 @@ loop:
 
 	mul	x3,	x6,	x31
 	sw	x3, 0(x2)
-	lw	x4, 0(x2)
-	sw	x4, 0x100(x2)
+	sw	x3, 0x100(x2)
 
 	wfi
 

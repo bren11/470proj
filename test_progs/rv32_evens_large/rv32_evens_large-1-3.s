@@ -25,8 +25,8 @@ loop1:
 	sw	x3, 0(x4)
 	addi	x4,	x4,	0x8 #
 loop2:
+	slti	x2,	x3,	255 #
 	addi	x3,	x3,	0x1 #
-	slti	x2,	x3,	16 #
 	bne	x2,	x0,	loop1 #
 	wfi
 
